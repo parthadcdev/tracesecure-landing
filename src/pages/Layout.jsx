@@ -1,8 +1,8 @@
 
 
 import React, { useEffect } from "react";
-import Header from "./components/landing/Header";
-import Footer from "./components/landing/Footer";
+import Header from "../components/landing/Header";
+import Footer from "../components/landing/Footer";
 
 export default function Layout({ children, currentPageName }) {
   useEffect(() => {
