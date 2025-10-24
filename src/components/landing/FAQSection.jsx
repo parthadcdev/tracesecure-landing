@@ -118,7 +118,7 @@ export default function FAQSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             Frequently Asked
             <br />
-            <span className="bg-gradient-to-r from-ts-primary to-ts-accent bg-clip-text text-transparent">
+            <span className="text-ts-primary">
               Questions
             </span>
           </h2>

@@ -95,7 +95,7 @@ export default function DPPComplianceSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             EU Digital Product Passport
             <br />
-            <span className="bg-gradient-to-r from-ts-primary to-ts-accent bg-clip-text text-transparent">
+            <span className="text-ts-primary">
               Ready & Compliant
             </span>
           </h2>

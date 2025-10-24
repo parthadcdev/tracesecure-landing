@@ -71,7 +71,7 @@ export default function FinalCTASection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             Ready to Secure
             <br />
-            <span className="bg-gradient-to-r from-ts-primary to-ts-accent bg-clip-text text-transparent">
+            <span className="text-ts-primary">
               Your Brand's Future?
             </span>
           </h2>

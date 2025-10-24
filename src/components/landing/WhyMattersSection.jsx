@@ -86,7 +86,7 @@ export default function WhyMattersSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             Why Authenticity
             <br />
-            <span className="bg-gradient-to-r from-ts-primary to-ts-accent bg-clip-text text-transparent">
+            <span className="text-ts-primary">
               Matters More Than Ever
             </span>
           </h2>
