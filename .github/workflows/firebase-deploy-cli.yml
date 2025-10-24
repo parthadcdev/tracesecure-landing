@@ -1,12 +1,9 @@
-name: Deploy to Firebase Hosting (CLI)
+name: Deploy to Firebase Hosting (Production)
 
 on:
   push:
     branches:
-      - develop
-  pull_request:
-    branches:
-      - develop
+      - main
 
 jobs:
   build_and_deploy:

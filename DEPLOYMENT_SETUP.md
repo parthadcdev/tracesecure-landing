@@ -102,9 +102,19 @@ firebase deploy
 - **Node Version**: 18
 - **Triggers**: Push to `develop`, Pull requests to `develop`
 
+## Preview System
+
+This project now includes a comprehensive preview system:
+
+- **Preview Channels**: Automatic previews for Pull Requests
+- **Staging Environment**: Deployments from `develop` branch
+- **Production**: Deployments from `main` branch
+
+See `PREVIEW_DEPLOYMENT.md` for detailed preview instructions.
+
 ## Next Steps
 
 1. Generate your Firebase token: `firebase login:ci`
 2. Add the token as `FIREBASE_TOKEN` secret in GitHub
-3. Push your code to the `develop` branch to trigger the first deployment
+3. Create a feature branch and PR to `develop` for preview testing
 4. Monitor the Actions tab for deployment status
