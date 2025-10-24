@@ -16,14 +16,128 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Futuristic gradient background */}
-      <div className="absolute inset-0" style={{ background: 'var(--gradient-futuristic)' }} />
+      {/* Modern futuristic background */}
+      <div className="absolute inset-0" style={{ background: 'var(--color-background)' }} />
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-ts-primary/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-ts-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-ts-secondary/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      {/* Animated geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-20 left-10 w-40 h-40 opacity-10"
+          style={{ 
+            background: 'linear-gradient(45deg, #415A77, #778DA9)',
+            clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
+          }}
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+        
+        <motion.div
+          className="absolute top-32 right-16 w-32 h-32 opacity-8"
+          style={{ 
+            background: 'linear-gradient(45deg, #1B263B, #415A77)',
+            borderRadius: '50%'
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+        
+        <motion.div
+          className="absolute bottom-40 left-1/3 w-24 h-24 opacity-12"
+          style={{ 
+            background: 'linear-gradient(45deg, #778DA9, #E0E1DD)',
+            clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
+          }}
+          animate={{
+            rotate: [0, -360],
+            scale: [1, 0.8, 1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear",
+            delay: 1,
+          }}
+        />
+        
+        {/* Floating particles */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 rounded-full opacity-20"
+            style={{ 
+              background: '#415A77',
+              left: `${20 + i * 15}%`,
+              top: `${30 + i * 10}%`,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0.2, 0.8, 0.2],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 1.5,
+            }}
+          />
+        ))}
+        
+        {/* Circuit-like lines */}
+        <div className="absolute inset-0 opacity-5">
+          <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
+            <motion.path
+              d="M100,200 Q300,100 500,200 T900,200"
+              stroke="#415A77"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.path
+              d="M200,400 Q400,300 600,400 T1000,400"
+              stroke="#778DA9"
+              strokeWidth="1.5"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            />
+            <motion.path
+              d="M50,600 Q250,500 450,600 T850,600"
+              stroke="#1B263B"
+              strokeWidth="1"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+            />
+          </svg>
+        </div>
+        
+        {/* Gradient overlay for depth */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(65, 90, 119, 0.1) 0%, transparent 70%)'
+          }}
+        />
       </div>
       
       {/* Traceability visualization - hidden on mobile */}
@@ -32,7 +146,7 @@ export default function HeroSection() {
       </div>
       
       {/* Subtle overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ts-background/20" />
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center mt-16 md:mt-0 mb-24 md:mb-32">
         <motion.div
@@ -50,7 +164,7 @@ export default function HeroSection() {
           <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold text-ts-text leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
             Digital Authenticity
             <br />
-            <span className="bg-gradient-to-r from-ts-primary to-ts-secondary bg-clip-text text-transparent">
+            <span className="text-ts-primary">
               for Every Product
             </span>
           </h1>
