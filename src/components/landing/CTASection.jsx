@@ -37,22 +37,22 @@ const pricingPlans = [
 ];
 
 const PricingCard = ({ plan, onCtaClick }) => (
-  <div className={`border-2 rounded-2xl p-8 flex flex-col text-center items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${plan.highlight ? 'border-ts-accent shadow-2xl bg-gradient-to-br from-ts-accent/5 to-ts-secondary/5' : 'border-gray-200 shadow-xl'}`} style={{backgroundColor: 'var(--color-surface)'}}>
+  <div className={`border-2 rounded-2xl p-8 flex flex-col text-center items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${plan.highlight ? 'border-ts-accent shadow-2xl bg-gradient-to-br from-ts-accent/10 to-ts-secondary/10' : 'border-ts-primary/20 shadow-xl'}`} style={{backgroundColor: 'var(--color-card)'}}>
     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1 mb-6">
       <img src={plan.icon} alt={plan.alt} className="w-full h-full rounded-full object-cover" />
     </div>
-    <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>{plan.name}</h3>
-    <p className="text-4xl font-bold my-2" style={{ color: 'var(--color-primary)' }}>{plan.price}</p>
-    <p className="text-sm mb-4 h-10" style={{ color: 'var(--color-muted)' }}>{plan.description}</p>
+    <h3 className="text-2xl font-bold mb-2 text-ts-text">{plan.name}</h3>
+    <p className="text-4xl font-bold my-2 text-ts-primary">{plan.price}</p>
+    <p className="text-sm mb-4 h-10 text-ts-text-muted">{plan.description}</p>
     <ul className="space-y-3 text-left mb-6 flex-grow">
       {plan.features.map(feature => (
         <li key={feature} className="flex items-start">
           <Check className="w-5 h-5 text-ts-secondary mr-3 flex-shrink-0 mt-0.5" />
-          <span style={{ color: 'var(--color-text)' }}>{feature}</span>
+          <span className="text-ts-text">{feature}</span>
         </li>
       ))}
     </ul>
-    {plan.limit && <p className="text-xs mb-4" style={{ color: 'var(--color-muted)' }}>{plan.limit}</p>}
+    {plan.limit && <p className="text-xs mb-4 text-ts-text-muted">{plan.limit}</p>}
     <Button 
       onClick={onCtaClick} 
       className="w-full mt-auto font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
@@ -128,7 +128,7 @@ export default function CTASection() {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h2 
-            className="text-3xl md:text-5xl font-bold mb-12" style={{ color: 'var(--color-text)', fontSize: '32pt' }}
+            className="text-3xl md:text-5xl font-bold mb-12 text-ts-text" style={{ fontSize: '32pt' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -143,21 +143,21 @@ export default function CTASection() {
           </div>
 
           <div className="text-center space-y-2 mb-16">
-              <p className="font-bold">Rewards: Get 100 $TRACE on signup, 250 for your first trace, and more via referrals/data sharing.</p>
-              <p className="text-sm text-gray-600">30-day money-back guarantee if unsatisfied.</p>
+              <p className="font-bold text-ts-text">Rewards: Get 100 $TRACE on signup, 250 for your first trace, and more via referrals/data sharing.</p>
+              <p className="text-sm text-ts-text-muted">30-day money-back guarantee if unsatisfied.</p>
           </div>
 
-          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
+          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-ts-card p-8 rounded-2xl shadow-2xl border border-ts-primary/20">
             <div className="text-center md:text-left w-full">
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>Sign Up Now & Get Your Free Guide</h3>
-              <p className="mb-4">Get early access and a free PDF guide: <br/><span className="font-bold">"5 Ways to Beat Counterfeits as a Creator."</span></p>
+              <h3 className="text-2xl font-bold mb-3 text-ts-text">Sign Up Now & Get Your Free Guide</h3>
+              <p className="mb-4 text-ts-text-muted">Get early access and a free PDF guide: <br/><span className="font-bold text-ts-text">"5 Ways to Beat Counterfeits as a Creator."</span></p>
               
               {status !== 'success' ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-gray-50 border-2 border-gray-200 rounded-xl py-3 px-4 focus:border-ts-primary transition-colors"/>
                   <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-gray-50 border-2 border-gray-200 rounded-xl py-3 px-4 focus:border-ts-primary transition-colors"/>
-                  <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all" style={{ background: 'var(--gradient-accent)' }}>
-                    {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : "Join Waitlist"}
+                  <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all" style={{ background: 'var(--gradient-primary)' }}>
+                    {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : "Join Beta"}
                   </Button>
                   {status === 'error' && <p className="text-red-600 text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>}
                 </form>

@@ -11,7 +11,7 @@ export default function DPPSection() {
   const viewport = { once: true, amount: 0.2 };
 
   return (
-    <section id="dpp-section" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <section id="dpp-section" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -20,17 +20,17 @@ export default function DPPSection() {
             viewport={viewport}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--color-text)', lineHeight: '1.2', fontSize: '32pt' }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-ts-text" style={{ lineHeight: '1.2', fontSize: '32pt' }}>
               Empower Your Craft with EU DPP Compliance
             </h2>
-            <p className="text-lg mb-8" style={{ color: 'var(--color-text)' }}>
+            <p className="text-lg mb-8 text-ts-text-muted">
               Fakes cost artisans $100B+ yearly. The EU's Digital Product Passport (DPP), launching 2026, fights counterfeits by tracking your craft's journey - materials, origins, authenticity. TraceSecure makes it easy: Create digital passports in 5 minutes, no tech skills needed. Slash 40% of fake losses, charge 15-20% more, and sell freely in Europe. Smart Trace, Trusted Trade.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={scrollToWaitlist}
                 className="text-lg px-8 py-6 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:scale-105 font-semibold"
-                style={{ background: 'var(--gradient-accent)', color: 'white' }}
+                style={{ background: 'var(--gradient-primary)', color: 'white' }}
               >
                 Sign Up Free
               </Button>

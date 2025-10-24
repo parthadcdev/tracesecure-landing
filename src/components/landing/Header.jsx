@@ -82,7 +82,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 shadow-lg backdrop-blur-xl border-b border-white/20`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-ts-surface/90 shadow-lg backdrop-blur-xl border-b border-ts-primary/20`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -97,9 +97,9 @@ export default function Header() {
               alt="TraceSecure Logo Symbol" 
               className="h-10"
             />
-            <div className={`flex flex-col text-gray-800`}>
+            <div className={`flex flex-col text-ts-text`}>
               <span className="font-bold text-xl" style={{fontFamily: 'var(--font-brand)'}}>TraceSecure</span>
-              <span className="text-xs" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
+              <span className="text-xs text-ts-text-muted" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
             </div>
           </div>
           
@@ -108,7 +108,7 @@ export default function Header() {
               <button 
                 key={item.name} 
                 onClick={() => handleNavClick(item)}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary text-gray-700`}
+                className={`text-sm font-medium transition-colors duration-300 hover:text-ts-primary text-ts-text-muted`}
               >
                 {item.name}
               </button>
@@ -119,15 +119,15 @@ export default function Header() {
             <Button 
               onClick={() => scrollTo('waitlist-form')}
               className="text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
-              style={{ background: 'var(--gradient-accent)', fontFamily: 'var(--font-sans)' }}
+              style={{ background: 'var(--gradient-primary)', fontFamily: 'var(--font-sans)' }}
             >
-              Join Waitlist
+              Join Beta
             </Button>
           </div>
 
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(true)}>
-              <Menu className="h-6 w-6 text-gray-800" />
+              <Menu className="h-6 w-6 text-ts-text" />
             </Button>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-lg"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-ts-surface shadow-lg"
             >
               <div className="p-6 flex justify-between items-center border-b">
                  <div 
@@ -154,13 +154,13 @@ export default function Header() {
                     onClick={() => handleNavClick({ page: 'Landing' })}
                   >
                     <img src="/images/logo-symbol.png" alt="TraceSecure Logo Symbol" className="h-10" />
-                    <div className="flex flex-col text-gray-800">
+                    <div className="flex flex-col text-ts-text">
                       <span className="font-bold text-xl" style={{fontFamily: 'var(--font-brand)'}}>TraceSecure</span>
-                      <span className="text-xs" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
+                      <span className="text-xs text-ts-text-muted" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
                     </div>
                   </div>
                 <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
-                  <X className="h-6 w-6 text-gray-700" />
+                  <X className="h-6 w-6 text-ts-text" />
                 </Button>
               </div>
               <div className="p-6 flex flex-col gap-6">
@@ -168,7 +168,7 @@ export default function Header() {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item)}
-                    className="text-xl font-medium text-gray-800 text-left hover:text-primary transition-colors"
+                    className="text-xl font-medium text-ts-text text-left hover:text-ts-primary transition-colors"
                   >
                     {item.name}
                   </button>
@@ -176,9 +176,9 @@ export default function Header() {
                 <Button 
                   onClick={() => scrollTo('waitlist-form')}
                   className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-lg"
-                  style={{ background: 'var(--gradient-accent)', fontFamily: 'var(--font-sans)' }}
+                  style={{ background: 'var(--gradient-primary)', fontFamily: 'var(--font-sans)' }}
                 >
-                  Join Waitlist
+                  Join Beta
                 </Button>
               </div>
             </motion.div>

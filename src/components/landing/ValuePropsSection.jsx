@@ -37,10 +37,10 @@ export default function ValuePropsSection() {
           viewport={viewport}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             Why Luxury Artisans Need TraceSecure
           </h2>
-          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--color-text)' }}>
+          <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
             As a creator of high-end crafts, fakes steal your reputation and up to 30% of your sales. Manual records get forged, costing you time and money.
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ export default function ValuePropsSection() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 text-center flex flex-col transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="bg-ts-card rounded-2xl shadow-2xl hover:shadow-3xl p-8 text-center flex flex-col transition-all duration-300 hover:-translate-y-2 border border-ts-primary/20"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
@@ -60,13 +60,13 @@ export default function ValuePropsSection() {
                   <img src={benefit.image} alt={benefit.title} className="w-full h-full rounded-full object-cover"/>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>
+              <h3 className="text-2xl font-bold mb-3 text-ts-text">
                 {benefit.title}
               </h3>
-              <p className="text-base mb-4 flex-grow" style={{ color: 'var(--color-text)' }}>
+              <p className="text-base mb-4 flex-grow text-ts-text-muted">
                 {benefit.description}
               </p>
-              <p className="text-sm italic" style={{ color: 'var(--color-primary)' }}>
+              <p className="text-sm italic text-ts-primary">
                 "{benefit.example}"
               </p>
             </motion.div>

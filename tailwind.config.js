@@ -60,13 +60,18 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-  			// Custom TraceSecure colors
-  			'ts-primary': '#2D3561',
-  			'ts-secondary': '#3BAEA0',
-  			'ts-accent': '#F67E7D',
-  			'ts-background': '#F8F9FA',
-  			'ts-text': '#1A1D2E',
-  			'ts-muted': '#6C757D'
+  			// Custom TraceSecure colors - Futuristic Theme
+  			'ts-primary': '#6366F1',
+  			'ts-secondary': '#8B5CF6',
+  			'ts-accent': '#06B6D4',
+  			'ts-background': '#0A0A0A',
+  			'ts-surface': '#1A1A1A',
+  			'ts-card': '#FFFFFF',
+  			'ts-text': '#FFFFFF',
+  			'ts-text-muted': '#B8B8B8',
+  			'ts-success': '#10B981',
+  			'ts-warning': '#F59E0B',
+  			'ts-error': '#EF4444'
   		},
   		keyframes: {
   			'accordion-down': {

@@ -36,10 +36,10 @@ export default function HowItWorks() {
           viewport={viewport}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             Simple Steps to Secure Your Crafts
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-text)' }}>
+          <p className="text-lg max-w-2xl mx-auto text-ts-text-muted">
             From payment to first result in under 5 minutes.
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="text-center bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="text-center bg-ts-card rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 border border-ts-primary/20"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
@@ -75,10 +75,10 @@ export default function HowItWorks() {
               <div className="relative mb-6 overflow-hidden rounded-xl shadow-lg aspect-square bg-gradient-to-br from-ts-primary/10 to-ts-secondary/10 p-4">
                 <img src={step.image} alt={step.alt} className="w-full h-full object-cover rounded-lg"/>
               </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>
+              <h3 className="text-2xl font-bold mb-3 text-ts-text">
                 {step.title}
               </h3>
-              <p className="text-base" style={{ color: 'var(--color-text)' }}>
+              <p className="text-base text-ts-text-muted">
                 {step.description}
               </p>
             </motion.div>
@@ -93,8 +93,8 @@ export default function HowItWorks() {
           viewport={viewport}
           transition={{ duration: 0.7 }}
         >
-          <h3 className="text-3xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>And Get Rewarded</h3>
-          <p className="text-lg mb-8" style={{ color: 'var(--color-text)' }}>
+          <h3 className="text-3xl font-bold mb-4 text-ts-text">And Get Rewarded</h3>
+          <p className="text-lg mb-8 text-ts-text-muted">
             Earn $TRACE for every trace - redeem for perks or stake.
           </p>
           <img 

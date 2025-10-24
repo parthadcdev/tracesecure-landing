@@ -16,8 +16,15 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Modern gradient background */}
-      <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
+      {/* Futuristic gradient background */}
+      <div className="absolute inset-0" style={{ background: 'var(--gradient-futuristic)' }} />
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-ts-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-ts-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-ts-secondary/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
       
       {/* Traceability visualization - hidden on mobile */}
       <div className="hidden md:block">
@@ -25,8 +32,7 @@ export default function HeroSection() {
       </div>
       
       {/* Subtle overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/10" />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26, 29, 46, 0.4), transparent 60%)' }} />
+      <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center mt-16 md:mt-0 mb-24 md:mb-32">
         <motion.div
@@ -35,15 +41,27 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
-            Fight Fakes. Build Loyalty. Start Free.
+          <div className="mb-6">
+            <span className="inline-block px-4 py-2 bg-ts-primary/20 text-ts-primary text-sm font-semibold rounded-full border border-ts-primary/30 mb-6">
+              Join the Beta - Early Access Available
+            </span>
+          </div>
+          
+          <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold text-white leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
+            Digital Authenticity
+            <br />
+            <span className="bg-gradient-to-r from-ts-primary to-ts-accent bg-clip-text text-transparent">
+              for Every Product
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-4xl mx-auto text-center" style={{ fontFamily: "var(--font-sans)" }}>
-            Immutable blockchain certificates for independent creators: Prove authenticity with one scan, boost customer loyalty, start in 5 minutes - no tech expertise needed.
+          <p className="text-xl md:text-2xl text-ts-text-muted mb-12 leading-relaxed max-w-5xl mx-auto text-center" style={{ fontFamily: "var(--font-sans)" }}>
+            Secure QR code-based digital history for luxury and craft producers.
+            <br />
+            Prove authenticity, stop counterfeits, and connect directly with customers.
           </p>
 
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -51,10 +69,23 @@ export default function HeroSection() {
               <Button
                 onClick={scrollToWaitlist}
                 className="text-lg sm:text-xl px-8 py-6 sm:px-10 sm:py-8 rounded-xl shadow-2xl transition-all hover:shadow-2xl hover:scale-105 font-semibold"
-                style={{ background: 'var(--gradient-accent)', color: 'white' }}
-                aria-label="Start free authenticity certificate for your craft"
+                style={{ background: 'var(--gradient-primary)', color: 'white' }}
+                aria-label="Join Beta Access"
               >
-                Get Started Free
+                Join Beta Access
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                onClick={scrollToNextSection}
+                variant="outline"
+                className="text-lg sm:text-xl px-8 py-6 sm:px-10 sm:py-8 rounded-xl border-2 border-ts-primary/50 text-ts-primary hover:bg-ts-primary/10 transition-all font-semibold"
+                aria-label="See How It Works"
+              >
+                See How It Works
               </Button>
             </motion.div>
           </div>

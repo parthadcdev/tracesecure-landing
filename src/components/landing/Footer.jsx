@@ -106,24 +106,24 @@ export default function Footer() {
     <footer id="faq" className="pt-24 pb-12" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8" style={{ color: 'var(--color-text)' }}>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-ts-text">
             Frequently Asked Questions
           </h2>
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) =>
-            <AccordionItem key={index} value={`item-${index}`} className="border-b" style={{ borderColor: 'var(--color-primary)' }}>
-                <AccordionTrigger className="text-left font-medium" style={{ color: 'var(--color-text)' }}>{faq.q}</AccordionTrigger>
-                <AccordionContent className="pt-2 space-y-3" style={{ color: 'var(--color-text)' }}>
+            <AccordionItem key={index} value={`item-${index}`} className="border-b border-ts-primary/20">
+                <AccordionTrigger className="text-left font-medium text-ts-text">{faq.q}</AccordionTrigger>
+                <AccordionContent className="pt-2 space-y-3 text-ts-text-muted">
                   <p>{faq.a}</p>
                   {faq.why && <p><strong className="italic">Why it matters:</strong> {faq.why}</p>}
-                  {faq.cta && <a href="#waitlist-form" onClick={scrollToForm} className="font-semibold text-primary hover:underline">{faq.cta}</a>}
+                  {faq.cta && <a href="#waitlist-form" onClick={scrollToForm} className="font-semibold text-ts-primary hover:underline">{faq.cta}</a>}
                 </AccordionContent>
               </AccordionItem>
             )}
           </Accordion>
         </div>
 
-        <div className="border-t pt-8" style={{ borderColor: 'rgba(26, 29, 46, 0.1)' }}>
+        <div className="border-t pt-8 border-ts-primary/20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div className="flex-1 flex justify-center md:justify-start">
               <div className="flex items-center gap-3">
@@ -132,19 +132,19 @@ export default function Footer() {
                   alt="TraceSecure Logo Symbol" 
                   className="h-10"
                 />
-                <div style={{color: 'var(--color-text)'}}>
+                <div className="text-ts-text">
                   <span className="block font-bold text-xl" style={{fontFamily: 'var(--font-brand)'}}>TraceSecure</span>
-                  <span className="block text-xs" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
+                  <span className="block text-xs text-ts-text-muted" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
                 </div>
               </div>
             </div>
             <div className="text-center flex flex-col items-center gap-2">
-              <p className="text-sm" style={{color: 'var(--color-text)'}}>© {new Date().getFullYear()} All rights reserved.</p>
-              <a href="mailto:info@tracesecure.co" className="text-sm hover:underline" style={{color: 'var(--color-primary)'}}>
+              <p className="text-sm text-ts-text">© {new Date().getFullYear()} All rights reserved.</p>
+              <a href="mailto:info@tracesecure.co" className="text-sm hover:underline text-ts-primary">
                 info@tracesecure.co
               </a>
               <div className="flex items-center gap-2">
-                <span className="text-xs" style={{color: 'var(--color-text)'}}>Powered by</span>
+                <span className="text-xs text-ts-text-muted">Powered by</span>
                 <img 
                   src="/images/polygon-logo.png" 
                   alt="Polygon" 
@@ -153,8 +153,8 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1 flex justify-center md:justify-end gap-4">
-              <a href="https://www.linkedin.com/company/trace-secure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg" style={{ backgroundColor: 'rgba(26, 29, 46, 0.1)', color: 'var(--color-text)' }}><Linkedin className="w-5 h-5" /></a>
-              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg" style={{ backgroundColor: 'rgba(26, 29, 46, 0.1)', color: 'var(--color-text)' }}><Twitter className="w-5 h-5" /></a>
+              <a href="https://www.linkedin.com/company/trace-secure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg bg-ts-primary/10 text-ts-text"><Linkedin className="w-5 h-5" /></a>
+              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg bg-ts-primary/10 text-ts-text"><Twitter className="w-5 h-5" /></a>
             </div>
           </div>
         </div>
