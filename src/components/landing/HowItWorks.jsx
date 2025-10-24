@@ -82,28 +82,158 @@ export default function HowItWorks() {
         </motion.div>
         */}
 
-        {/* Detailed Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              className="text-center bg-ts-card rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 border border-ts-primary/20"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewport}
-              transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
-            >
-              <div className="w-16 h-16 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto">
-                {step.number}
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-ts-text">
-                {step.title}
-              </h3>
-              <p className="text-sm text-ts-text-muted">
-                {step.description}
-              </p>
-            </motion.div>
-          ))}
+        {/* Detailed Steps with Flow Animation */}
+        <div className="relative mb-20">
+          {/* Flow Line - Desktop */}
+          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-ts-primary via-ts-secondary to-ts-primary transform -translate-y-1/2 opacity-30"></div>
+          
+          {/* Flow Line - Mobile */}
+          <div className="md:hidden absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-ts-primary via-ts-secondary to-ts-primary transform -translate-x-1/2 opacity-30"></div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                className="text-center bg-ts-card rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 border border-ts-primary/20 relative"
+                initial={{ 
+                  opacity: 0, 
+                  x: window.innerWidth > 768 ? -100 : 0,
+                  y: window.innerWidth > 768 ? 0 : -50,
+                  scale: 0.8
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  x: 0,
+                  y: 0,
+                  scale: 1
+                }}
+                viewport={viewport}
+                transition={{ 
+                  delay: 0.2 + index * 0.3, 
+                  duration: 0.8,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {/* Animated Number Circle */}
+                <motion.div 
+                  className="w-16 h-16 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto relative"
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ 
+                    scale: 1, 
+                    rotate: 0,
+                    transition: { 
+                      delay: 0.4 + index * 0.3,
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 200
+                    }
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: 5,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {step.number}
+                  {/* Pulse Effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full border-2 border-ts-primary/50"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 0, 0.5]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: index * 0.5
+                    }}
+                  />
+                </motion.div>
+                
+                {/* Animated Title */}
+                <motion.h3 
+                  className="text-xl font-bold mb-3 text-ts-text"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { 
+                      delay: 0.6 + index * 0.3,
+                      duration: 0.5
+                    }
+                  }}
+                >
+                  {step.title}
+                </motion.h3>
+                
+                {/* Animated Description */}
+                <motion.p 
+                  className="text-sm text-ts-text-muted"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { 
+                      delay: 0.8 + index * 0.3,
+                      duration: 0.5
+                    }
+                  }}
+                >
+                  {step.description}
+                </motion.p>
+                
+                {/* Flow Arrow - Desktop */}
+                {index < steps.length - 1 && (
+                  <motion.div
+                    className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      x: 0,
+                      transition: { 
+                        delay: 1 + index * 0.3,
+                        duration: 0.5
+                      }
+                    }}
+                  >
+                    <div className="w-8 h-8 bg-ts-primary rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </motion.div>
+                )}
+                
+                {/* Flow Arrow - Mobile */}
+                {index < steps.length - 1 && (
+                  <motion.div
+                    className="md:hidden absolute -bottom-4 left-1/2 transform -translate-x-1/2"
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        delay: 1 + index * 0.3,
+                        duration: 0.5
+                      }
+                    }}
+                  >
+                    <div className="w-8 h-8 bg-ts-primary rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Built for Modern Commerce */}

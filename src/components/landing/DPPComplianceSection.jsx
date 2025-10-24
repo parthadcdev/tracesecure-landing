@@ -136,7 +136,7 @@ export default function DPPComplianceSection() {
           </div>
         </div>
 
-        {/* EU DPP Implementation Timeline - Horizontal */}
+        {/* EU DPP Implementation Timeline - Horizontal with Flow Animation */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
             EU DPP Implementation Timeline
@@ -144,8 +144,27 @@ export default function DPPComplianceSection() {
           
           {/* Timeline Container */}
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-ts-primary/20 transform -translate-y-1/2 hidden md:block"></div>
+            {/* Animated Timeline Line - Desktop */}
+            <motion.div 
+              className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-ts-primary via-ts-secondary to-ts-primary transform -translate-y-1/2 hidden md:block opacity-30"
+              initial={{ scaleX: 0 }}
+              whileInView={{ 
+                scaleX: 1,
+                transition: { duration: 1.5, ease: "easeInOut" }
+              }}
+              viewport={viewport}
+            />
+            
+            {/* Animated Timeline Line - Mobile */}
+            <motion.div 
+              className="md:hidden absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-ts-primary via-ts-secondary to-ts-primary transform -translate-x-1/2 opacity-30"
+              initial={{ scaleY: 0 }}
+              whileInView={{ 
+                scaleY: 1,
+                transition: { duration: 1.5, ease: "easeInOut" }
+              }}
+              viewport={viewport}
+            />
             
             {/* Timeline Items */}
             <div className="relative flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-4">
@@ -153,50 +172,215 @@ export default function DPPComplianceSection() {
                 <motion.div
                   key={index}
                   className="relative flex-1 max-w-xs"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ 
+                    opacity: 0, 
+                    x: window.innerWidth > 768 ? -100 : 0,
+                    y: window.innerWidth > 768 ? 0 : -50,
+                    scale: 0.8
+                  }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    x: 0,
+                    y: 0,
+                    scale: 1
+                  }}
                   viewport={viewport}
-                  transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
+                  transition={{ 
+                    delay: 0.2 + index * 0.3, 
+                    duration: 0.8,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
+                  }}
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
-                    <div className={`w-6 h-6 rounded-full border-4 border-ts-card shadow-lg ${
+                  {/* Animated Timeline Dot */}
+                  <motion.div 
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block"
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ 
+                      scale: 1, 
+                      rotate: 0,
+                      transition: { 
+                        delay: 0.4 + index * 0.3,
+                        duration: 0.6,
+                        type: "spring",
+                        stiffness: 200
+                      }
+                    }}
+                    whileHover={{
+                      scale: 1.2,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    <div className={`w-6 h-6 rounded-full border-4 border-ts-card shadow-lg relative ${
                       item.status === 'Active' 
                         ? 'bg-ts-success' 
                         : item.status === 'Upcoming'
                         ? 'bg-ts-warning'
                         : 'bg-ts-text-muted'
-                    }`}></div>
-                  </div>
+                    }`}>
+                      {/* Pulse Effect for Active Items */}
+                      {item.status === 'Active' && (
+                        <motion.div
+                          className="absolute inset-0 rounded-full border-2 border-ts-success/50"
+                          animate={{
+                            scale: [1, 1.5, 1],
+                            opacity: [0.7, 0, 0.7]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: index * 0.3
+                          }}
+                        />
+                      )}
+                    </div>
+                  </motion.div>
                   
                   {/* Content Card */}
-                  <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20 text-center relative">
-                    {/* Year Badge */}
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <motion.div 
+                    className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20 text-center relative"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        delay: 0.6 + index * 0.3,
+                        duration: 0.5
+                      }
+                    }}
+                    whileHover={{
+                      y: -5,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    {/* Animated Year Badge */}
+                    <motion.div 
+                      className="absolute -top-4 left-1/2 transform -translate-x-1/2"
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ 
+                        scale: 1, 
+                        rotate: 0,
+                        transition: { 
+                          delay: 0.8 + index * 0.3,
+                          duration: 0.6,
+                          type: "spring",
+                          stiffness: 200
+                        }
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: 5,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
                       <div className="bg-ts-primary text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
                         {item.year}
                       </div>
-                    </div>
+                    </motion.div>
                     
                     {/* Content */}
                     <div className="pt-4">
-                      <h4 className="text-lg font-bold mb-2 text-ts-text">
+                      <motion.h4 
+                        className="text-lg font-bold mb-2 text-ts-text"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ 
+                          opacity: 1, 
+                          y: 0,
+                          transition: { 
+                            delay: 1 + index * 0.3,
+                            duration: 0.5
+                          }
+                        }}
+                      >
                         {item.title}
-                      </h4>
-                      <p className="text-sm text-ts-text-muted mb-4">
+                      </motion.h4>
+                      
+                      <motion.p 
+                        className="text-sm text-ts-text-muted mb-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ 
+                          opacity: 1, 
+                          y: 0,
+                          transition: { 
+                            delay: 1.2 + index * 0.3,
+                            duration: 0.5
+                          }
+                        }}
+                      >
                         {item.description}
-                      </p>
-                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                        item.status === 'Active' 
-                          ? 'bg-ts-success/20 text-ts-success' 
-                          : item.status === 'Upcoming'
-                          ? 'bg-ts-warning/20 text-ts-warning'
-                          : 'bg-ts-text-muted/20 text-ts-text-muted'
-                      }`}>
+                      </motion.p>
+                      
+                      <motion.div 
+                        className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                          item.status === 'Active' 
+                            ? 'bg-ts-success/20 text-ts-success' 
+                            : item.status === 'Upcoming'
+                            ? 'bg-ts-warning/20 text-ts-warning'
+                            : 'bg-ts-text-muted/20 text-ts-text-muted'
+                        }`}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ 
+                          opacity: 1, 
+                          scale: 1,
+                          transition: { 
+                            delay: 1.4 + index * 0.3,
+                            duration: 0.5
+                          }
+                        }}
+                      >
                         {item.status}
-                      </div>
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
+                  
+                  {/* Flow Arrow - Desktop */}
+                  {index < timeline.length - 1 && (
+                    <motion.div
+                      className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ 
+                        opacity: 1, 
+                        x: 0,
+                        transition: { 
+                          delay: 1.6 + index * 0.3,
+                          duration: 0.5
+                        }
+                      }}
+                    >
+                      <div className="w-8 h-8 bg-ts-primary rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </motion.div>
+                  )}
+                  
+                  {/* Flow Arrow - Mobile */}
+                  {index < timeline.length - 1 && (
+                    <motion.div
+                      className="md:hidden absolute -bottom-4 left-1/2 transform -translate-x-1/2"
+                      initial={{ opacity: 0, y: -20 }}
+                      whileInView={{ 
+                        opacity: 1, 
+                        y: 0,
+                        transition: { 
+                          delay: 1.6 + index * 0.3,
+                          duration: 0.5
+                        }
+                      }}
+                    >
+                      <div className="w-8 h-8 bg-ts-primary rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </motion.div>
+                  )}
                 </motion.div>
               ))}
             </div>
