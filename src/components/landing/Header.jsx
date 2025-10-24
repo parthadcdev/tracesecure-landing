@@ -7,9 +7,11 @@ import { createPageUrl } from "@/utils";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { name: "Benefits", page: "Benefits" },
+  { name: "Features", anchor: "features" },
   { name: "How It Works", anchor: "how-it-works" },
+  { name: "Why It Matters", anchor: "why-matters" },
   { name: "Pricing", anchor: "pricing" },
+  { name: "DPP Compliance", anchor: "dpp-compliance" },
   { name: "FAQ", anchor: "faq" },
 ];
 

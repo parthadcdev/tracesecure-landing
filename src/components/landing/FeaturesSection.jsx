@@ -45,7 +45,7 @@ export default function FeaturesSection() {
   const viewport = { once: true, amount: 0.2 };
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-background)' }}>
+    <section id="features" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"

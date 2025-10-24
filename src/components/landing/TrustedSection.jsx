@@ -24,7 +24,7 @@ export default function TrustedSection() {
   const viewport = { once: true, amount: 0.2 };
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
+    <section id="trusted" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
