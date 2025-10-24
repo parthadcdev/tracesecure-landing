@@ -136,43 +136,70 @@ export default function DPPComplianceSection() {
           </div>
         </div>
 
-        {/* EU DPP Implementation Timeline */}
+        {/* EU DPP Implementation Timeline - Horizontal */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
             EU DPP Implementation Timeline
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {timeline.map((item, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={viewport}
-                transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
-              >
-                <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
-                  <div className="text-3xl font-bold text-ts-primary mb-2">
-                    {item.year}
+          
+          {/* Timeline Container */}
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-ts-primary/20 transform -translate-y-1/2 hidden md:block"></div>
+            
+            {/* Timeline Items */}
+            <div className="relative flex flex-col md:flex-row md:justify-between items-center gap-8 md:gap-4">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="relative flex-1 max-w-xs"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={viewport}
+                  transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
+                >
+                  {/* Timeline Dot */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 hidden md:block">
+                    <div className={`w-6 h-6 rounded-full border-4 border-ts-card shadow-lg ${
+                      item.status === 'Active' 
+                        ? 'bg-ts-success' 
+                        : item.status === 'Upcoming'
+                        ? 'bg-ts-warning'
+                        : 'bg-ts-text-muted'
+                    }`}></div>
                   </div>
-                  <h4 className="text-lg font-bold mb-2 text-ts-text">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-ts-text-muted mb-3">
-                    {item.description}
-                  </p>
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                    item.status === 'Active' 
-                      ? 'bg-ts-success/20 text-ts-success' 
-                      : item.status === 'Upcoming'
-                      ? 'bg-ts-warning/20 text-ts-warning'
-                      : 'bg-ts-text-muted/20 text-ts-text-muted'
-                  }`}>
-                    {item.status}
+                  
+                  {/* Content Card */}
+                  <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20 text-center relative">
+                    {/* Year Badge */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-ts-primary text-white px-4 py-2 rounded-full text-lg font-bold shadow-lg">
+                        {item.year}
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="pt-4">
+                      <h4 className="text-lg font-bold mb-2 text-ts-text">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-ts-text-muted mb-4">
+                        {item.description}
+                      </p>
+                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                        item.status === 'Active' 
+                          ? 'bg-ts-success/20 text-ts-success' 
+                          : item.status === 'Upcoming'
+                          ? 'bg-ts-warning/20 text-ts-warning'
+                          : 'bg-ts-text-muted/20 text-ts-text-muted'
+                      }`}>
+                        {item.status}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
