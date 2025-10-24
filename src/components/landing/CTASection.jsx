@@ -7,32 +7,62 @@ import { Loader2, CheckCircle, AlertTriangle, Check } from 'lucide-react';
 const pricingPlans = [
   {
     name: "Starter",
-    price: "$0",
-    description: "Best for individual artisans. Prove authenticity free.",
-    features: ["Core platform access", "Digital passport creation", "QR code generation"],
-    limit: "Up to 100 items/month",
+    price: "Free",
+    originalPrice: null,
+    description: "Perfect for small craft producers and individual artisans",
+    features: [
+      "Up to 100 verified products",
+      "Basic QR code generation", 
+      "Product authenticity tracking",
+      "Customer verification portal",
+      "Email support",
+      "Mobile-friendly dashboard"
+    ],
+    limit: "during beta",
     icon: "/images/free-plan-icon.png",
     alt: "Free plan badge",
-    cta: "Join Waitlist"
+    cta: "Start Free Beta"
   },
   {
-    name: "Growth",
-    price: "$79/month",
-    description: "For growing brands. Scale trust with unlimited tools.",
-    features: ["Unlimited tracing", "Custom verification page", "Basic analytics"],
+    name: "Professional",
+    price: "$49",
+    originalPrice: "$99",
+    description: "Ideal for growing luxury brands and established producers",
+    features: [
+      "Up to 10,000 verified products",
+      "Advanced QR codes with branding",
+      "Complete product journey tracking",
+      "Customer engagement tools",
+      "Analytics and insights",
+      "Priority support",
+      "EU DPP compliance tools",
+      "Custom verification pages",
+      "API access"
+    ],
     icon: "/images/growth-plan-icon.png",
     alt: "Growth plan icon",
-    cta: "Join Waitlist",
+    cta: "Join Professional Beta",
     highlight: true,
   },
   {
-    name: "Scale",
-    price: "$299+/month",
-    description: "For co-ops. Advanced supply chain tools.",
-    features: ["IoT sensor integration", "API access", "Team permissions", "Dedicated support"],
+    name: "Enterprise",
+    price: "Custom",
+    originalPrice: null,
+    description: "For large-scale operations and multi-brand portfolios",
+    features: [
+      "Unlimited verified products",
+      "White-label solutions",
+      "Advanced blockchain integration",
+      "Multi-brand management",
+      "Custom integrations",
+      "Dedicated account manager",
+      "SLA guarantees",
+      "Advanced compliance tools",
+      "Custom reporting"
+    ],
     icon: "/images/scale-plan-icon.png",
     alt: "Scale plan icon",
-    cta: "Join Waitlist"
+    cta: "Contact Sales"
   }
 ];
 
@@ -41,8 +71,19 @@ const PricingCard = ({ plan, onCtaClick }) => (
     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1 mb-6">
       <img src={plan.icon} alt={plan.alt} className="w-full h-full rounded-full object-cover" />
     </div>
+    {plan.highlight && (
+      <div className="bg-ts-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
+        Most Popular
+      </div>
+    )}
     <h3 className="text-2xl font-bold mb-2 text-ts-text">{plan.name}</h3>
-    <p className="text-4xl font-bold my-2 text-ts-primary">{plan.price}</p>
+    <div className="mb-2">
+      {plan.originalPrice && (
+        <span className="text-lg text-ts-text-muted line-through mr-2">{plan.originalPrice}</span>
+      )}
+      <span className="text-4xl font-bold text-ts-primary">{plan.price}</span>
+      {plan.originalPrice && <span className="text-sm text-ts-text-muted">/month</span>}
+    </div>
     <p className="text-sm mb-4 h-10 text-ts-text-muted">{plan.description}</p>
     <ul className="space-y-3 text-left mb-6 flex-grow">
       {plan.features.map(feature => (
@@ -133,8 +174,33 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Affordable Plans to Protect Your Craft
+            Simple Pricing for Beta Members
           </motion.h2>
+          
+          <div className="text-center mb-12">
+            <p className="text-lg text-ts-text-muted mb-8">
+              Join our beta program and get exclusive pricing with all the features you need to secure your products.
+            </p>
+            
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
+              <div className="text-center">
+                <h3 className="font-bold text-ts-text mb-2">Early Bird Pricing</h3>
+                <p className="text-sm text-ts-text-muted">50% off for the first year when you join our beta program</p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-bold text-ts-text mb-2">Direct Access</h3>
+                <p className="text-sm text-ts-text-muted">Work directly with our team to shape product features</p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-bold text-ts-text mb-2">Locked-in Rates</h3>
+                <p className="text-sm text-ts-text-muted">Keep your beta pricing even after public launch</p>
+              </div>
+              <div className="text-center">
+                <h3 className="font-bold text-ts-text mb-2">Free Training</h3>
+                <p className="text-sm text-ts-text-muted">Comprehensive onboarding and training included</p>
+              </div>
+            </div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {pricingPlans.map(plan => (
@@ -143,8 +209,16 @@ export default function CTASection() {
           </div>
 
           <div className="text-center space-y-2 mb-16">
-              <p className="font-bold text-ts-text">Rewards: Get 100 $TRACE on signup, 250 for your first trace, and more via referrals/data sharing.</p>
-              <p className="text-sm text-ts-text-muted">30-day money-back guarantee if unsatisfied.</p>
+              <h3 className="text-2xl font-bold text-ts-text mb-4">Questions about pricing?</h3>
+              <p className="text-ts-text-muted mb-6">Our beta program includes personalized onboarding and direct access to our product team.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="px-6 py-3 bg-ts-primary text-white font-semibold rounded-xl hover:bg-ts-primary/90 transition-colors">
+                  Contact Sales
+                </button>
+                <button className="px-6 py-3 border-2 border-ts-primary text-ts-primary font-semibold rounded-xl hover:bg-ts-primary/10 transition-colors">
+                  Schedule Demo
+                </button>
+              </div>
           </div>
 
           <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-ts-card p-8 rounded-2xl shadow-2xl border border-ts-primary/20">

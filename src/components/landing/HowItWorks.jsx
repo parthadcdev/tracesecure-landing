@@ -4,23 +4,44 @@ import { motion } from 'framer-motion';
 
 const steps = [
   {
-    image: '/images/tag-your-item.png',
-    title: '1. Tag Your Item',
-    description: 'Embed a secure tag onto your item and scan it with your phone to create its unique digital identity in seconds.',
-    alt: "A winemaker applying a secure QR code label to a bottle of wine."
+    number: '01',
+    title: 'Create Product Profile',
+    description: 'Register your luxury or craft product with detailed authenticity information, materials, and craftsmanship details.',
+    alt: "Product profile creation interface"
   },
   {
-    image: '/images/track-journey.png',
-    title: '2. Track Its Journey',
-    description: 'Scan the item at key stages of its lifecycle to build a rich, verifiable story of its origin and craftsmanship.',
-    alt: "A phone screen showing a product's journey timeline: Crafted, Packed, and Shipped."
+    number: '02',
+    title: 'Generate Unique QR Code',
+    description: 'Receive a tamper-proof QR code that contains encrypted product history and verification data.',
+    alt: "QR code generation process"
   },
   {
-    image: '/images/share-with-buyers.png',
-    title: '3. Share with Buyers',
-    description: 'Buyers scan the final product with their phone to instantly see its authentic journey and confirm its legitimacy.',
-    alt: "A customer verifying a bottle of wine in a store with their phone, which displays a 'Verified' checkmark."
+    number: '03',
+    title: 'Attach to Product',
+    description: 'Apply the QR code to your product using secure materials or integrate into packaging and documentation.',
+    alt: "QR code attachment to product"
   },
+  {
+    number: '04',
+    title: 'Customer Verification',
+    description: 'Customers scan the QR code to instantly verify authenticity and access the complete product journey.',
+    alt: "Customer verification process"
+  },
+];
+
+const modernCommerceFeatures = [
+  {
+    title: 'Instant Setup',
+    description: 'Ready in minutes'
+  },
+  {
+    title: 'Eco-Friendly',
+    description: 'Sustainable materials'
+  },
+  {
+    title: 'Analytics',
+    description: 'Track engagement'
+  }
 ];
 
 export default function HowItWorks() {
@@ -37,10 +58,10 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            Simple Steps to Secure Your Crafts
+            How TraceSecure Works
           </h2>
           <p className="text-lg max-w-2xl mx-auto text-ts-text-muted">
-            From payment to first result in under 5 minutes.
+            Our simple four-step process transforms your products into digitally verified, tamper-proof assets that customers can trust.
           </p>
         </motion.div>
 
@@ -62,7 +83,7 @@ export default function HowItWorks() {
         */}
 
         {/* Detailed Steps */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -72,18 +93,44 @@ export default function HowItWorks() {
               viewport={viewport}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
             >
-              <div className="relative mb-6 overflow-hidden rounded-xl shadow-lg aspect-square bg-gradient-to-br from-ts-primary/10 to-ts-secondary/10 p-4">
-                <img src={step.image} alt={step.alt} className="w-full h-full object-cover rounded-lg"/>
+              <div className="w-16 h-16 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto">
+                {step.number}
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-ts-text">
+              <h3 className="text-xl font-bold mb-3 text-ts-text">
                 {step.title}
               </h3>
-              <p className="text-base text-ts-text-muted">
+              <p className="text-sm text-ts-text-muted">
                 {step.description}
               </p>
             </motion.div>
           ))}
         </div>
+
+        {/* Built for Modern Commerce */}
+        <motion.div 
+          className="max-w-4xl mx-auto text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ duration: 0.7 }}
+        >
+          <h3 className="text-3xl font-bold mb-8 text-ts-text">Built for Modern Commerce</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {modernCommerceFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewport}
+                transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
+              >
+                <h4 className="text-xl font-bold mb-2 text-ts-text">{feature.title}</h4>
+                <p className="text-ts-text-muted">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Rewards Section */}
         <motion.div 

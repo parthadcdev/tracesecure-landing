@@ -1,132 +1,16 @@
-
 import React from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Linkedin, Twitter } from "lucide-react";
-
-const newFaqs = [
-{
-  q: "How do you ensure my product's journey is tamper-proof?",
-  a: "We use a secure digital vault to lock in every step of your craft's journey - creation, packing, shipping. Each scan (like with your phone's camera) creates an unbreakable record that can't be altered, even by us. Buyers verify this with a QR code, building trust that boosts sales by 15-20%. It's like a sealed certificate no one can fake.",
-  why: "Protects your reputation and cuts losses from fakes (up to 20-30% of sales).",
-  cta: "Start free to secure your first trace in 5 minutes."
-},
-{
-  q: "How do you connect real-world scans to your system securely?",
-  a: "When you scan a craft's QR code (e.g., on a handbag), our system instantly logs real-world details like location or temperature using simple, reliable tools. These are sealed in a digital vault, safe from tampering. For example, a Latin American leather artisan can log a shipment's journey, and buyers confirm it's genuine. No tech skills needed - just your phone.",
-  why: "Saves time on manual records and proves authenticity to charge more.",
-  cta: "Join the waitlist for our free guide to beating fakes."
-},
-{
-  q: "What stops someone from faking my product's QR code?",
-  a: "Our QR codes are unique and tied to your craft's secure digital record, like a fingerprint. If someone tries to copy it, the verification page will flag it as invalid. Buyers see a clear 'Authentic' or 'Warning' result, protecting your brand. For example, a Japanese lacquerware maker can ensure only their crafts pass verification.",
-  why: "Cuts fake-related losses (20-30%) and builds buyer trust.",
-  cta: "Try it free with our Starter plan (100 items/month)."
-},
-{
-  q: "Can I trust your system won't lose my data?",
-  a: "Your craft's journey is stored in a secure, global network of digital vaults, with 99.9% uptime and automatic backups. We've beta-tested with 50+ SMEs (hypothesis, pending Q4 2025 pilots) to ensure reliability. If something goes wrong, our 30-day refund guarantee has you covered, and you can export your data anytime.",
-  why: "Peace of mind lets you focus on creating, not worrying.",
-  cta: "Sign up to secure your crafts risk-free."
-},
-{
-  q: "How does this work for my guild or co-op?",
-  a: "We're built for networks, not just solo artisans. One guild leader can onboard dozens of creators, sharing secure tracing tools. For example, a Southeast Asian silk co-op can verify every member's crafts, boosting collective trust and sales. Our Scale plan ($299+/month) adds team permissions and real-time sensor data for complex supply chains.",
-  why: "One connection can protect an entire network, saving time and money.",
-  cta: "Connect with us to bring your network onboard."
-},
-{
-  q: "What if I'm not tech-savvy? Will this still work for me?",
-  a: "Absolutely - no tech skills needed. You scan a QR code with your phone, and we handle the rest. Our 5-minute setup (Signup, Profile, Tutorial, First Trace) guides you step-by-step. For example, a Brazilian leather artisan can start tracing in minutes, earning 100 $TRACE just for signing up.",
-  why: "Saves hours on paperwork, letting you focus on your craft.",
-  cta: "Start for free and earn rewards with your first trace."
-},
-{
-  q: "How do I know this is worth it for my small business?",
-  a: "Fakes hurt small creators most - up to 20-30% of sales lost to counterfeits (hypothesis, Q6, pending validation). Our free Starter plan lets you test tracing 100 items/month, proving authenticity to charge 15-20% more. If it doesn't work, cancel within 30 days for a full refund. Over 50 artisans are already testing it (hypothesis, Q22).",
-  why: "Boosts profits and protects your brand without risk.",
-  cta: "Download our free guide to see how artisans beat fakes."
-},
-  {
-    q: "How do you securely connect real-world scans to DPP records?",
-    a: "TraceSecure logs details like location or temperature with a phone scan, sealed in a digital vault. A Latin American leather artisan can prove their craft's journey, DPP-ready for EU markets. No tech skills - just scan.",
-    why: "Saves time, charges more.",
-    cta: "Get our free guide to beating fakes."
-  },
-  {
-    q: "Can I trust my DPP data won't be lost?",
-    a: "TraceSecure uses global digital vaults with 99.9% uptime, tested with 50+ SMEs (hypothesis, Q22). Get a 30-day refund or export data if unsatisfied.",
-    why: "Focus on creating, not worrying.",
-    cta: "Sign up risk-free."
-  },
-  {
-    q: "What is the EU Digital Product Passport (DPP)?",
-    a: "The DPP, launching 2026, is an EU rule requiring digital records of your craft's materials, origins, and authenticity. It fights fakes ($100B luxury loss) and ensures ethical trade. TraceSecure makes compliance easy with digital passports.",
-    why: "Access EU markets tariff-free.",
-    cta: "Sign up to comply early."
-  },
-  {
-    q: "Why should I comply with DPP now if it's 2026?",
-    a: "Early compliance builds trust (80% of buyers want proof, Q6), cuts fakes (up to 40%), and preps you for EU sales without fines. Even non-EU artisans (e.g., on Etsy) gain global credibility.",
-    why: "Boosts sales 15-20%.",
-    cta: "Get our DPP guide free."
-  },
-  {
-    q: "How does TraceSecure's DPP differ from other solutions?",
-    a: "Unlike costly platforms (e.g., VeChain), we're 40-50% cheaper, with a free Starter plan and simple scans. Our eco-friendly digital badges (on Polygon) meet DPP standards, tailored for artisans, not corporations.",
-    why: "Affordable trust for SMEs.",
-    cta: "Start free to see the difference."
-  }
-];
-
-
-const oldFaqs = [
-{
-  q: "Do small creators really face counterfeit issues?",
-  a: "Yes, absolutely. Fakes don't just target big brands. Counterfeiters often replicate unique components or materials used by artisans, which erodes buyer trust and devalues your entire craft."
-},
-{
-  q: "Is this complicated to set up? I'm not a tech person.",
-  a: "Not at all. We designed TraceSecure for creators, not coders. If you can use a smartphone, you can use our platform. The onboarding process takes less than 5 minutes."
-},
-{
-  q: "What are $TRACE tokens and how do I use them?",
-  a: "$TRACE are reward tokens you earn for using the platform. You can redeem them for discounts on monthly plans, special features, or services from our partners."
-}];
-
-
-const faqs = [...newFaqs, ...oldFaqs];
+import { Linkedin, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
-  const scrollToForm = (e) => {
-    e.preventDefault();
-    document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
   return (
-    <footer id="faq" className="pt-24 pb-12" style={{ backgroundColor: 'var(--color-background)' }}>
+    <footer className="py-16 md:py-24" style={{backgroundColor: 'var(--color-background)'}}>
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-ts-text">
-            Frequently Asked Questions
-          </h2>
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) =>
-            <AccordionItem key={index} value={`item-${index}`} className="border-b border-ts-primary/20">
-                <AccordionTrigger className="text-left font-medium text-ts-text">{faq.q}</AccordionTrigger>
-                <AccordionContent className="pt-2 space-y-3 text-ts-text-muted">
-                  <p>{faq.a}</p>
-                  {faq.why && <p><strong className="italic">Why it matters:</strong> {faq.why}</p>}
-                  {faq.cta && <a href="#waitlist-form" onClick={scrollToForm} className="font-semibold text-ts-primary hover:underline">{faq.cta}</a>}
-                </AccordionContent>
-              </AccordionItem>
-            )}
-          </Accordion>
-        </div>
-
-        <div className="border-t pt-8 border-ts-primary/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-            <div className="flex-1 flex justify-center md:justify-start">
-              <div className="flex items-center gap-3">
+        <div className="max-w-6xl mx-auto">
+          {/* Main Footer Content */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+            {/* Company Info */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-3 mb-6">
                 <img 
                   src="/images/logo-symbol.png" 
                   alt="TraceSecure Logo Symbol" 
@@ -137,24 +21,112 @@ export default function Footer() {
                   <span className="block text-xs text-ts-text-muted" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
                 </div>
               </div>
-            </div>
-            <div className="text-center flex flex-col items-center gap-2">
-              <p className="text-sm text-ts-text">© {new Date().getFullYear()} All rights reserved.</p>
-              <a href="mailto:info@tracesecure.co" className="text-sm hover:underline text-ts-primary">
-                info@tracesecure.co
-              </a>
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-ts-text-muted">Powered by</span>
-                <img 
-                  src="/images/polygon-logo.png" 
-                  alt="Polygon" 
-                  className="h-4"
-                />
+              <p className="text-ts-text-muted mb-6 max-w-md">
+                Secure QR code-based digital history for luxury and craft producers. Prove authenticity, stop counterfeits, and connect directly with customers.
+              </p>
+              
+              {/* Newsletter Signup */}
+              <div className="mb-6">
+                <h4 className="font-bold text-ts-text mb-3">Stay Updated on Beta Progress</h4>
+                <div className="flex gap-2">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    className="flex-1 px-4 py-2 rounded-lg border border-ts-primary/20 bg-ts-card text-ts-text placeholder-ts-text-muted focus:outline-none focus:ring-2 focus:ring-ts-primary/50"
+                  />
+                  <button className="px-4 py-2 bg-ts-primary text-white rounded-lg hover:bg-ts-primary/90 transition-colors">
+                    Subscribe
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="flex-1 flex justify-center md:justify-end gap-4">
-              <a href="https://www.linkedin.com/company/trace-secure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg bg-ts-primary/10 text-ts-text"><Linkedin className="w-5 h-5" /></a>
-              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg bg-ts-primary/10 text-ts-text"><Twitter className="w-5 h-5" /></a>
+
+            {/* Product Links */}
+            <div>
+              <h4 className="font-bold text-ts-text mb-4">Product</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Features</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">How It Works</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Pricing</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Security</a></li>
+              </ul>
+            </div>
+
+            {/* Compliance Links */}
+            <div>
+              <h4 className="font-bold text-ts-text mb-4">Compliance</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">EU DPP</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">GDPR</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Data Privacy</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Sustainability</a></li>
+              </ul>
+            </div>
+
+            {/* Support Links */}
+            <div>
+              <h4 className="font-bold text-ts-text mb-4">Support</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Documentation</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">API Reference</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Help Center</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Contact Support</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Company Links */}
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h4 className="font-bold text-ts-text mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">About Us</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Careers</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Partners</a></li>
+                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Press Kit</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
+              ISO 27001 Certified
+            </div>
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
+              EU DPP Compliant
+            </div>
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
+              GDPR Compliant
+            </div>
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
+              Carbon Neutral
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t pt-8 border-ts-primary/20">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+              <div className="text-sm text-ts-text-muted">
+                © 2024 TraceSecure. All rights reserved.
+              </div>
+              <div className="flex flex-wrap justify-center gap-6 text-sm">
+                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Privacy Policy</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Terms of Service</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Cookie Policy</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Data Processing</a>
+              </div>
+            </div>
+            
+            {/* Beta Program Notice */}
+            <div className="mt-6 p-4 bg-ts-primary/10 rounded-lg border border-ts-primary/20">
+              <p className="text-sm text-ts-text-muted text-center">
+                <strong className="text-ts-text">Beta Program:</strong> TraceSecure is currently in beta. Features and pricing may change before public release. Join our beta program to lock in early access pricing.
+              </p>
             </div>
           </div>
         </div>

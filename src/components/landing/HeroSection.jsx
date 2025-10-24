@@ -61,6 +61,19 @@ export default function HeroSection() {
             Prove authenticity, stop counterfeits, and connect directly with customers.
           </p>
 
+          {/* Feature badges */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <span className="px-4 py-2 bg-ts-primary/10 text-ts-primary text-sm font-medium rounded-full border border-ts-primary/20">
+              Prove Authenticity
+            </span>
+            <span className="px-4 py-2 bg-ts-primary/10 text-ts-primary text-sm font-medium rounded-full border border-ts-primary/20">
+              Stop Counterfeits
+            </span>
+            <span className="px-4 py-2 bg-ts-primary/10 text-ts-primary text-sm font-medium rounded-full border border-ts-primary/20">
+              EU DPP Compliant
+            </span>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -88,6 +101,19 @@ export default function HeroSection() {
                 See How It Works
               </Button>
             </motion.div>
+          </div>
+
+          {/* Additional feature badges */}
+          <div className="flex flex-wrap justify-center gap-4 mt-12">
+            <span className="px-4 py-2 bg-ts-accent/10 text-ts-accent text-sm font-medium rounded-full border border-ts-accent/20">
+              Enterprise Security
+            </span>
+            <span className="px-4 py-2 bg-ts-accent/10 text-ts-accent text-sm font-medium rounded-full border border-ts-accent/20">
+              GDPR Compliant
+            </span>
+            <span className="px-4 py-2 bg-ts-accent/10 text-ts-accent text-sm font-medium rounded-full border border-ts-accent/20">
+              EU DPP Ready
+            </span>
           </div>
         </motion.div>
       </div>
