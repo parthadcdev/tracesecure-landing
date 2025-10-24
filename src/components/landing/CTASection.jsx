@@ -11,7 +11,7 @@ const pricingPlans = [
     description: "Best for individual artisans. Prove authenticity free.",
     features: ["Core platform access", "Digital passport creation", "QR code generation"],
     limit: "Up to 100 items/month",
-    icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/6cb045697_freeplan2x.png",
+    icon: "/images/free-plan-icon.png",
     alt: "Free plan badge",
     cta: "Join Waitlist"
   },
@@ -20,7 +20,7 @@ const pricingPlans = [
     price: "$79/month",
     description: "For growing brands. Scale trust with unlimited tools.",
     features: ["Unlimited tracing", "Custom verification page", "Basic analytics"],
-    icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/c2d650a7a_growthplan2x.png",
+    icon: "/images/growth-plan-icon.png",
     alt: "Growth plan icon",
     cta: "Join Waitlist",
     highlight: true,
@@ -30,28 +30,37 @@ const pricingPlans = [
     price: "$299+/month",
     description: "For co-ops. Advanced supply chain tools.",
     features: ["IoT sensor integration", "API access", "Team permissions", "Dedicated support"],
-    icon: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/c3ad0fe59_scaleplan2x.png",
+    icon: "/images/scale-plan-icon.png",
     alt: "Scale plan icon",
     cta: "Join Waitlist"
   }
 ];
 
 const PricingCard = ({ plan, onCtaClick }) => (
-  <div className={`border rounded-lg p-6 flex flex-col text-center items-center ${plan.highlight ? 'border-primary' : 'border-gray-200'}`} style={{backgroundColor: 'var(--color-surface)'}}>
-    <img src={plan.icon} alt={plan.alt} className="w-[100px] h-[100px] mb-4" />
-    <h3 className="text-2xl font-bold">{plan.name}</h3>
-    <p className="text-4xl font-bold my-2">{plan.price}</p>
-    <p className="text-sm text-gray-600 mb-4 h-10">{plan.description}</p>
-    <ul className="space-y-2 text-left mb-6 flex-grow">
+  <div className={`border-2 rounded-2xl p-8 flex flex-col text-center items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${plan.highlight ? 'border-ts-accent shadow-2xl bg-gradient-to-br from-ts-accent/5 to-ts-secondary/5' : 'border-gray-200 shadow-xl'}`} style={{backgroundColor: 'var(--color-surface)'}}>
+    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1 mb-6">
+      <img src={plan.icon} alt={plan.alt} className="w-full h-full rounded-full object-cover" />
+    </div>
+    <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text)' }}>{plan.name}</h3>
+    <p className="text-4xl font-bold my-2" style={{ color: 'var(--color-primary)' }}>{plan.price}</p>
+    <p className="text-sm mb-4 h-10" style={{ color: 'var(--color-muted)' }}>{plan.description}</p>
+    <ul className="space-y-3 text-left mb-6 flex-grow">
       {plan.features.map(feature => (
         <li key={feature} className="flex items-start">
-          <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
-          <span>{feature}</span>
+          <Check className="w-5 h-5 text-ts-secondary mr-3 flex-shrink-0 mt-0.5" />
+          <span style={{ color: 'var(--color-text)' }}>{feature}</span>
         </li>
       ))}
     </ul>
-    {plan.limit && <p className="text-xs text-gray-500 mb-4">{plan.limit}</p>}
-    <Button onClick={onCtaClick} className="w-full mt-auto" style={{ backgroundColor: plan.highlight ? 'var(--color-accent)' : 'var(--color-primary)', color: 'white' }}>
+    {plan.limit && <p className="text-xs mb-4" style={{ color: 'var(--color-muted)' }}>{plan.limit}</p>}
+    <Button 
+      onClick={onCtaClick} 
+      className="w-full mt-auto font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
+      style={{ 
+        background: plan.highlight ? 'var(--gradient-accent)' : 'var(--gradient-primary)', 
+        color: 'white' 
+      }}
+    >
       {plan.cta}
     </Button>
   </div>
@@ -97,7 +106,7 @@ export default function CTASection() {
         setStatus('success');
         setMessage("Success! Your free guide is downloading now.");
         const link = document.createElement('a');
-        link.href = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/06cf2fe9b_FreeGuide-BeatCounterfeitsasanSME.pdf';
+        link.href = '/downloads/free-guide-beat-counterfeits.pdf';
         link.setAttribute('download', 'TraceSecure-5-Ways-to-Beat-Counterfeits.pdf');
         document.body.appendChild(link);
         link.click();
@@ -138,16 +147,16 @@ export default function CTASection() {
               <p className="text-sm text-gray-600">30-day money-back guarantee if unsatisfied.</p>
           </div>
 
-          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white p-8 rounded-lg shadow-lg">
+          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
             <div className="text-center md:text-left w-full">
               <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>Sign Up Now & Get Your Free Guide</h3>
               <p className="mb-4">Get early access and a free PDF guide: <br/><span className="font-bold">"5 Ways to Beat Counterfeits as a Creator."</span></p>
               
               {status !== 'success' ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-gray-50"/>
-                  <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-gray-50"/>
-                  <Button type="submit" disabled={status === 'loading'} className="w-full text-white" style={{ backgroundColor: 'var(--color-accent)' }}>
+                  <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-gray-50 border-2 border-gray-200 rounded-xl py-3 px-4 focus:border-ts-primary transition-colors"/>
+                  <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-gray-50 border-2 border-gray-200 rounded-xl py-3 px-4 focus:border-ts-primary transition-colors"/>
+                  <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all" style={{ background: 'var(--gradient-accent)' }}>
                     {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : "Join Waitlist"}
                   </Button>
                   {status === 'error' && <p className="text-red-600 text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>}
@@ -161,7 +170,7 @@ export default function CTASection() {
             </div>
             <div className="flex items-center justify-center w-full">
               <img 
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/bea54c74c_Gemini_Generated_Image_evl76xevl76xevl7.png"
+                src="/images/trace-rewards-menu.png"
                 alt="$TRACE earnings UI"
                 className="rounded-lg shadow-md w-full max-w-[400px] h-auto"
               />

@@ -59,7 +59,14 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			// Custom TraceSecure colors
+  			'ts-primary': '#2D3561',
+  			'ts-secondary': '#3BAEA0',
+  			'ts-accent': '#F67E7D',
+  			'ts-background': '#F8F9FA',
+  			'ts-text': '#1A1D2E',
+  			'ts-muted': '#6C757D'
   		},
   		keyframes: {
   			'accordion-down': {

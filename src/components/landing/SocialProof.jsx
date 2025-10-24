@@ -7,7 +7,7 @@ const testimonials = [
     quote: "TraceSecure built buyer trust instantly. Our sales are up and returns are down. It's a game-changer for independent creators.",
     name: "Elena Rojas",
     title: "Textile Weaver, Peru",
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/efddbb442_Gemini_Generated_Image_y1h3idy1h3idy1h3.png"
+    image: "/images/textile-weaver.png"
   },
   {
     quote: "I can finally focus on my craft instead of worrying about fakes. The time I've saved is invaluable.",

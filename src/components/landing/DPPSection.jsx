@@ -11,7 +11,7 @@ export default function DPPSection() {
   const viewport = { once: true, amount: 0.2 };
 
   return (
-    <section id="dpp-section" className="py-24 md:py-32 bg-white">
+    <section id="dpp-section" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -29,15 +29,15 @@ export default function DPPSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 onClick={scrollToWaitlist}
-                className="text-lg px-8 py-6 rounded-lg shadow-lg transition-transform hover:scale-105"
-                style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
+                className="text-lg px-8 py-6 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:scale-105 font-semibold"
+                style={{ background: 'var(--gradient-accent)', color: 'white' }}
               >
                 Sign Up Free
               </Button>
               <Button
                 onClick={scrollToWaitlist}
                 variant="outline"
-                className="text-lg px-8 py-6 rounded-lg shadow-lg transition-transform hover:scale-105"
+                className="text-lg px-8 py-6 rounded-xl shadow-lg transition-all hover:scale-105 font-semibold border-2"
                 style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
               >
                 Get Free Guide
@@ -52,7 +52,7 @@ export default function DPPSection() {
             transition={{ duration: 0.7 }}
           >
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/85846833d_64badb72-d11f-417b-9321-82f03500f530.png"
+              src="/images/dpp-handbag.png"
               alt="A brown leather handbag with a green Digital Product Passport shield tag."
               className="rounded-xl shadow-2xl w-full max-w-[320px] h-auto object-contain"
             />

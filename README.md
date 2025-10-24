@@ -1,8 +1,8 @@
-# Base44 App
+# TraceSecure App
 
 
-This app was created automatically by Base44.
-It's a Vite+React app that communicates with the Base44 API.
+This is a product authentication and traceability platform.
+It's a Vite+React app for blockchain-based product authentication.
 
 ## Running the app
 
@@ -17,4 +17,4 @@ npm run dev
 npm run build
 ```
 
-For more information and support, please contact Base44 support at app@base44.com.
+For more information and support, please contact the development team.

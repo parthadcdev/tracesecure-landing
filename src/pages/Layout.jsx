@@ -13,7 +13,7 @@ export default function Layout({ children, currentPageName }) {
       link.rel = "icon";
       document.getElementsByTagName("head")[0].appendChild(link);
     }
-    link.href = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/19debe86d_symbol-only-nobg.png";
+    link.href = "/images/logo-symbol.png";
     link.type = "image/png";
 
     // Set document metadata
@@ -55,7 +55,7 @@ export default function Layout({ children, currentPageName }) {
 
     const ogImage = document.createElement('meta');
     ogImage.setAttribute('property', 'og:image');
-    ogImage.content = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/85846833d_64badb72-d11f-417b-9321-82f03500f530.png';
+    ogImage.content = '/images/og-image.png';
     document.head.appendChild(ogImage);
 
     const ogType = document.createElement('meta');
@@ -86,7 +86,7 @@ export default function Layout({ children, currentPageName }) {
 
     const twitterImage = document.createElement('meta');
     twitterImage.name = 'twitter:image';
-    twitterImage.content = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/85846833d_64badb72-d11f-417b-9321-82f03500f530.png';
+    twitterImage.content = '/images/og-image.png';
     document.head.appendChild(twitterImage);
 
     // Canonical URL
@@ -126,11 +126,16 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Montserrat', sans-serif;
           
-          --color-background: #F8F5F2;
-          --color-text: #4E4239;
-          --color-primary: #8C6A5D;
-          --color-accent: #5A8C5A;
+          --color-background: #F8F9FA;
+          --color-text: #1A1D2E;
+          --color-primary: #2D3561;
+          --color-secondary: #3BAEA0;
+          --color-accent: #F67E7D;
           --color-surface: #FFFFFF;
+          --color-muted: #6C757D;
+          --gradient-primary: linear-gradient(135deg, #2D3561 0%, #3BAEA0 100%);
+          --gradient-accent: linear-gradient(135deg, #F67E7D 0%, #FF8A80 100%);
+          --gradient-hero: linear-gradient(135deg, #2D3561 0%, #3BAEA0 50%, #1A1D2E 100%);
         }
 
         body {

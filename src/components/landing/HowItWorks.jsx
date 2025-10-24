@@ -4,19 +4,19 @@ import { motion } from 'framer-motion';
 
 const steps = [
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/d3d0c86a6_Gemini_Generated_Image_vm250svm250svm25.png',
+    image: '/images/tag-your-item.png',
     title: '1. Tag Your Item',
     description: 'Embed a secure tag onto your item and scan it with your phone to create its unique digital identity in seconds.',
     alt: "A winemaker applying a secure QR code label to a bottle of wine."
   },
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e7b188af6_step-2.png',
+    image: '/images/track-journey.png',
     title: '2. Track Its Journey',
     description: 'Scan the item at key stages of its lifecycle to build a rich, verifiable story of its origin and craftsmanship.',
     alt: "A phone screen showing a product's journey timeline: Crafted, Packed, and Shipped."
   },
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/81ae4e46f_Gemini_Generated_Image_dbh0u6dbh0u6dbh0.png',
+    image: '/images/share-with-buyers.png',
     title: '3. Share with Buyers',
     description: 'Buyers scan the final product with their phone to instantly see its authentic journey and confirm its legitimacy.',
     alt: "A customer verifying a bottle of wine in a store with their phone, which displays a 'Verified' checkmark."
@@ -27,7 +27,7 @@ export default function HowItWorks() {
   const viewport = { once: true, amount: 0.2 };
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-white">
+    <section id="how-it-works" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -54,7 +54,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.7 }}
         >
           <img 
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/81492b54e_Gemini_Generated_Image_chbhadchbhadchbh2x.png" 
+            src="/images/three-step-infographic.png" 
             alt="Infographic showing the 3-step process: Scan, Track, Share" 
             className="max-w-full h-auto mx-auto"
           />
@@ -66,14 +66,14 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="text-center"
+              className="text-center bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
             >
-              <div className="relative mb-6 overflow-hidden rounded-lg shadow-lg aspect-square">
-                <img src={step.image} alt={step.alt} className="w-full h-full object-cover"/>
+              <div className="relative mb-6 overflow-hidden rounded-xl shadow-lg aspect-square bg-gradient-to-br from-ts-primary/10 to-ts-secondary/10 p-4">
+                <img src={step.image} alt={step.alt} className="w-full h-full object-cover rounded-lg"/>
               </div>
               <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>
                 {step.title}
@@ -98,7 +98,7 @@ export default function HowItWorks() {
             Earn $TRACE for every trace - redeem for perks or stake.
           </p>
           <img 
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/bea54c74c_Gemini_Generated_Image_evl76xevl76xevl7.png" 
+            src="/images/trace-rewards-menu.png" 
             alt="Mockup of the TRACE rewards menu showing how to earn and redeem tokens."
             className="rounded-xl shadow-2xl mx-auto max-w-sm w-full"
           />

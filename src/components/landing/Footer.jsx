@@ -123,12 +123,12 @@ export default function Footer() {
           </Accordion>
         </div>
 
-        <div className="border-t pt-8" style={{ borderColor: 'rgba(78, 66, 57, 0.2)' }}>
+        <div className="border-t pt-8" style={{ borderColor: 'rgba(26, 29, 46, 0.1)' }}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div className="flex-1 flex justify-center md:justify-start">
               <div className="flex items-center gap-3">
                 <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e0f01dda0_symbol-only-nobg.png" 
+                  src="/images/logo-symbol.png" 
                   alt="TraceSecure Logo Symbol" 
                   className="h-10"
                 />
@@ -146,15 +146,15 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <span className="text-xs" style={{color: 'var(--color-text)'}}>Powered by</span>
                 <img 
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/25ebe522c_PolygonPrimaryDark.png" 
+                  src="/images/polygon-logo.png" 
                   alt="Polygon" 
                   className="h-4"
                 />
               </div>
             </div>
             <div className="flex-1 flex justify-center md:justify-end gap-4">
-              <a href="https://www.linkedin.com/company/trace-secure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: 'rgba(78, 66, 57, 0.1)', color: 'var(--color-text)' }}><Linkedin className="w-5 h-5" /></a>
-              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full flex items-center justify-center transition-colors" style={{ backgroundColor: 'rgba(78, 66, 57, 0.1)', color: 'var(--color-text)' }}><Twitter className="w-5 h-5" /></a>
+              <a href="https://www.linkedin.com/company/trace-secure/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg" style={{ backgroundColor: 'rgba(26, 29, 46, 0.1)', color: 'var(--color-text)' }}><Linkedin className="w-5 h-5" /></a>
+              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 hover:shadow-lg" style={{ backgroundColor: 'rgba(26, 29, 46, 0.1)', color: 'var(--color-text)' }}><Twitter className="w-5 h-5" /></a>
             </div>
           </div>
         </div>

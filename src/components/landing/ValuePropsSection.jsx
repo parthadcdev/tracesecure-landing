@@ -5,19 +5,19 @@ import { ShieldCheck, Clock } from 'lucide-react';
 
 const benefits = [
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e0dd83a4a_Gemini_Generated_Image_7ehyoz7ehyoz7ehy.png',
+    image: '/images/enhance-brand-value.png',
     title: 'Enhance Brand Value Through Provenance',
     description: 'Charge 15-20% more with unbreakable proof of authenticity. Buyers trust and pay premiums for verified goods.',
     example: 'A Vietnamese handbag maker boosted sales by 25% after adopting TraceSecure.',
   },
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/0d6bf3bc5_Gemini_Generated_Image_vzdb6kvzdb6kvzdb.png',
+    image: '/images/streamline-operations.png',
     title: 'Streamline Operations with Cost-Effective Traceability',
     description: 'Eliminate 20-30% of revenue loss from fakes and fraudulent returns. Protect your brand without expensive lawyers.',
     example: 'A jeweler cut losses from fake component swaps significantly.',
   },
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e20515e9a_Gemini_Generated_Image_b9eud1b9eud1b9eu.png',
+    image: '/images/save-time.png',
     title: 'Save Time and Focus on Creation',
     description: 'Automate your product\'s journey with a quick scan. Ditch the paperwork and focus on what you do best: creating.',
     example: 'Creators save up to 10 hours a week on record-keeping.',
@@ -49,14 +49,16 @@ export default function ValuePropsSection() {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-lg p-8 text-center flex flex-col"
+              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl p-8 text-center flex flex-col transition-all duration-300 hover:-translate-y-2 border border-gray-100"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
             >
               <div className="mx-auto mb-6">
-                <img src={benefit.image} alt={benefit.title} className="w-24 h-24 rounded-full object-cover"/>
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1">
+                  <img src={benefit.image} alt={benefit.title} className="w-full h-full rounded-full object-cover"/>
+                </div>
               </div>
               <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>
                 {benefit.title}

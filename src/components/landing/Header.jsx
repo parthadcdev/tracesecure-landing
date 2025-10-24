@@ -82,7 +82,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 shadow-md backdrop-blur-lg`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 shadow-lg backdrop-blur-xl border-b border-white/20`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -93,7 +93,7 @@ export default function Header() {
             onClick={() => handleNavClick({ page: 'Landing' })}
           >
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e0f01dda0_symbol-only-nobg.png" 
+              src="/images/logo-symbol.png" 
               alt="TraceSecure Logo Symbol" 
               className="h-10"
             />
@@ -118,8 +118,8 @@ export default function Header() {
           <div className="hidden md:flex">
             <Button 
               onClick={() => scrollTo('waitlist-form')}
-              className="text-white"
-              style={{ backgroundColor: 'var(--color-accent)', fontFamily: 'var(--font-sans)' }}
+              className="text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
+              style={{ background: 'var(--gradient-accent)', fontFamily: 'var(--font-sans)' }}
             >
               Join Waitlist
             </Button>
@@ -153,7 +153,7 @@ export default function Header() {
                     className="flex items-center gap-3 cursor-pointer"
                     onClick={() => handleNavClick({ page: 'Landing' })}
                   >
-                    <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e0f01dda0_symbol-only-nobg.png" alt="TraceSecure Logo Symbol" className="h-10" />
+                    <img src="/images/logo-symbol.png" alt="TraceSecure Logo Symbol" className="h-10" />
                     <div className="flex flex-col text-gray-800">
                       <span className="font-bold text-xl" style={{fontFamily: 'var(--font-brand)'}}>TraceSecure</span>
                       <span className="text-xs" style={{fontFamily: 'var(--font-brand)'}}>Secure Trace, Trusted Trade</span>
@@ -175,8 +175,8 @@ export default function Header() {
                 ))}
                 <Button 
                   onClick={() => scrollTo('waitlist-form')}
-                  className="w-full text-white text-lg py-6 mt-4"
-                  style={{ backgroundColor: 'var(--color-accent)', fontFamily: 'var(--font-sans)' }}
+                  className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-lg"
+                  style={{ background: 'var(--gradient-accent)', fontFamily: 'var(--font-sans)' }}
                 >
                   Join Waitlist
                 </Button>

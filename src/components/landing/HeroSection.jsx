@@ -16,17 +16,17 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Lighter gradient base for better visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900" />
+      {/* Modern gradient background */}
+      <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
       
       {/* Traceability visualization - hidden on mobile */}
       <div className="hidden md:block">
         <TraceabilityVisualization />
       </div>
       
-      {/* Much lighter overlay to show background better */}
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 60%)' }} />
+      {/* Subtle overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/10" />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26, 29, 46, 0.4), transparent 60%)' }} />
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center mt-16 md:mt-0 mb-24 md:mb-32">
         <motion.div
@@ -35,11 +35,11 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6" style={{ fontFamily: "var(--font-serif)" }}>
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
             Fight Fakes. Build Loyalty. Start Free.
           </h1>
 
-          <p className="text-base md:text-lg text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto text-center" style={{ fontFamily: "var(--font-sans)" }}>
+          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-4xl mx-auto text-center" style={{ fontFamily: "var(--font-sans)" }}>
             Immutable blockchain certificates for independent creators: Prove authenticity with one scan, boost customer loyalty, start in 5 minutes - no tech expertise needed.
           </p>
 
@@ -50,11 +50,11 @@ export default function HeroSection() {
             >
               <Button
                 onClick={scrollToWaitlist}
-                className="text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 rounded-lg shadow-lg transition-all hover:shadow-xl"
-                style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
+                className="text-lg sm:text-xl px-8 py-6 sm:px-10 sm:py-8 rounded-xl shadow-2xl transition-all hover:shadow-2xl hover:scale-105 font-semibold"
+                style={{ background: 'var(--gradient-accent)', color: 'white' }}
                 aria-label="Start free authenticity certificate for your craft"
               >
-                Secure Your First Craft Free
+                Get Started Free
               </Button>
             </motion.div>
           </div>
