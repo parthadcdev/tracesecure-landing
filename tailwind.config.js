@@ -60,15 +60,15 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-        // Custom TraceSecure colors - Coolors Palette
+        // Custom TraceSecure colors - Coolors Palette (Light Theme)
         'ts-primary': '#415A77',
         'ts-secondary': '#778DA9',
         'ts-accent': '#E0E1DD',
-        'ts-background': '#0D1B2A',
-        'ts-surface': '#1B263B',
-        'ts-card': '#E0E1DD',
-        'ts-text': '#E0E1DD',
-        'ts-text-muted': '#778DA9',
+        'ts-background': '#E0E1DD',
+        'ts-surface': '#F8F9FA',
+        'ts-card': '#FFFFFF',
+        'ts-text': '#0D1B2A',
+        'ts-text-muted': '#415A77',
         'ts-success': '#10B981',
         'ts-warning': '#F59E0B',
         'ts-error': '#EF4444'
