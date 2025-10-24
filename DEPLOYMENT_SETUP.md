@@ -46,7 +46,7 @@ Two workflow files have been created:
 
 1. Push your code to GitHub
 2. Go to the **Actions** tab in your repository
-3. The workflow will run automatically on pushes to the `main` branch
+3. The workflow will run automatically on pushes to the `develop` branch
 
 ## Workflow Details
 
@@ -68,6 +68,8 @@ The workflow will:
 3. Install dependencies with `npm ci`
 4. Build the project with `npm run build`
 5. Deploy to Firebase Hosting
+
+**Note**: The workflow is configured to trigger on pushes to the `develop` branch, not `main`.
 
 ## Manual Deployment
 
@@ -98,10 +100,11 @@ firebase deploy
 - **Hosting URL**: https://canvas-griffin-475520-b7.web.app
 - **Build Directory**: `dist` (Vite output)
 - **Node Version**: 18
+- **Triggers**: Push to `develop`, Pull requests to `develop`
 
 ## Next Steps
 
 1. Generate your Firebase token: `firebase login:ci`
 2. Add the token as `FIREBASE_TOKEN` secret in GitHub
-3. Push your code to trigger the first deployment
+3. Push your code to the `develop` branch to trigger the first deployment
 4. Monitor the Actions tab for deployment status
