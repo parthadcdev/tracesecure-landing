@@ -60,18 +60,18 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-  			// Custom TraceSecure colors - Futuristic Theme
-  			'ts-primary': '#6366F1',
-  			'ts-secondary': '#8B5CF6',
-  			'ts-accent': '#06B6D4',
-  			'ts-background': '#0A0A0A',
-  			'ts-surface': '#1A1A1A',
-  			'ts-card': '#FFFFFF',
-  			'ts-text': '#FFFFFF',
-  			'ts-text-muted': '#B8B8B8',
-  			'ts-success': '#10B981',
-  			'ts-warning': '#F59E0B',
-  			'ts-error': '#EF4444'
+        // Custom TraceSecure colors - Coolors Palette
+        'ts-primary': '#415A77',
+        'ts-secondary': '#778DA9',
+        'ts-accent': '#E0E1DD',
+        'ts-background': '#0D1B2A',
+        'ts-surface': '#1B263B',
+        'ts-card': '#E0E1DD',
+        'ts-text': '#E0E1DD',
+        'ts-text-muted': '#778DA9',
+        'ts-success': '#10B981',
+        'ts-warning': '#F59E0B',
+        'ts-error': '#EF4444'
   		},
   		keyframes: {
   			'accordion-down': {

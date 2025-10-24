@@ -47,7 +47,7 @@ export default function HeroSection() {
             </span>
           </div>
           
-          <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold text-white leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
+          <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold text-ts-text leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
             Digital Authenticity
             <br />
             <span className="bg-gradient-to-r from-ts-primary to-ts-accent bg-clip-text text-transparent">
@@ -127,7 +127,7 @@ export default function HeroSection() {
       >
         <motion.button
           onClick={scrollToNextSection}
-          className="flex flex-col items-center gap-2 text-white/60 hover:text-white/90 transition-colors"
+          className="flex flex-col items-center gap-2 text-ts-text-muted hover:text-ts-text transition-colors"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Scroll to next section"

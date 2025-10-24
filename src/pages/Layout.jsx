@@ -126,24 +126,24 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Montserrat', sans-serif;
           
-          --color-background: #0A0A0A;
-          --color-surface: #1A1A1A;
-          --color-card: #FFFFFF;
-          --color-text: #FFFFFF;
-          --color-text-muted: #B8B8B8;
-          --color-primary: #6366F1;
-          --color-secondary: #8B5CF6;
-          --color-accent: #06B6D4;
+          --color-background: #0D1B2A;
+          --color-surface: #1B263B;
+          --color-card: #E0E1DD;
+          --color-text: #E0E1DD;
+          --color-text-muted: #778DA9;
+          --color-primary: #415A77;
+          --color-secondary: #778DA9;
+          --color-accent: #E0E1DD;
           --color-success: #10B981;
           --color-warning: #F59E0B;
           --color-error: #EF4444;
           
-          --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
-          --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
-          --gradient-hero: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
-          --gradient-card: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
-          --gradient-accent: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
-          --gradient-futuristic: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 25%, #2A2A2A 50%, #1A1A1A 75%, #0A0A0A 100%);
+          --gradient-primary: linear-gradient(135deg, #415A77 0%, #778DA9 100%);
+          --gradient-secondary: linear-gradient(135deg, #1B263B 0%, #415A77 100%);
+          --gradient-hero: linear-gradient(135deg, #0D1B2A 0%, #1B263B 50%, #0D1B2A 100%);
+          --gradient-card: linear-gradient(135deg, #1B263B 0%, #415A77 100%);
+          --gradient-accent: linear-gradient(135deg, #778DA9 0%, #E0E1DD 100%);
+          --gradient-futuristic: linear-gradient(135deg, #0D1B2A 0%, #1B263B 25%, #415A77 50%, #1B263B 75%, #0D1B2A 100%);
         }
 
         body {
