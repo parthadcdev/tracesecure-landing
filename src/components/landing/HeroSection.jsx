@@ -16,14 +16,14 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Flat Design Background */}
-      <div className="absolute inset-0 bg-ts-background" />
+      {/* Inverted Background - Dark */}
+      <div className="absolute inset-0 bg-ts-primary" />
       
       {/* Abstract Geometric Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large geometric shapes - simplified forms */}
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-ts-zaffre opacity-20"
+          className="absolute top-20 left-10 w-32 h-32 bg-ts-vivid-sky-blue opacity-20"
           style={{ 
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
           }}
@@ -39,7 +39,7 @@ export default function HeroSection() {
         />
         
         <motion.div
-          className="absolute top-32 right-16 w-24 h-24 bg-ts-vivid-sky-blue opacity-15 rounded-full"
+          className="absolute top-32 right-16 w-24 h-24 bg-ts-rose opacity-15 rounded-full"
           animate={{
             y: [0, -20, 0],
             x: [0, 15, 0],
@@ -53,7 +53,7 @@ export default function HeroSection() {
         />
         
         <motion.div
-          className="absolute bottom-40 left-1/3 w-20 h-20 bg-ts-rose opacity-25"
+          className="absolute bottom-40 left-1/3 w-20 h-20 bg-ts-neon-blue opacity-25"
           style={{ 
             clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
           }}
@@ -150,16 +150,16 @@ export default function HeroSection() {
             </span>
           </div>
           
-          {/* Simplified Typography */}
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-ts-text leading-tight mb-8">
+          {/* Inverted Typography - Light text on dark background */}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-tight mb-8">
             Digital Authenticity
             <br />
-            <span className="text-ts-grape">
+            <span className="text-ts-vivid-sky-blue">
               for Every Product
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-ts-text-muted mb-12 leading-relaxed max-w-4xl mx-auto text-center">
+          <p className="text-lg md:text-xl text-ts-vivid-sky-blue mb-12 leading-relaxed max-w-4xl mx-auto text-center">
             Secure QR code-based digital history for luxury and craft producers.
             <br />
             Prove authenticity, stop counterfeits, and connect directly with customers.
@@ -167,13 +167,13 @@ export default function HeroSection() {
 
           {/* Flat Design Feature Badges */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <span className="px-4 py-2 bg-ts-zaffre text-white text-sm font-medium rounded-lg flat-shadow">
+            <span className="px-4 py-2 bg-ts-vivid-sky-blue text-ts-primary text-sm font-medium rounded-lg flat-shadow">
               Prove Authenticity
             </span>
-            <span className="px-4 py-2 bg-ts-neon-blue text-white text-sm font-medium rounded-lg flat-shadow">
+            <span className="px-4 py-2 bg-ts-rose text-white text-sm font-medium rounded-lg flat-shadow">
               Stop Counterfeits
             </span>
-            <span className="px-4 py-2 bg-ts-rose text-white text-sm font-medium rounded-lg flat-shadow">
+            <span className="px-4 py-2 bg-ts-neon-blue text-white text-sm font-medium rounded-lg flat-shadow">
               EU DPP Compliant
             </span>
           </div>
@@ -186,7 +186,7 @@ export default function HeroSection() {
             >
               <Button
                 onClick={scrollToWaitlist}
-                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-shadow-lg font-semibold bg-ts-grape text-white hover:bg-ts-primary transition-all"
+                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-shadow-lg font-semibold bg-ts-vivid-sky-blue text-ts-primary hover:bg-ts-rose hover:text-white transition-all"
                 aria-label="Join Beta Access"
               >
                 Join Beta Access
@@ -199,7 +199,7 @@ export default function HeroSection() {
               <Button
                 onClick={scrollToNextSection}
                 variant="outline"
-                className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-border-dark text-ts-primary hover:bg-ts-accent transition-all font-semibold"
+                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg border-2 border-ts-vivid-sky-blue text-ts-vivid-sky-blue hover:bg-ts-vivid-sky-blue hover:text-ts-primary transition-all font-semibold"
                 aria-label="See How It Works"
               >
                 See How It Works
@@ -207,15 +207,15 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Additional Flat Design Badges */}
+          {/* Additional Inverted Badges */}
           <div className="flex flex-wrap justify-center gap-3 mt-12">
-            <span className="px-4 py-2 bg-ts-accent text-ts-text text-sm font-medium rounded-lg flat-border">
+            <span className="px-4 py-2 bg-ts-vivid-sky-blue text-ts-primary text-sm font-medium rounded-lg border border-ts-vivid-sky-blue">
               Enterprise Security
             </span>
-            <span className="px-4 py-2 bg-ts-accent text-ts-text text-sm font-medium rounded-lg flat-border">
+            <span className="px-4 py-2 bg-ts-rose text-white text-sm font-medium rounded-lg border border-ts-rose">
               GDPR Compliant
             </span>
-            <span className="px-4 py-2 bg-ts-accent text-ts-text text-sm font-medium rounded-lg flat-border">
+            <span className="px-4 py-2 bg-ts-neon-blue text-white text-sm font-medium rounded-lg border border-ts-neon-blue">
               EU DPP Ready
             </span>
           </div>
@@ -231,13 +231,13 @@ export default function HeroSection() {
       >
         <motion.button
           onClick={scrollToNextSection}
-          className="flex flex-col items-center gap-3 p-4 bg-ts-surface rounded-lg flat-shadow hover:flat-shadow-lg transition-all text-ts-text-muted hover:text-ts-primary"
+          className="flex flex-col items-center gap-3 p-4 bg-ts-vivid-sky-blue rounded-lg flat-shadow hover:flat-shadow-lg transition-all text-ts-primary hover:text-white"
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Scroll to next section"
         >
           <span className="text-xs uppercase tracking-wider font-medium">Discover How</span>
-              <ChevronDown className="w-5 h-5 text-ts-grape vector-icon" />
+              <ChevronDown className="w-5 h-5 text-ts-primary vector-icon" />
         </motion.button>
       </motion.div>
     </section>
