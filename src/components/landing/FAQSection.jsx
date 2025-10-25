@@ -24,67 +24,67 @@ const faqs = [
   {
     category: 'Getting Started',
     question: 'How long does it take to set up TraceSecure for my business?',
-    answer: 'Setup takes less than 5 minutes. Simply create your account, add your product details, generate QR codes, and start tracking. Our intuitive dashboard guides you through each step with no technical expertise required.'
+    answer: 'Most businesses are up and running within 24-48 hours. Our beta program includes personalized onboarding, and you can start creating verified products immediately after account approval.'
   },
   {
     category: 'Technical',
     question: 'How secure are the QR codes?',
-    answer: 'Our QR codes use 256-bit encryption and blockchain verification to ensure maximum security. Each code contains encrypted product history and verification data that cannot be forged or compromised.'
+    answer: 'Our QR codes use military-grade 256-bit encryption and blockchain verification. Each code is unique, tamper-proof, and cannot be replicated or forged. Any attempt to copy or alter a code is immediately detectable.'
   },
   {
     category: 'Technical',
     question: 'What happens if a QR code is damaged or removed?',
-    answer: 'If a QR code is damaged, you can generate a replacement code that maintains the same product identity. If removed, the product can still be verified through alternative methods including manual verification and backup tracking systems.'
+    answer: 'We offer multiple attachment methods including tamper-evident materials that show if removed. For high-value items, we can embed codes in multiple locations or integrate them into the product design itself for permanent verification.'
   },
   {
     category: 'Technical',
     question: 'Do customers need a special app to verify products?',
-    answer: 'No special app required. Customers can verify products using any smartphone camera through our web-based verification system. The process is instant and works across all platforms and devices.'
+    answer: 'No special app required! Customers can verify products using any smartphone camera or QR code reader. The verification page works on all devices and provides instant results with rich product information.'
   },
   {
     category: 'Technical',
     question: 'Can TraceSecure integrate with my existing systems?',
-    answer: 'Yes, TraceSecure offers comprehensive API access and custom integrations. Our platform can connect with your existing inventory management, e-commerce, and business systems for seamless operation.'
+    answer: 'Yes, we provide API access and integrations with popular inventory management, e-commerce, and ERP systems. Our team can help set up custom integrations during the beta program.'
   },
   {
     category: 'Compliance',
     question: 'Is TraceSecure compliant with EU Digital Product Passport (DPP) regulations?',
-    answer: 'Yes, TraceSecure is built from the ground up to meet and exceed EU DPP requirements. Our platform automatically handles compliance for current and upcoming regulations, ensuring your products are always compliant.'
+    answer: 'Absolutely. TraceSecure is built from the ground up to meet EU DPP requirements. We automatically capture and store all required sustainability data, material information, and product lifecycle details needed for compliance.'
   },
   {
     category: 'Compliance',
     question: 'How does TraceSecure handle GDPR and data privacy?',
-    answer: 'TraceSecure is fully GDPR compliant with enterprise-grade data protection. We use secure encryption, follow data minimization principles, and provide full data portability. Your data is always under your control.'
+    answer: 'We are fully GDPR compliant with data centers in the EU. Customer data is encrypted, anonymized where possible, and we provide complete data portability and deletion capabilities. Privacy is built into our core architecture.'
   },
   {
     category: 'Compliance',
     question: 'What sustainability data can TraceSecure track?',
-    answer: 'TraceSecure tracks comprehensive sustainability metrics including carbon footprint, recyclability, repair information, environmental impact, material sourcing, and end-of-life disposal options for complete lifecycle transparency.'
+    answer: 'We track carbon footprint, material sourcing, production methods, transportation, recyclability information, and end-of-life instructions. All data is structured to meet current and upcoming EU sustainability requirements.'
   },
   {
     category: 'Business',
     question: 'How much does TraceSecure cost after the beta?',
-    answer: 'Beta members get locked-in pricing for life. After the public launch, new customers will pay standard rates: Starter (Free), Professional ($99/month), and Enterprise (Custom pricing). Beta members keep their discounted rates permanently.'
+    answer: 'Beta participants lock in special pricing: Starter remains free for up to 100 products, Professional will be $49/month (50% off), and Enterprise pricing is customized. Current beta pricing is guaranteed for your first year.'
   },
   {
     category: 'Business',
     question: 'Can I cancel my subscription anytime?',
-    answer: 'Yes, you can cancel your subscription at any time with no penalties. We offer a 30-day money-back guarantee if you\'re not satisfied with our service.'
+    answer: 'Yes, you can cancel anytime with no penalties. Your existing QR codes continue working, but you won\'t be able to create new ones or access advanced features. We provide data export tools if needed.'
   },
   {
     category: 'Business',
     question: 'Do you offer white-label solutions?',
-    answer: 'Yes, our Enterprise plan includes white-label solutions allowing you to brand TraceSecure as your own platform. This includes custom domains, branding, and complete customization options.'
+    answer: 'Yes, Enterprise plans include white-label options where verification pages show your branding only. We can also provide custom domains and fully branded customer experiences.'
   },
   {
     category: 'Support',
     question: 'What kind of support do you provide?',
-    answer: 'We provide comprehensive support including email support for all plans, priority support for Professional and Enterprise customers, dedicated account managers for Enterprise clients, and 24/7 technical support for critical issues.'
+    answer: 'Beta users get priority support via email, chat, and phone. Professional and Enterprise plans include dedicated account managers. We also provide comprehensive documentation, video tutorials, and training sessions.'
   },
   {
     category: 'Support',
     question: 'What happens to my data if I stop using TraceSecure?',
-    answer: 'You retain full ownership of your data. If you decide to stop using TraceSecure, you can export all your data in standard formats. We also provide data migration assistance to help you transition to other platforms if needed.'
+    answer: 'You own your data completely. We provide full data export in standard formats (JSON, CSV, XML) and can facilitate migration to other systems. Historical verification records remain accessible for compliance purposes.'
   }
 ];
 
