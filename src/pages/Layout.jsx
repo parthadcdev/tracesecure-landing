@@ -126,38 +126,38 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Inter', sans-serif;
           
-        /* New Color Theme - Vibrant Neon Palette */
-        --color-background: #dbf4fc;
+        /* New Color Theme - Wine-Inspired Palette */
+        --color-background: #fef7f0;
         --color-surface: #FFFFFF;
         --color-card: #FFFFFF;
-        --color-text: #3a0ca3;
-        --color-text-muted: #220761;
-        --color-primary: #3a0ca3;
-        --color-secondary: #7209b7;
-        --color-accent: #4cc9f0;
-        --color-success: #4361ee;
-        --color-warning: #f72585;
-        --color-error: #f72585;
+        --color-text: #722f37;
+        --color-text-muted: #8b4513;
+        --color-primary: #722f37;
+        --color-secondary: #8b0000;
+        --color-accent: #d4af37;
+        --color-success: #228b22;
+        --color-warning: #ff8c00;
+        --color-error: #dc143c;
         
         /* Theme Color Variants */
-        --color-rose: #f72585;
-        --color-grape: #7209b7;
-        --color-zaffre: #3a0ca3;
-        --color-neon-blue: #4361ee;
-        --color-vivid-sky-blue: #4cc9f0;
+        --color-burgundy: #722f37;
+        --color-wine-red: #8b0000;
+        --color-gold: #d4af37;
+        --color-amber: #ff8c00;
+        --color-forest-green: #228b22;
         
         /* Solid Colors for Flat Design */
-        --color-primary-solid: #3a0ca3;
-        --color-secondary-solid: #7209b7;
-        --color-accent-solid: #4cc9f0;
-        --color-success-solid: #4361ee;
-        --color-warning-solid: #f72585;
-        --color-error-solid: #f72585;
+        --color-primary-solid: #722f37;
+        --color-secondary-solid: #8b0000;
+        --color-accent-solid: #d4af37;
+        --color-success-solid: #228b22;
+        --color-warning-solid: #ff8c00;
+        --color-error-solid: #dc143c;
         
         /* Border and Outline Colors */
-        --color-border: #93dff6;
-        --color-border-dark: #6a83f1;
-        --color-outline: #3a0ca3;
+        --color-border: #e6d7c3;
+        --color-border-dark: #b8860b;
+        --color-outline: #722f37;
         }
 
         body {

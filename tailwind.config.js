@@ -60,86 +60,86 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-        // Vibrant Neon Color Palette
-        'ts-primary': '#3a0ca3',
-        'ts-secondary': '#7209b7',
-        'ts-accent': '#4cc9f0',
-        'ts-background': '#dbf4fc',
+        // Wine-Inspired Color Palette
+        'ts-primary': '#722f37',
+        'ts-secondary': '#8b0000',
+        'ts-accent': '#d4af37',
+        'ts-background': '#fef7f0',
         'ts-surface': '#FFFFFF',
         'ts-card': '#FFFFFF',
-        'ts-text': '#3a0ca3',
-        'ts-text-muted': '#220761',
-        'ts-success': '#4361ee',
-        'ts-warning': '#f72585',
-        'ts-error': '#f72585',
-        'ts-border': '#93dff6',
-        'ts-border-dark': '#6a83f1',
-        'ts-outline': '#3a0ca3',
+        'ts-text': '#722f37',
+        'ts-text-muted': '#8b4513',
+        'ts-success': '#228b22',
+        'ts-warning': '#ff8c00',
+        'ts-error': '#dc143c',
+        'ts-border': '#e6d7c3',
+        'ts-border-dark': '#b8860b',
+        'ts-outline': '#722f37',
         // Theme Color Variants
-        'ts-rose': '#f72585',
-        'ts-grape': '#7209b7',
-        'ts-zaffre': '#3a0ca3',
-        'ts-neon-blue': '#4361ee',
-        'ts-vivid-sky-blue': '#4cc9f0',
-        // Rose Shades
-        'rose': {
-          100: '#37021a',
-          200: '#6e0434',
-          300: '#a5064e',
-          400: '#dc0868',
-          500: '#f72585',
-          600: '#f9529d',
-          700: '#fa7db5',
-          800: '#fca8ce',
-          900: '#fdd4e6'
+        'ts-burgundy': '#722f37',
+        'ts-wine-red': '#8b0000',
+        'ts-gold': '#d4af37',
+        'ts-amber': '#ff8c00',
+        'ts-forest-green': '#228b22',
+        // Burgundy Shades
+        'burgundy': {
+          100: '#1a0a0c',
+          200: '#331418',
+          300: '#4d1f24',
+          400: '#662930',
+          500: '#722f37',
+          600: '#8b3a44',
+          700: '#a44551',
+          800: '#bd505e',
+          900: '#d65b6b'
         },
-        // Grape Shades
-        'grape': {
-          100: '#170225',
-          200: '#2e034a',
-          300: '#45056f',
-          400: '#5c0794',
-          500: '#7209b7',
-          600: '#980df4',
-          700: '#b14af6',
-          800: '#cb86f9',
-          900: '#e5c3fc'
+        // Wine Red Shades
+        'wine-red': {
+          100: '#1a0000',
+          200: '#330000',
+          300: '#4d0000',
+          400: '#660000',
+          500: '#8b0000',
+          600: '#b30000',
+          700: '#cc0000',
+          800: '#e60000',
+          900: '#ff0000'
         },
-        // Zaffre Shades
-        'zaffre': {
-          100: '#0b0220',
-          200: '#170541',
-          300: '#220761',
-          400: '#2e0a81',
-          500: '#3a0ca3',
-          600: '#4f11e0',
-          700: '#7743f1',
-          800: '#a582f6',
-          900: '#d2c0fa'
+        // Gold Shades
+        'gold': {
+          100: '#2a1f0a',
+          200: '#543e14',
+          300: '#7e5d1e',
+          400: '#a87c28',
+          500: '#d4af37',
+          600: '#dbbf5a',
+          700: '#e2cf7d',
+          800: '#e9dfa0',
+          900: '#f0efc3'
         },
-        // Neon Blue Shades
-        'neon-blue': {
-          100: '#050f38',
-          200: '#0a1d70',
-          300: '#102ca8',
-          400: '#153ae0',
-          500: '#4361ee',
-          600: '#6a83f1',
-          700: '#8fa2f5',
-          800: '#b4c1f8',
-          900: '#dae0fc'
+        // Amber Shades
+        'amber': {
+          100: '#331a00',
+          200: '#663300',
+          300: '#994d00',
+          400: '#cc6600',
+          500: '#ff8c00',
+          600: '#ff9933',
+          700: '#ffa666',
+          800: '#ffb399',
+          900: '#ffc0cc'
         },
-        // Vivid Sky Blue Shades
-        'vivid-sky-blue': {
-          100: '#052e3a',
-          200: '#095c75',
-          300: '#0e8aaf',
-          400: '#13b8ea',
-          500: '#4cc9f0',
-          600: '#70d5f3',
-          700: '#93dff6',
-          800: '#b7eaf9',
-          900: '#dbf4fc'
+        // Forest Green Shades
+        'forest-green': {
+          100: '#0a1a0a',
+          200: '#143314',
+          300: '#1e4d1e',
+          400: '#286628',
+          500: '#228b22',
+          600: '#3ca03c',
+          700: '#56b556',
+          800: '#70ca70',
+          900: '#8adf8a'
         }
   		},
   		keyframes: {
