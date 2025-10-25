@@ -60,86 +60,86 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-        // Vibrant Bold Color Palette
-        'ts-primary': '#390099',
-        'ts-secondary': '#9e0059',
-        'ts-accent': '#ffbd00',
-        'ts-background': '#fff1cc',
+        // Vibrant Neon Color Palette
+        'ts-primary': '#3a0ca3',
+        'ts-secondary': '#7209b7',
+        'ts-accent': '#4cc9f0',
+        'ts-background': '#dbf4fc',
         'ts-surface': '#FFFFFF',
         'ts-card': '#FFFFFF',
-        'ts-text': '#390099',
-        'ts-text-muted': '#22005c',
-        'ts-success': '#ff5400',
-        'ts-warning': '#ffbd00',
-        'ts-error': '#ff0054',
-        'ts-border': '#ffd666',
-        'ts-border-dark': '#ff7733',
-        'ts-outline': '#390099',
+        'ts-text': '#3a0ca3',
+        'ts-text-muted': '#220761',
+        'ts-success': '#4361ee',
+        'ts-warning': '#f72585',
+        'ts-error': '#f72585',
+        'ts-border': '#93dff6',
+        'ts-border-dark': '#6a83f1',
+        'ts-outline': '#3a0ca3',
         // Theme Color Variants
-        'ts-duke-blue': '#390099',
-        'ts-murrey': '#9e0059',
-        'ts-folly': '#ff0054',
-        'ts-orange-pantone': '#ff5400',
-        'ts-amber': '#ffbd00',
-        // Duke Blue Shades
-        'duke-blue': {
-          100: '#0b001f',
-          200: '#16003d',
-          300: '#22005c',
-          400: '#2d007a',
-          500: '#390099',
-          600: '#5200e0',
-          700: '#7729ff',
-          800: '#a570ff',
-          900: '#d2b8ff'
+        'ts-rose': '#f72585',
+        'ts-grape': '#7209b7',
+        'ts-zaffre': '#3a0ca3',
+        'ts-neon-blue': '#4361ee',
+        'ts-vivid-sky-blue': '#4cc9f0',
+        // Rose Shades
+        'rose': {
+          100: '#37021a',
+          200: '#6e0434',
+          300: '#a5064e',
+          400: '#dc0868',
+          500: '#f72585',
+          600: '#f9529d',
+          700: '#fa7db5',
+          800: '#fca8ce',
+          900: '#fdd4e6'
         },
-        // Murrey Shades
-        'murrey': {
-          100: '#200012',
-          200: '#3f0024',
-          300: '#5f0036',
-          400: '#7e0048',
-          500: '#9e0059',
-          600: '#e40081',
-          700: '#ff2ca4',
-          800: '#ff72c2',
-          900: '#ffb9e1'
+        // Grape Shades
+        'grape': {
+          100: '#170225',
+          200: '#2e034a',
+          300: '#45056f',
+          400: '#5c0794',
+          500: '#7209b7',
+          600: '#980df4',
+          700: '#b14af6',
+          800: '#cb86f9',
+          900: '#e5c3fc'
         },
-        // Folly Shades
-        'folly': {
-          100: '#330011',
-          200: '#660022',
-          300: '#990033',
-          400: '#cc0044',
-          500: '#ff0054',
-          600: '#ff3377',
-          700: '#ff6699',
-          800: '#ff99bb',
-          900: '#ffccdd'
+        // Zaffre Shades
+        'zaffre': {
+          100: '#0b0220',
+          200: '#170541',
+          300: '#220761',
+          400: '#2e0a81',
+          500: '#3a0ca3',
+          600: '#4f11e0',
+          700: '#7743f1',
+          800: '#a582f6',
+          900: '#d2c0fa'
         },
-        // Orange (Pantone) Shades
-        'orange-pantone': {
-          100: '#331100',
-          200: '#662200',
-          300: '#993300',
-          400: '#cc4400',
-          500: '#ff5400',
-          600: '#ff7733',
-          700: '#ff9966',
-          800: '#ffbb99',
-          900: '#ffddcc'
+        // Neon Blue Shades
+        'neon-blue': {
+          100: '#050f38',
+          200: '#0a1d70',
+          300: '#102ca8',
+          400: '#153ae0',
+          500: '#4361ee',
+          600: '#6a83f1',
+          700: '#8fa2f5',
+          800: '#b4c1f8',
+          900: '#dae0fc'
         },
-        // Amber Shades
-        'amber': {
-          100: '#332500',
-          200: '#664b00',
-          300: '#997000',
-          400: '#cc9600',
-          500: '#ffbd00',
-          600: '#ffc933',
-          700: '#ffd666',
-          800: '#ffe499',
-          900: '#fff1cc'
+        // Vivid Sky Blue Shades
+        'vivid-sky-blue': {
+          100: '#052e3a',
+          200: '#095c75',
+          300: '#0e8aaf',
+          400: '#13b8ea',
+          500: '#4cc9f0',
+          600: '#70d5f3',
+          700: '#93dff6',
+          800: '#b7eaf9',
+          900: '#dbf4fc'
         }
   		},
   		keyframes: {
