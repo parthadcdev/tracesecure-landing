@@ -16,8 +16,8 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Inverted Background - Dark */}
-      <div className="absolute inset-0 bg-ts-primary" />
+      {/* Darker Background - Deepest shade */}
+      <div className="absolute inset-0 bg-zaffre-100" />
       
       {/* Abstract Geometric Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
