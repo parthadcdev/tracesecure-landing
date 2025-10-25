@@ -60,86 +60,112 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-        // Wine-Inspired Color Palette
-        'ts-primary': '#722f37',
-        'ts-secondary': '#8b0000',
-        'ts-accent': '#d4af37',
-        'ts-background': '#fef7f0',
-        'ts-surface': '#FFFFFF',
-        'ts-card': '#FFFFFF',
-        'ts-text': '#722f37',
-        'ts-text-muted': '#8b4513',
-        'ts-success': '#228b22',
-        'ts-warning': '#ff8c00',
-        'ts-error': '#dc143c',
-        'ts-border': '#e6d7c3',
-        'ts-border-dark': '#b8860b',
-        'ts-outline': '#722f37',
+        // Dark Purple/Violet Color Palette
+        'ts-primary': '#10002b',
+        'ts-secondary': '#3c096c',
+        'ts-accent': '#c77dff',
+        'ts-background': '#030008',
+        'ts-surface': '#10002b',
+        'ts-card': '#240046',
+        'ts-text': '#e0aaff',
+        'ts-text-muted': '#c77dff',
+        'ts-success': '#5a189a',
+        'ts-warning': '#7b2cbf',
+        'ts-error': '#9d4edd',
+        'ts-border': '#5a189a',
+        'ts-border-dark': '#7b2cbf',
+        'ts-outline': '#e0aaff',
         // Theme Color Variants
-        'ts-burgundy': '#722f37',
-        'ts-wine-red': '#8b0000',
-        'ts-gold': '#d4af37',
-        'ts-amber': '#ff8c00',
-        'ts-forest-green': '#228b22',
-        // Burgundy Shades
-        'burgundy': {
-          100: '#1a0a0c',
-          200: '#331418',
-          300: '#4d1f24',
-          400: '#662930',
-          500: '#722f37',
-          600: '#8b3a44',
-          700: '#a44551',
-          800: '#bd505e',
-          900: '#d65b6b'
+        'ts-russian-violet': '#10002b',
+        'ts-persian-indigo': '#3c096c',
+        'ts-tekhelet': '#5a189a',
+        'ts-french-violet': '#7b2cbf',
+        'ts-amethyst': '#9d4edd',
+        'ts-heliotrope': '#c77dff',
+        'ts-mauve': '#e0aaff',
+        // Russian Violet Shades
+        'russian-violet': {
+          100: '#030008',
+          200: '#060010',
+          300: '#090018',
+          400: '#0c0021',
+          500: '#10002b',
+          600: '#310087',
+          700: '#5400e4',
+          800: '#8843ff',
+          900: '#c4a1ff'
         },
-        // Wine Red Shades
-        'wine-red': {
-          100: '#1a0000',
-          200: '#330000',
-          300: '#4d0000',
-          400: '#660000',
-          500: '#8b0000',
-          600: '#b30000',
-          700: '#cc0000',
-          800: '#e60000',
-          900: '#ff0000'
+        // Persian Indigo Shades
+        'persian-indigo': {
+          100: '#0c0216',
+          200: '#18042b',
+          300: '#240541',
+          400: '#300757',
+          500: '#3c096c',
+          600: '#650fb5',
+          700: '#8d25ed',
+          800: '#b36ef3',
+          900: '#d9b6f9'
         },
-        // Gold Shades
-        'gold': {
-          100: '#2a1f0a',
-          200: '#543e14',
-          300: '#7e5d1e',
-          400: '#a87c28',
-          500: '#d4af37',
-          600: '#dbbf5a',
-          700: '#e2cf7d',
-          800: '#e9dfa0',
-          900: '#f0efc3'
+        // Tekhelet Shades
+        'tekhelet': {
+          100: '#12051f',
+          200: '#240a3e',
+          300: '#360e5d',
+          400: '#47137c',
+          500: '#5a189a',
+          600: '#7a21d4',
+          700: '#9c53e4',
+          800: '#bd8ced',
+          900: '#dec6f6'
         },
-        // Amber Shades
-        'amber': {
-          100: '#331a00',
-          200: '#663300',
-          300: '#994d00',
-          400: '#cc6600',
-          500: '#ff8c00',
-          600: '#ff9933',
-          700: '#ffa666',
-          800: '#ffb399',
-          900: '#ffc0cc'
+        // French Violet Shades
+        'french-violet': {
+          100: '#180926',
+          200: '#31114c',
+          300: '#491a73',
+          400: '#622399',
+          500: '#7b2cbf',
+          600: '#954bd6',
+          700: '#b078e0',
+          800: '#caa5eb',
+          900: '#e5d2f5'
         },
-        // Forest Green Shades
-        'forest-green': {
-          100: '#0a1a0a',
-          200: '#143314',
-          300: '#1e4d1e',
-          400: '#286628',
-          500: '#228b22',
-          600: '#3ca03c',
-          700: '#56b556',
-          800: '#70ca70',
-          900: '#8adf8a'
+        // Amethyst Shades
+        'amethyst': {
+          100: '#200a33',
+          200: '#401365',
+          300: '#601d98',
+          400: '#8127ca',
+          500: '#9d4edd',
+          600: '#b172e4',
+          700: '#c596eb',
+          800: '#d8b9f2',
+          900: '#ecdcf8'
+        },
+        // Heliotrope Shades
+        'heliotrope': {
+          100: '#2b004d',
+          200: '#570099',
+          300: '#8200e6',
+          400: '#a733ff',
+          500: '#c77dff',
+          600: '#d399ff',
+          700: '#deb3ff',
+          800: '#e9ccff',
+          900: '#f4e5ff'
+        },
+        // Mauve Shades
+        'mauve': {
+          100: '#360055',
+          200: '#6b00a9',
+          300: '#a100fe',
+          400: '#c054ff',
+          500: '#e0aaff',
+          600: '#e6baff',
+          700: '#eccbff',
+          800: '#f2dcff',
+          900: '#f9eeff'
         }
   		},
   		keyframes: {

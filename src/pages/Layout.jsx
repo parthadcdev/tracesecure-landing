@@ -126,38 +126,40 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Inter', sans-serif;
           
-        /* New Color Theme - Wine-Inspired Palette */
-        --color-background: #fef7f0;
-        --color-surface: #FFFFFF;
-        --color-card: #FFFFFF;
-        --color-text: #722f37;
-        --color-text-muted: #8b4513;
-        --color-primary: #722f37;
-        --color-secondary: #8b0000;
-        --color-accent: #d4af37;
-        --color-success: #228b22;
-        --color-warning: #ff8c00;
-        --color-error: #dc143c;
+        /* New Color Theme - Dark Purple/Violet Palette */
+        --color-background: #030008;
+        --color-surface: #10002b;
+        --color-card: #240046;
+        --color-text: #e0aaff;
+        --color-text-muted: #c77dff;
+        --color-primary: #10002b;
+        --color-secondary: #3c096c;
+        --color-accent: #c77dff;
+        --color-success: #5a189a;
+        --color-warning: #7b2cbf;
+        --color-error: #9d4edd;
         
         /* Theme Color Variants */
-        --color-burgundy: #722f37;
-        --color-wine-red: #8b0000;
-        --color-gold: #d4af37;
-        --color-amber: #ff8c00;
-        --color-forest-green: #228b22;
+        --color-russian-violet: #10002b;
+        --color-persian-indigo: #3c096c;
+        --color-tekhelet: #5a189a;
+        --color-french-violet: #7b2cbf;
+        --color-amethyst: #9d4edd;
+        --color-heliotrope: #c77dff;
+        --color-mauve: #e0aaff;
         
         /* Solid Colors for Flat Design */
-        --color-primary-solid: #722f37;
-        --color-secondary-solid: #8b0000;
-        --color-accent-solid: #d4af37;
-        --color-success-solid: #228b22;
-        --color-warning-solid: #ff8c00;
-        --color-error-solid: #dc143c;
+        --color-primary-solid: #10002b;
+        --color-secondary-solid: #3c096c;
+        --color-accent-solid: #c77dff;
+        --color-success-solid: #5a189a;
+        --color-warning-solid: #7b2cbf;
+        --color-error-solid: #9d4edd;
         
         /* Border and Outline Colors */
-        --color-border: #e6d7c3;
-        --color-border-dark: #b8860b;
-        --color-outline: #722f37;
+        --color-border: #5a189a;
+        --color-border-dark: #7b2cbf;
+        --color-outline: #e0aaff;
         }
 
         body {
