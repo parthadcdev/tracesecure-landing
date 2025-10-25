@@ -16,8 +16,8 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Dark Purple Background */}
-      <div className="absolute inset-0 bg-russian-violet-100" />
+      {/* Dark Purple Background - Override global background */}
+      <div className="absolute inset-0" style={{ backgroundColor: '#030008' }} />
       
       {/* Abstract Geometric Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
