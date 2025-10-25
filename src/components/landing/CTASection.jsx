@@ -113,6 +113,7 @@ export default function CTASection() {
   const [name, setName] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
+  const viewport = { once: true, amount: 0.2 };
 
   const scrollToWaitlist = () => {
     document.getElementById("waitlist-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -172,6 +173,7 @@ export default function CTASection() {
             className="text-3xl md:text-5xl font-bold mb-12 text-ts-text" style={{ fontSize: '32pt' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
             transition={{ duration: 0.6 }}
           >
             Simple Pricing for Beta Members

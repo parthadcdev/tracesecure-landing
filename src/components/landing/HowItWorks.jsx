@@ -134,6 +134,7 @@ export default function HowItWorks() {
                       stiffness: 200
                     }
                   }}
+                  viewport={viewport}
                   whileHover={{
                     scale: 1.1,
                     rotate: 5,
@@ -168,6 +169,7 @@ export default function HowItWorks() {
                       duration: 0.5
                     }
                   }}
+                  viewport={viewport}
                 >
                   {step.title}
                 </motion.h3>
@@ -184,6 +186,7 @@ export default function HowItWorks() {
                       duration: 0.5
                     }
                   }}
+                  viewport={viewport}
                 >
                   {step.description}
                 </motion.p>
@@ -201,6 +204,7 @@ export default function HowItWorks() {
                         duration: 0.5
                       }
                     }}
+                    viewport={viewport}
                   >
                     <div className="w-8 h-8 bg-ts-primary rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -223,6 +227,7 @@ export default function HowItWorks() {
                         duration: 0.5
                       }
                     }}
+                    viewport={viewport}
                   >
                     <div className="w-8 h-8 bg-ts-primary rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
