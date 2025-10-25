@@ -151,15 +151,15 @@ export default function HeroSection() {
           </div>
           
           {/* Dark Purple Typography - Light text on dark background */}
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-ts-mauve leading-tight mb-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8" style={{ color: '#e0aaff' }}>
             Digital Authenticity
             <br />
-            <span className="text-ts-heliotrope">
+            <span style={{ color: '#c77dff' }}>
               for Every Product
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-ts-heliotrope mb-12 leading-relaxed max-w-4xl mx-auto text-center">
+          <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl mx-auto text-center" style={{ color: '#c77dff' }}>
             Secure QR code-based digital history for luxury and craft producers.
             <br />
             Prove authenticity, stop counterfeits, and connect directly with customers.
@@ -231,13 +231,14 @@ export default function HeroSection() {
       >
         <motion.button
           onClick={scrollToNextSection}
-          className="flex flex-col items-center gap-3 p-4 bg-ts-heliotrope rounded-lg flat-shadow hover:flat-shadow-lg transition-all text-ts-primary hover:text-white"
+          className="flex flex-col items-center gap-3 p-4 bg-ts-heliotrope rounded-lg flat-shadow hover:flat-shadow-lg transition-all hover:text-white"
+          style={{ color: '#10002b' }}
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Scroll to next section"
         >
           <span className="text-xs uppercase tracking-wider font-medium">Discover How</span>
-              <ChevronDown className="w-5 h-5 text-ts-primary vector-icon" />
+              <ChevronDown className="w-5 h-5 vector-icon" style={{ color: '#10002b' }} />
         </motion.button>
       </motion.div>
     </section>
