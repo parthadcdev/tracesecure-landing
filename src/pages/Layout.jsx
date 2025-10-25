@@ -122,28 +122,42 @@ export default function Layout({ children, currentPageName }) {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&family=Montserrat:wght@400;700&display=swap');
         
         :root {
-          --font-serif: 'Playfair Display', serif;
+          --font-serif: 'Inter', sans-serif;
           --font-sans: 'Inter', sans-serif;
-          --font-brand: 'Montserrat', sans-serif;
+          --font-brand: 'Inter', sans-serif;
           
-          --color-background: #E0E1DD;
-          --color-surface: #F8F9FA;
-          --color-card: #FFFFFF;
-          --color-text: #0D1B2A;
-          --color-text-muted: #415A77;
-          --color-primary: #415A77;
-          --color-secondary: #778DA9;
-          --color-accent: #E0E1DD;
-          --color-success: #10B981;
-          --color-warning: #F59E0B;
-          --color-error: #EF4444;
-          
-          --gradient-primary: linear-gradient(135deg, #415A77 0%, #778DA9 100%);
-          --gradient-secondary: linear-gradient(135deg, #1B263B 0%, #415A77 100%);
-          --gradient-hero: linear-gradient(135deg, #E0E1DD 0%, #F8F9FA 50%, #E0E1DD 100%);
-          --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-          --gradient-accent: linear-gradient(135deg, #415A77 0%, #778DA9 100%);
-          --gradient-futuristic: linear-gradient(135deg, #E0E1DD 0%, #F8F9FA 25%, #FFFFFF 50%, #F8F9FA 75%, #E0E1DD 100%);
+        /* New Color Theme - Ocean & Sunset Palette */
+        --color-background: #e8f4fa;
+        --color-surface: #FFFFFF;
+        --color-card: #FFFFFF;
+        --color-text: #023047;
+        --color-text-muted: #1b5c7a;
+        --color-primary: #023047;
+        --color-secondary: #219ebc;
+        --color-accent: #8ecae6;
+        --color-success: #219ebc;
+        --color-warning: #ffb703;
+        --color-error: #fb8500;
+        
+        /* Theme Color Variants */
+        --color-sky-blue: #8ecae6;
+        --color-blue-green: #219ebc;
+        --color-prussian-blue: #023047;
+        --color-selective-yellow: #ffb703;
+        --color-ut-orange: #fb8500;
+        
+        /* Solid Colors for Flat Design */
+        --color-primary-solid: #023047;
+        --color-secondary-solid: #219ebc;
+        --color-accent-solid: #8ecae6;
+        --color-success-solid: #219ebc;
+        --color-warning-solid: #ffb703;
+        --color-error-solid: #fb8500;
+        
+        /* Border and Outline Colors */
+        --color-border: #bbdff0;
+        --color-border-dark: #51aed9;
+        --color-outline: #023047;
         }
 
         body {

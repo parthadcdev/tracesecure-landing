@@ -16,20 +16,20 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Modern futuristic background */}
-      <div className="absolute inset-0" style={{ background: 'var(--color-background)' }} />
+      {/* Flat Design Background */}
+      <div className="absolute inset-0 bg-ts-background" />
       
-      {/* Animated geometric shapes */}
+      {/* Abstract Geometric Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Large geometric shapes - simplified forms */}
         <motion.div
-          className="absolute top-20 left-10 w-40 h-40 opacity-10"
+          className="absolute top-20 left-10 w-32 h-32 bg-ts-blue-green opacity-20"
           style={{ 
-            background: 'linear-gradient(45deg, #415A77, #778DA9)',
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
           }}
           animate={{
-            rotate: [0, 360],
-            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: 20,
@@ -39,15 +39,10 @@ export default function HeroSection() {
         />
         
         <motion.div
-          className="absolute top-32 right-16 w-32 h-32 opacity-8"
-          style={{ 
-            background: 'linear-gradient(45deg, #1B263B, #415A77)',
-            borderRadius: '50%'
-          }}
+          className="absolute top-32 right-16 w-24 h-24 bg-ts-selective-yellow opacity-15 rounded-full"
           animate={{
-            y: [0, -30, 0],
-            x: [0, 20, 0],
-            scale: [1, 1.1, 1],
+            y: [0, -20, 0],
+            x: [0, 15, 0],
           }}
           transition={{
             duration: 15,
@@ -58,14 +53,13 @@ export default function HeroSection() {
         />
         
         <motion.div
-          className="absolute bottom-40 left-1/3 w-24 h-24 opacity-12"
+          className="absolute bottom-40 left-1/3 w-20 h-20 bg-ts-sky-blue opacity-25"
           style={{ 
-            background: 'linear-gradient(45deg, #778DA9, #E0E1DD)',
             clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
           }}
           animate={{
-            rotate: [0, -360],
-            scale: [1, 0.8, 1],
+            rotate: [0, -180, -360],
+            scale: [1, 0.9, 1],
           }}
           transition={{
             duration: 18,
@@ -75,22 +69,21 @@ export default function HeroSection() {
           }}
         />
         
-        {/* Floating particles */}
-        {[...Array(6)].map((_, i) => (
+        {/* Simplified floating elements */}
+        {[...Array(4)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 rounded-full opacity-20"
+            className="absolute w-3 h-3 bg-ts-primary opacity-30"
             style={{ 
-              background: '#415A77',
-              left: `${20 + i * 15}%`,
-              top: `${30 + i * 10}%`,
+              left: `${25 + i * 20}%`,
+              top: `${35 + i * 15}%`,
             }}
             animate={{
-              y: [0, -100, 0],
-              opacity: [0.2, 0.8, 0.2],
+              y: [0, -50, 0],
+              opacity: [0.3, 0.7, 0.3],
             }}
             transition={{
-              duration: 8 + i * 2,
+              duration: 6 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: i * 1.5,
@@ -98,46 +91,44 @@ export default function HeroSection() {
           />
         ))}
         
-        {/* Circuit-like lines */}
-        <div className="absolute inset-0 opacity-5">
+        {/* Clean vector lines */}
+        <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 1000 1000" fill="none">
             <motion.path
-              d="M100,200 Q300,100 500,200 T900,200"
-              stroke="#415A77"
+              d="M100,200 L500,200 L900,200"
+              stroke="var(--color-primary)"
+              strokeWidth="3"
+              fill="none"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.path
+              d="M200,400 L400,400 L600,400 L800,400"
+              stroke="var(--color-secondary)"
               strokeWidth="2"
               fill="none"
+              strokeLinecap="round"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
             <motion.path
-              d="M200,400 Q400,300 600,400 T1000,400"
-              stroke="#778DA9"
-              strokeWidth="1.5"
+              d="M50,600 L250,600 L450,600 L650,600 L850,600"
+              stroke="var(--color-accent)"
+              strokeWidth="2"
               fill="none"
+              strokeLinecap="round"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            />
-            <motion.path
-              d="M50,600 Q250,500 450,600 T850,600"
-              stroke="#1B263B"
-              strokeWidth="1"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
             />
           </svg>
         </div>
         
-        {/* Gradient overlay for depth */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse at center, rgba(65, 90, 119, 0.1) 0%, transparent 70%)'
-          }}
-        />
+        {/* Abstract background pattern */}
+        <div className="abstract-bg absolute inset-0" />
       </div>
       
       {/* Traceability visualization - hidden on mobile */}
@@ -145,9 +136,6 @@ export default function HeroSection() {
         <TraceabilityVisualization />
       </div>
       
-      {/* Subtle overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ts-background/20" />
-
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center mt-16 md:mt-0 mb-24 md:mb-32">
         <motion.div
           className="max-w-4xl"
@@ -155,61 +143,63 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
+          {/* Flat Design Badge */}
           <div className="mb-6">
-            <span className="inline-block px-4 py-2 bg-ts-primary/20 text-ts-primary text-sm font-semibold rounded-full border border-ts-primary/30 mb-6">
+            <span className="inline-block px-6 py-3 bg-ts-blue-green text-white text-sm font-semibold rounded-lg flat-shadow">
               Join the Beta - Early Access Available
             </span>
           </div>
           
-          <h1 className="text-6xl sm:text-7xl lg:text-9xl font-bold text-ts-text leading-tight mb-8" style={{ fontFamily: "var(--font-serif)" }}>
+          {/* Simplified Typography */}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-ts-text leading-tight mb-8">
             Digital Authenticity
             <br />
-            <span className="text-ts-primary">
+            <span className="text-ts-blue-green">
               for Every Product
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-ts-text-muted mb-12 leading-relaxed max-w-5xl mx-auto text-center" style={{ fontFamily: "var(--font-sans)" }}>
+          <p className="text-lg md:text-xl text-ts-text-muted mb-12 leading-relaxed max-w-4xl mx-auto text-center">
             Secure QR code-based digital history for luxury and craft producers.
             <br />
             Prove authenticity, stop counterfeits, and connect directly with customers.
           </p>
 
-          {/* Feature badges */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <span className="px-4 py-2 bg-ts-primary/10 text-ts-primary text-sm font-medium rounded-full border border-ts-primary/20">
+          {/* Flat Design Feature Badges */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <span className="px-4 py-2 bg-ts-sky-blue text-white text-sm font-medium rounded-lg flat-shadow">
               Prove Authenticity
             </span>
-            <span className="px-4 py-2 bg-ts-primary/10 text-ts-primary text-sm font-medium rounded-full border border-ts-primary/20">
+            <span className="px-4 py-2 bg-ts-ut-orange text-white text-sm font-medium rounded-lg flat-shadow">
               Stop Counterfeits
             </span>
-            <span className="px-4 py-2 bg-ts-primary/10 text-ts-primary text-sm font-medium rounded-full border border-ts-primary/20">
+            <span className="px-4 py-2 bg-ts-selective-yellow text-white text-sm font-medium rounded-lg flat-shadow">
               EU DPP Compliant
             </span>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          {/* Flat Design Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Button
                 onClick={scrollToWaitlist}
-                className="text-lg sm:text-xl px-8 py-6 sm:px-10 sm:py-8 rounded-xl shadow-2xl transition-all hover:shadow-2xl hover:scale-105 font-semibold"
-                style={{ background: 'var(--gradient-primary)', color: 'white' }}
+                className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-shadow-lg font-semibold bg-ts-blue-green text-white hover:bg-ts-primary transition-all"
                 aria-label="Join Beta Access"
               >
                 Join Beta Access
               </Button>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Button
                 onClick={scrollToNextSection}
                 variant="outline"
-                className="text-lg sm:text-xl px-8 py-6 sm:px-10 sm:py-8 rounded-xl border-2 border-ts-primary/50 text-ts-primary hover:bg-ts-primary/10 transition-all font-semibold"
+                className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-border-dark text-ts-primary hover:bg-ts-accent transition-all font-semibold"
                 aria-label="See How It Works"
               >
                 See How It Works
@@ -217,22 +207,22 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Additional feature badges */}
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
-            <span className="px-4 py-2 bg-ts-accent/10 text-ts-accent text-sm font-medium rounded-full border border-ts-accent/20">
+          {/* Additional Flat Design Badges */}
+          <div className="flex flex-wrap justify-center gap-3 mt-12">
+            <span className="px-4 py-2 bg-ts-accent text-ts-text text-sm font-medium rounded-lg flat-border">
               Enterprise Security
             </span>
-            <span className="px-4 py-2 bg-ts-accent/10 text-ts-accent text-sm font-medium rounded-full border border-ts-accent/20">
+            <span className="px-4 py-2 bg-ts-accent text-ts-text text-sm font-medium rounded-lg flat-border">
               GDPR Compliant
             </span>
-            <span className="px-4 py-2 bg-ts-accent/10 text-ts-accent text-sm font-medium rounded-full border border-ts-accent/20">
+            <span className="px-4 py-2 bg-ts-accent text-ts-text text-sm font-medium rounded-lg flat-border">
               EU DPP Ready
             </span>
           </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator - properly centered */}
+      {/* Flat Design Scroll Indicator */}
       <motion.div
         className="absolute bottom-12 left-0 right-0 flex justify-center"
         initial={{ opacity: 0, y: -10 }}
@@ -241,13 +231,13 @@ export default function HeroSection() {
       >
         <motion.button
           onClick={scrollToNextSection}
-          className="flex flex-col items-center gap-2 text-ts-text-muted hover:text-ts-primary transition-colors"
-          animate={{ y: [0, 8, 0] }}
+          className="flex flex-col items-center gap-3 p-4 bg-ts-surface rounded-lg flat-shadow hover:flat-shadow-lg transition-all text-ts-text-muted hover:text-ts-primary"
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Scroll to next section"
         >
-          <span className="text-xs uppercase tracking-wider font-sans">Discover How</span>
-          <ChevronDown className="w-6 h-6" />
+          <span className="text-xs uppercase tracking-wider font-medium">Discover How</span>
+          <ChevronDown className="w-5 h-5 text-ts-blue-green vector-icon" />
         </motion.button>
       </motion.div>
     </section>
