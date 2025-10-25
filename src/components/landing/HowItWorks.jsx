@@ -279,11 +279,56 @@ export default function HowItWorks() {
           <p className="text-lg mb-8 text-ts-text-muted">
             Earn $TRACE for every trace - redeem for perks or stake.
           </p>
-          <img 
-            src="/images/trace-rewards-menu.png" 
-            alt="Mockup of the TRACE rewards menu showing how to earn and redeem tokens."
-            className="rounded-xl shadow-2xl mx-auto max-w-sm w-full"
-          />
+          
+          {/* Modern Rewards Visualization */}
+          <div className="relative max-w-2xl mx-auto">
+            <div className="bg-gradient-to-br from-ts-primary/10 to-ts-secondary/10 rounded-3xl p-8 shadow-2xl border border-ts-primary/20">
+              {/* Rewards Card Design */}
+              <div className="grid md:grid-cols-3 gap-6 mb-6">
+                <div className="bg-ts-card rounded-2xl p-6 shadow-lg border border-ts-primary/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-ts-success to-emerald-500 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-ts-text mb-2">Earn $TRACE</h4>
+                  <p className="text-sm text-ts-text-muted">For every product trace</p>
+                </div>
+                
+                <div className="bg-ts-card rounded-2xl p-6 shadow-lg border border-ts-primary/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-ts-warning to-orange-500 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-ts-text mb-2">Redeem Rewards</h4>
+                  <p className="text-sm text-ts-text-muted">Exclusive perks & benefits</p>
+                </div>
+                
+                <div className="bg-ts-card rounded-2xl p-6 shadow-lg border border-ts-primary/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-ts-text mb-2">Stake & Grow</h4>
+                  <p className="text-sm text-ts-text-muted">Compound your rewards</p>
+                </div>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="bg-ts-surface rounded-2xl p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm font-semibold text-ts-text">Your $TRACE Balance</span>
+                  <span className="text-2xl font-bold text-ts-primary">1,250</span>
+                </div>
+                <div className="w-full bg-ts-text-muted/20 rounded-full h-3 mb-2">
+                  <div className="bg-gradient-to-r from-ts-primary to-ts-secondary h-3 rounded-full" style={{ width: '65%' }}></div>
+                </div>
+                <p className="text-sm text-ts-text-muted">Next milestone: 2,000 $TRACE</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
