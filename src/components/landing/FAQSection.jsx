@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const faqCategories = [
+  'All',
   'Getting Started',
   'Technical',
   'Compliance',
@@ -89,11 +90,11 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [selectedCategory, setSelectedCategory] = useState('Getting Started');
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [openItems, setOpenItems] = useState(new Set());
   const viewport = { once: true, amount: 0.2 };
 
-  const filteredFaqs = faqs.filter(faq => faq.category === selectedCategory);
+  const filteredFaqs = selectedCategory === 'All' ? faqs : faqs.filter(faq => faq.category === selectedCategory);
 
   const toggleItem = (index) => {
     const newOpenItems = new Set(openItems);
@@ -103,6 +104,12 @@ export default function FAQSection() {
       newOpenItems.add(index);
     }
     setOpenItems(newOpenItems);
+  };
+
+  // Reset open items when category changes
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setOpenItems(new Set());
   };
 
   return (
@@ -132,7 +139,7 @@ export default function FAQSection() {
           {faqCategories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                 selectedCategory === category
                   ? 'bg-ts-primary text-white shadow-lg'
@@ -146,43 +153,56 @@ export default function FAQSection() {
 
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto">
-          {filteredFaqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              className="bg-ts-card rounded-2xl mb-4 shadow-xl border border-ts-primary/20 overflow-hidden"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewport}
-              transition={{ delay: 0.1 + index * 0.05, duration: 0.6 }}
-            >
-              <button
-                onClick={() => toggleItem(index)}
-                className="w-full p-6 text-left flex justify-between items-center hover:bg-ts-primary/5 transition-colors"
+          {filteredFaqs.map((faq, index) => {
+            // Use the original index from the full faqs array for consistent state management
+            const originalIndex = selectedCategory === 'All' ? 
+              faqs.findIndex(f => f.question === faq.question) : index;
+            
+            return (
+              <motion.div
+                key={`${faq.category}-${faq.question}`}
+                className="bg-ts-card rounded-2xl mb-4 shadow-xl border border-ts-primary/20 overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewport}
+                transition={{ delay: 0.1 + index * 0.05, duration: 0.6 }}
               >
-                <h3 className="text-lg font-semibold text-ts-text pr-4">
-                  {faq.question}
-                </h3>
-                <ChevronDown 
-                  className={`w-5 h-5 text-ts-primary transition-transform ${
-                    openItems.has(index) ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {openItems.has(index) && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="px-6 pb-6"
+                <button
+                  onClick={() => toggleItem(originalIndex)}
+                  className="w-full p-6 text-left flex justify-between items-center hover:bg-ts-primary/5 transition-colors"
                 >
-                  <p className="text-ts-text-muted leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
+                  <div className="flex-1 pr-4">
+                    {selectedCategory === 'All' && (
+                      <div className="text-xs font-semibold text-ts-primary mb-2 uppercase tracking-wide">
+                        {faq.category}
+                      </div>
+                    )}
+                    <h3 className="text-lg font-semibold text-ts-text">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-ts-primary transition-transform flex-shrink-0 ${
+                      openItems.has(originalIndex) ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {openItems.has(originalIndex) && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-6 pb-6"
+                  >
+                    <p className="text-ts-text-muted leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Still have questions CTA */}
