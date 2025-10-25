@@ -53,13 +53,30 @@ export default function Header() {
       window.scrollTo(0, 0);
     } else if (item.anchor) {
       if (isLandingPage) {
-        document.getElementById(item.anchor)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const element = document.getElementById(item.anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          console.warn(`Element with id "${item.anchor}" not found`);
+        }
       } else {
         navigate(createPageUrl('Landing'));
         // Scroll after navigation
         setTimeout(() => {
-          document.getElementById(item.anchor)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
+          const element = document.getElementById(item.anchor);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            console.warn(`Element with id "${item.anchor}" not found`);
+            // Try again after a longer delay for lazy-loaded components
+            setTimeout(() => {
+              const retryElement = document.getElementById(item.anchor);
+              if (retryElement) {
+                retryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }, 500);
+          }
+        }, 200);
       }
     }
   };
@@ -67,12 +84,29 @@ export default function Header() {
   const scrollTo = (id) => {
     setIsMenuOpen(false); // Close menu on scroll
     if (isLandingPage) {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          console.warn(`Element with id "${id}" not found`);
+        }
     } else {
         navigate(createPageUrl('Landing'));
         setTimeout(() => {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
+            const element = document.getElementById(id);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+              console.warn(`Element with id "${id}" not found`);
+              // Try again after a longer delay for lazy-loaded components
+              setTimeout(() => {
+                const retryElement = document.getElementById(id);
+                if (retryElement) {
+                  retryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }, 500);
+            }
+        }, 200);
     }
   };
 
@@ -84,7 +118,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-ts-surface/90 shadow-lg backdrop-blur-xl border-b border-ts-primary/20`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-ts-surface flat-shadow border-b-2 border-ts-border`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -120,8 +154,7 @@ export default function Header() {
           <div className="hidden md:flex">
             <Button 
               onClick={() => scrollTo('waitlist-form')}
-              className="text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
-              style={{ background: 'var(--gradient-primary)', fontFamily: 'var(--font-sans)' }}
+              className="text-white font-semibold px-6 py-3 rounded-lg flat-shadow hover:flat-shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary"
             >
               Join Beta
             </Button>
@@ -148,7 +181,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-ts-surface shadow-lg"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-ts-surface flat-shadow-lg"
             >
               <div className="p-6 flex justify-between items-center border-b">
                  <div 
@@ -177,8 +210,7 @@ export default function Header() {
                 ))}
                 <Button 
                   onClick={() => scrollTo('waitlist-form')}
-                  className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-lg"
-                  style={{ background: 'var(--gradient-primary)', fontFamily: 'var(--font-sans)' }}
+                  className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg flat-shadow bg-ts-accent-blue hover:bg-ts-primary"
                 >
                   Join Beta
                 </Button>
