@@ -126,38 +126,38 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Inter', sans-serif;
           
-        /* New Color Theme - Ocean & Sunset Palette */
-        --color-background: #e8f4fa;
+        /* New Color Theme - Vibrant Bold Palette */
+        --color-background: #fff1cc;
         --color-surface: #FFFFFF;
         --color-card: #FFFFFF;
-        --color-text: #023047;
-        --color-text-muted: #1b5c7a;
-        --color-primary: #023047;
-        --color-secondary: #219ebc;
-        --color-accent: #8ecae6;
-        --color-success: #219ebc;
-        --color-warning: #ffb703;
-        --color-error: #fb8500;
+        --color-text: #390099;
+        --color-text-muted: #22005c;
+        --color-primary: #390099;
+        --color-secondary: #9e0059;
+        --color-accent: #ffbd00;
+        --color-success: #ff5400;
+        --color-warning: #ffbd00;
+        --color-error: #ff0054;
         
         /* Theme Color Variants */
-        --color-sky-blue: #8ecae6;
-        --color-blue-green: #219ebc;
-        --color-prussian-blue: #023047;
-        --color-selective-yellow: #ffb703;
-        --color-ut-orange: #fb8500;
+        --color-duke-blue: #390099;
+        --color-murrey: #9e0059;
+        --color-folly: #ff0054;
+        --color-orange-pantone: #ff5400;
+        --color-amber: #ffbd00;
         
         /* Solid Colors for Flat Design */
-        --color-primary-solid: #023047;
-        --color-secondary-solid: #219ebc;
-        --color-accent-solid: #8ecae6;
-        --color-success-solid: #219ebc;
-        --color-warning-solid: #ffb703;
-        --color-error-solid: #fb8500;
+        --color-primary-solid: #390099;
+        --color-secondary-solid: #9e0059;
+        --color-accent-solid: #ffbd00;
+        --color-success-solid: #ff5400;
+        --color-warning-solid: #ffbd00;
+        --color-error-solid: #ff0054;
         
         /* Border and Outline Colors */
-        --color-border: #bbdff0;
-        --color-border-dark: #51aed9;
-        --color-outline: #023047;
+        --color-border: #ffd666;
+        --color-border-dark: #ff7733;
+        --color-outline: #390099;
         }
 
         body {

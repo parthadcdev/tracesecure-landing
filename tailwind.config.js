@@ -60,86 +60,86 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-        // Ocean & Sunset Color Palette
-        'ts-primary': '#023047',
-        'ts-secondary': '#219ebc',
-        'ts-accent': '#8ecae6',
-        'ts-background': '#e8f4fa',
+        // Vibrant Bold Color Palette
+        'ts-primary': '#390099',
+        'ts-secondary': '#9e0059',
+        'ts-accent': '#ffbd00',
+        'ts-background': '#fff1cc',
         'ts-surface': '#FFFFFF',
         'ts-card': '#FFFFFF',
-        'ts-text': '#023047',
-        'ts-text-muted': '#1b5c7a',
-        'ts-success': '#219ebc',
-        'ts-warning': '#ffb703',
-        'ts-error': '#fb8500',
-        'ts-border': '#bbdff0',
-        'ts-border-dark': '#51aed9',
-        'ts-outline': '#023047',
+        'ts-text': '#390099',
+        'ts-text-muted': '#22005c',
+        'ts-success': '#ff5400',
+        'ts-warning': '#ffbd00',
+        'ts-error': '#ff0054',
+        'ts-border': '#ffd666',
+        'ts-border-dark': '#ff7733',
+        'ts-outline': '#390099',
         // Theme Color Variants
-        'ts-sky-blue': '#8ecae6',
-        'ts-blue-green': '#219ebc',
-        'ts-prussian-blue': '#023047',
-        'ts-selective-yellow': '#ffb703',
-        'ts-ut-orange': '#fb8500',
-        // Sky Blue Shades
-        'sky-blue': {
-          100: '#0d2e3d',
-          200: '#1b5c7a',
-          300: '#288ab7',
-          400: '#51aed9',
-          500: '#8ecae6',
-          600: '#a5d5eb',
-          700: '#bbdff0',
-          800: '#d2eaf5',
-          900: '#e8f4fa'
+        'ts-duke-blue': '#390099',
+        'ts-murrey': '#9e0059',
+        'ts-folly': '#ff0054',
+        'ts-orange-pantone': '#ff5400',
+        'ts-amber': '#ffbd00',
+        // Duke Blue Shades
+        'duke-blue': {
+          100: '#0b001f',
+          200: '#16003d',
+          300: '#22005c',
+          400: '#2d007a',
+          500: '#390099',
+          600: '#5200e0',
+          700: '#7729ff',
+          800: '#a570ff',
+          900: '#d2b8ff'
         },
-        // Blue Green Shades
-        'blue-green': {
-          100: '#071f25',
-          200: '#0d3e4b',
-          300: '#145d70',
-          400: '#1a7d95',
-          500: '#219ebc',
-          600: '#39bcdc',
-          700: '#6bcce5',
-          800: '#9cddee',
-          900: '#ceeef6'
+        // Murrey Shades
+        'murrey': {
+          100: '#200012',
+          200: '#3f0024',
+          300: '#5f0036',
+          400: '#7e0048',
+          500: '#9e0059',
+          600: '#e40081',
+          700: '#ff2ca4',
+          800: '#ff72c2',
+          900: '#ffb9e1'
         },
-        // Prussian Blue Shades
-        'prussian-blue': {
-          100: '#00090e',
-          200: '#01131c',
-          300: '#011c2a',
-          400: '#012638',
-          500: '#023047',
-          600: '#04699b',
-          700: '#06a3f1',
-          800: '#54c3fb',
-          900: '#a9e1fd'
+        // Folly Shades
+        'folly': {
+          100: '#330011',
+          200: '#660022',
+          300: '#990033',
+          400: '#cc0044',
+          500: '#ff0054',
+          600: '#ff3377',
+          700: '#ff6699',
+          800: '#ff99bb',
+          900: '#ffccdd'
         },
-        // Selective Yellow Shades
-        'selective-yellow': {
-          100: '#342500',
-          200: '#684b00',
-          300: '#9c7000',
-          400: '#d09500',
-          500: '#ffb703',
-          600: '#ffc637',
-          700: '#ffd569',
-          800: '#ffe39b',
-          900: '#fff1cd'
+        // Orange (Pantone) Shades
+        'orange-pantone': {
+          100: '#331100',
+          200: '#662200',
+          300: '#993300',
+          400: '#cc4400',
+          500: '#ff5400',
+          600: '#ff7733',
+          700: '#ff9966',
+          800: '#ffbb99',
+          900: '#ffddcc'
         },
-        // UT Orange Shades
-        'ut-orange': {
-          100: '#321b00',
-          200: '#643500',
-          300: '#965000',
-          400: '#c86b00',
-          500: '#fb8500',
-          600: '#ff9e2f',
-          700: '#ffb663',
-          800: '#ffce97',
-          900: '#ffe7cb'
+        // Amber Shades
+        'amber': {
+          100: '#332500',
+          200: '#664b00',
+          300: '#997000',
+          400: '#cc9600',
+          500: '#ffbd00',
+          600: '#ffc933',
+          700: '#ffd666',
+          800: '#ffe499',
+          900: '#fff1cc'
         }
   		},
   		keyframes: {

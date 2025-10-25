@@ -23,7 +23,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         {/* Large geometric shapes - simplified forms */}
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-ts-blue-green opacity-20"
+          className="absolute top-20 left-10 w-32 h-32 bg-ts-duke-blue opacity-20"
           style={{ 
             clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
           }}
@@ -39,7 +39,7 @@ export default function HeroSection() {
         />
         
         <motion.div
-          className="absolute top-32 right-16 w-24 h-24 bg-ts-selective-yellow opacity-15 rounded-full"
+          className="absolute top-32 right-16 w-24 h-24 bg-ts-amber opacity-15 rounded-full"
           animate={{
             y: [0, -20, 0],
             x: [0, 15, 0],
@@ -53,7 +53,7 @@ export default function HeroSection() {
         />
         
         <motion.div
-          className="absolute bottom-40 left-1/3 w-20 h-20 bg-ts-sky-blue opacity-25"
+          className="absolute bottom-40 left-1/3 w-20 h-20 bg-ts-folly opacity-25"
           style={{ 
             clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
           }}
@@ -145,7 +145,7 @@ export default function HeroSection() {
 
           {/* Flat Design Badge */}
           <div className="mb-6">
-            <span className="inline-block px-6 py-3 bg-ts-blue-green text-white text-sm font-semibold rounded-lg flat-shadow">
+            <span className="inline-block px-6 py-3 bg-ts-murrey text-white text-sm font-semibold rounded-lg flat-shadow">
               Join the Beta - Early Access Available
             </span>
           </div>
@@ -154,7 +154,7 @@ export default function HeroSection() {
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold text-ts-text leading-tight mb-8">
             Digital Authenticity
             <br />
-            <span className="text-ts-blue-green">
+            <span className="text-ts-murrey">
               for Every Product
             </span>
           </h1>
@@ -167,13 +167,13 @@ export default function HeroSection() {
 
           {/* Flat Design Feature Badges */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <span className="px-4 py-2 bg-ts-sky-blue text-white text-sm font-medium rounded-lg flat-shadow">
+            <span className="px-4 py-2 bg-ts-duke-blue text-white text-sm font-medium rounded-lg flat-shadow">
               Prove Authenticity
             </span>
-            <span className="px-4 py-2 bg-ts-ut-orange text-white text-sm font-medium rounded-lg flat-shadow">
+            <span className="px-4 py-2 bg-ts-orange-pantone text-white text-sm font-medium rounded-lg flat-shadow">
               Stop Counterfeits
             </span>
-            <span className="px-4 py-2 bg-ts-selective-yellow text-white text-sm font-medium rounded-lg flat-shadow">
+            <span className="px-4 py-2 bg-ts-amber text-white text-sm font-medium rounded-lg flat-shadow">
               EU DPP Compliant
             </span>
           </div>
@@ -186,7 +186,7 @@ export default function HeroSection() {
             >
               <Button
                 onClick={scrollToWaitlist}
-                className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-shadow-lg font-semibold bg-ts-blue-green text-white hover:bg-ts-primary transition-all"
+                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg flat-shadow-lg font-semibold bg-ts-murrey text-white hover:bg-ts-primary transition-all"
                 aria-label="Join Beta Access"
               >
                 Join Beta Access
@@ -237,7 +237,7 @@ export default function HeroSection() {
           aria-label="Scroll to next section"
         >
           <span className="text-xs uppercase tracking-wider font-medium">Discover How</span>
-          <ChevronDown className="w-5 h-5 text-ts-blue-green vector-icon" />
+              <ChevronDown className="w-5 h-5 text-ts-murrey vector-icon" />
         </motion.button>
       </motion.div>
     </section>
