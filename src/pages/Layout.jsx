@@ -127,11 +127,11 @@ export default function Layout({ children, currentPageName }) {
           --font-brand: 'Inter', sans-serif;
           
         /* New Color Theme - Dark Purple/Violet Palette */
-        --color-background: #030008;
-        --color-surface: #10002b;
-        --color-card: #240046;
-        --color-text: #e0aaff;
-        --color-text-muted: #c77dff;
+        --color-background: #f9eeff;
+        --color-surface: #f2dcff;
+        --color-card: #eccbff;
+        --color-text: #10002b;
+        --color-text-muted: #3c096c;
         --color-primary: #10002b;
         --color-secondary: #3c096c;
         --color-accent: #c77dff;
