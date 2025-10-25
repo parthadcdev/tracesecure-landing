@@ -7,25 +7,33 @@ const dppFeatures = [
     icon: CheckCircle,
     title: 'Product Information',
     status: 'Fully Supported',
-    description: 'Comprehensive product details including materials, manufacturing processes, and composition data.'
+    description: 'Comprehensive product details including materials, manufacturing processes, and composition data.',
+    iconColor: 'from-green-500 to-emerald-500',
+    iconBg: 'from-green-50 to-emerald-50'
   },
   {
     icon: CheckCircle,
     title: 'Sustainability Data',
     status: 'Automated Tracking',
-    description: 'Carbon footprint, recyclability, repair information, and environmental impact metrics.'
+    description: 'Carbon footprint, recyclability, repair information, and environmental impact metrics.',
+    iconColor: 'from-blue-500 to-cyan-500',
+    iconBg: 'from-blue-50 to-cyan-50'
   },
   {
     icon: CheckCircle,
     title: 'Lifecycle Tracking',
     status: 'Real-time Updates',
-    description: 'Complete product journey from raw materials to end-of-life disposal or recycling.'
+    description: 'Complete product journey from raw materials to end-of-life disposal or recycling.',
+    iconColor: 'from-purple-500 to-violet-500',
+    iconBg: 'from-purple-50 to-violet-50'
   },
   {
     icon: CheckCircle,
     title: 'Compliance Verification',
     status: 'Always Current',
-    description: 'Automatic compliance checks and reporting for all EU DPP requirements and updates.'
+    description: 'Automatic compliance checks and reporting for all EU DPP requirements and updates.',
+    iconColor: 'from-orange-500 to-red-500',
+    iconBg: 'from-orange-50 to-red-50'
   }
 ];
 
@@ -60,22 +68,30 @@ const benefits = [
   {
     icon: Shield,
     title: 'Regulatory Readiness',
-    description: 'Stay ahead of EU regulations with built-in compliance for current and upcoming DPP requirements.'
+    description: 'Stay ahead of EU regulations with built-in compliance for current and upcoming DPP requirements.',
+    iconColor: 'from-blue-500 to-indigo-500',
+    iconBg: 'from-blue-50 to-indigo-50'
   },
   {
     icon: DollarSign,
     title: 'Cost Efficient',
-    description: 'Avoid expensive compliance retrofitting by implementing DPP-ready systems from day one.'
+    description: 'Avoid expensive compliance retrofitting by implementing DPP-ready systems from day one.',
+    iconColor: 'from-green-500 to-emerald-500',
+    iconBg: 'from-green-50 to-emerald-50'
   },
   {
     icon: Target,
     title: 'Market Access',
-    description: 'Ensure continued access to EU markets with compliant digital product passports.'
+    description: 'Ensure continued access to EU markets with compliant digital product passports.',
+    iconColor: 'from-purple-500 to-pink-500',
+    iconBg: 'from-purple-50 to-pink-50'
   },
   {
     icon: Award,
     title: 'Competitive Advantage',
-    description: 'Lead your industry with transparent, sustainable, and digitally verified products.'
+    description: 'Lead your industry with transparent, sustainable, and digitally verified products.',
+    iconColor: 'from-yellow-500 to-orange-500',
+    iconBg: 'from-yellow-50 to-orange-50'
   }
 ];
 
@@ -119,8 +135,9 @@ export default function DPPComplianceSection() {
                 viewport={viewport}
                 transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div className={`w-16 h-16 bg-gradient-to-br ${feature.iconColor} rounded-2xl flex items-center justify-center mb-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.iconBg} opacity-0 hover:opacity-100 transition-opacity duration-300`}></div>
+                  <feature.icon className="w-8 h-8 text-white relative z-10" />
                 </div>
                 <h4 className="text-lg font-bold mb-2 text-ts-text">
                   {feature.title}
@@ -403,8 +420,9 @@ export default function DPPComplianceSection() {
                 transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
               >
                 <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
-                  <div className="w-12 h-12 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <benefit.icon className="w-6 h-6 text-white" />
+                  <div className={`w-16 h-16 bg-gradient-to-br ${benefit.iconColor} rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${benefit.iconBg} opacity-0 hover:opacity-100 transition-opacity duration-300`}></div>
+                    <benefit.icon className="w-8 h-8 text-white relative z-10" />
                   </div>
                   <h4 className="text-lg font-bold mb-3 text-ts-text">
                     {benefit.title}

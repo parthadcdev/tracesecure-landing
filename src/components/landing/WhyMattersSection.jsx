@@ -25,25 +25,33 @@ const transformations = [
     icon: TrendingUp,
     title: 'Instant Verification',
     subtitle: 'Increased Sales',
-    description: 'Customers gain immediate confidence in their purchases with tamper-proof digital certificates.'
+    description: 'Customers gain immediate confidence in their purchases with tamper-proof digital certificates.',
+    iconColor: 'from-green-500 to-emerald-500',
+    iconBg: 'from-green-50 to-emerald-50'
   },
   {
     icon: Users,
     title: 'Direct Connection',
     subtitle: 'Customer Loyalty',
-    description: 'Build lasting relationships with customers through authentic product storytelling and engagement.'
+    description: 'Build lasting relationships with customers through authentic product storytelling and engagement.',
+    iconColor: 'from-blue-500 to-cyan-500',
+    iconBg: 'from-blue-50 to-cyan-50'
   },
   {
     icon: Shield,
     title: 'Brand Protection',
     subtitle: 'Brand Value',
-    description: 'Protect your intellectual property and reputation with unbreakable digital authenticity.'
+    description: 'Protect your intellectual property and reputation with unbreakable digital authenticity.',
+    iconColor: 'from-red-500 to-pink-500',
+    iconBg: 'from-red-50 to-pink-50'
   },
   {
     icon: Leaf,
     title: 'Sustainability Proof',
     subtitle: 'Market Differentiation',
-    description: 'Demonstrate your commitment to ethical sourcing and environmental responsibility.'
+    description: 'Demonstrate your commitment to ethical sourcing and environmental responsibility.',
+    iconColor: 'from-green-600 to-teal-500',
+    iconBg: 'from-green-50 to-teal-50'
   }
 ];
 
@@ -142,8 +150,9 @@ export default function WhyMattersSection() {
                 transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
               >
                 <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
-                  <div className="w-12 h-12 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-lg flex items-center justify-center mb-4 mx-auto">
-                    <transformation.icon className="w-6 h-6 text-white" />
+                  <div className={`w-16 h-16 bg-gradient-to-br ${transformation.iconColor} rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${transformation.iconBg} opacity-0 hover:opacity-100 transition-opacity duration-300`}></div>
+                    <transformation.icon className="w-8 h-8 text-white relative z-10" />
                   </div>
                   <h4 className="text-lg font-bold mb-2 text-ts-text">
                     {transformation.title}
