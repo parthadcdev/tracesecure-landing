@@ -67,40 +67,36 @@ const pricingPlans = [
 ];
 
 const PricingCard = ({ plan, onCtaClick }) => (
-  <div className={`border-2 rounded-2xl p-8 flex flex-col text-center items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${plan.highlight ? 'border-ts-accent shadow-2xl bg-gradient-to-br from-ts-accent/10 to-ts-secondary/10' : 'border-ts-primary/20 shadow-xl'}`} style={{backgroundColor: 'var(--color-card)'}}>
-    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1 mb-6">
-      <img src={plan.icon} alt={plan.alt} className="w-full h-full rounded-full object-cover" />
+  <div className={`bg-ts-card border-2 ${plan.highlight ? 'border-ts-border-dark shadow-lg bg-ts-accent/5' : 'border-ts-border'} rounded-xl p-6 flex flex-col text-center items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
+    <div className="w-20 h-20 rounded-lg bg-ts-accent-blue p-2 mb-6 shadow-md">
+      <img src={plan.icon} alt={plan.alt} className="w-full h-full rounded-lg object-cover" />
     </div>
     {plan.highlight && (
-      <div className="bg-ts-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-4">
+      <div className="bg-ts-accent-blue text-white text-xs font-bold px-3 py-1 rounded-lg mb-4">
         Most Popular
       </div>
     )}
-    <h3 className="text-2xl font-bold mb-2 text-ts-text">{plan.name}</h3>
+    <h3 className="text-xl font-bold mb-2 text-ts-text">{plan.name}</h3>
     <div className="mb-2">
       {plan.originalPrice && (
         <span className="text-lg text-ts-text-muted line-through mr-2">{plan.originalPrice}</span>
       )}
-      <span className="text-4xl font-bold text-ts-primary">{plan.price}</span>
+      <span className="text-3xl font-bold text-ts-accent-blue">{plan.price}</span>
       {plan.originalPrice && <span className="text-sm text-ts-text-muted">/month</span>}
     </div>
     <p className="text-sm mb-4 h-10 text-ts-text-muted">{plan.description}</p>
-    <ul className="space-y-3 text-left mb-6 flex-grow">
+    <ul className="space-y-2 text-left mb-6 flex-grow">
       {plan.features.map(feature => (
         <li key={feature} className="flex items-start">
-          <Check className="w-5 h-5 text-ts-secondary mr-3 flex-shrink-0 mt-0.5" />
-          <span className="text-ts-text">{feature}</span>
+          <Check className="w-4 h-4 text-ts-accent-blue mr-3 flex-shrink-0 mt-0.5 [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]" />
+          <span className="text-sm text-ts-text">{feature}</span>
         </li>
       ))}
     </ul>
     {plan.limit && <p className="text-xs mb-4 text-ts-text-muted">{plan.limit}</p>}
     <Button 
       onClick={onCtaClick} 
-      className="w-full mt-auto font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
-      style={{ 
-        background: plan.highlight ? 'var(--gradient-accent)' : 'var(--gradient-primary)', 
-        color: 'white' 
-      }}
+      className="w-full mt-auto font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white"
     >
       {plan.cta}
     </Button>
@@ -170,7 +166,7 @@ export default function CTASection() {
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h2 
-            className="text-3xl md:text-5xl font-bold mb-12 text-ts-text" style={{ fontSize: '32pt' }}
+            className="text-3xl md:text-5xl font-bold mb-12 text-ts-text"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewport}
@@ -184,20 +180,20 @@ export default function CTASection() {
               Join our beta program and get exclusive pricing with all the features you need to secure your products.
             </p>
             
-            <div className="grid md:grid-cols-4 gap-6 mb-8">
-              <div className="text-center">
+            <div className="grid md:grid-cols-4 gap-4 mb-8">
+              <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Early Bird Pricing</h3>
                 <p className="text-sm text-ts-text-muted">50% off for the first year when you join our beta program</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Direct Access</h3>
                 <p className="text-sm text-ts-text-muted">Work directly with our team to shape product features</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Locked-in Rates</h3>
                 <p className="text-sm text-ts-text-muted">Keep your beta pricing even after public launch</p>
               </div>
-              <div className="text-center">
+              <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Free Training</h3>
                 <p className="text-sm text-ts-text-muted">Comprehensive onboarding and training included</p>
               </div>
@@ -214,33 +210,33 @@ export default function CTASection() {
               <h3 className="text-2xl font-bold text-ts-text mb-4">Questions about pricing?</h3>
               <p className="text-ts-text-muted mb-6">Our beta program includes personalized onboarding and direct access to our product team.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-6 py-3 bg-ts-primary text-white font-semibold rounded-xl hover:bg-ts-primary/90 transition-colors">
+                <button className="px-6 py-3 bg-ts-accent-blue text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">
                   Contact Sales
                 </button>
-                <button className="px-6 py-3 border-2 border-ts-primary text-ts-primary font-semibold rounded-xl hover:bg-ts-primary/10 transition-colors">
+                <button className="px-6 py-3 border-2 border-ts-border-dark text-ts-accent-blue font-semibold rounded-lg hover:bg-ts-accent-blue hover:text-white transition-all">
                   Schedule Demo
                 </button>
               </div>
           </div>
 
-          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-ts-card p-8 rounded-2xl shadow-2xl border border-ts-primary/20">
+          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-ts-card border-2 border-ts-border rounded-xl p-6">
             <div className="text-center md:text-left w-full">
               <h3 className="text-2xl font-bold mb-3 text-ts-text">Sign Up Now & Get Your Free Guide</h3>
               <p className="mb-4 text-ts-text-muted">Get early access and a free PDF guide: <br/><span className="font-bold text-ts-text">"5 Ways to Beat Counterfeits as a Creator."</span></p>
               
               {status !== 'success' ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-gray-50 border-2 border-gray-200 rounded-xl py-3 px-4 focus:border-ts-primary transition-colors"/>
-                  <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-gray-50 border-2 border-gray-200 rounded-xl py-3 px-4 focus:border-ts-primary transition-colors"/>
-                  <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all" style={{ background: 'var(--gradient-primary)' }}>
+                  <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors"/>
+                  <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors"/>
+                  <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
                     {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : "Join Beta"}
                   </Button>
-                  {status === 'error' && <p className="text-red-600 text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>}
+                  {status === 'error' && <p className="text-ts-error text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>}
                 </form>
               ) : (
-                <div className="flex flex-col items-center justify-center text-center p-4 bg-green-50 rounded-lg h-full">
-                  <CheckCircle className="w-12 h-12 text-green-600 mb-4" />
-                  <p className="text-green-800 font-semibold">{message}</p>
+                <div className="flex flex-col items-center justify-center text-center p-4 bg-ts-success/10 rounded-lg h-full border-2 border-ts-border">
+                  <CheckCircle className="w-12 h-12 text-ts-success mb-4" />
+                  <p className="text-ts-success font-semibold">{message}</p>
                 </div>
               )}
             </div>

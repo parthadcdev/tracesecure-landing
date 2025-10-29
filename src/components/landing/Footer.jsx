@@ -32,9 +32,9 @@ export default function Footer() {
                   <input 
                     type="email" 
                     placeholder="Enter your email" 
-                    className="flex-1 px-4 py-2 rounded-lg border border-ts-primary/20 bg-ts-card text-ts-text placeholder-ts-text-muted focus:outline-none focus:ring-2 focus:ring-ts-primary/50"
+                    className="flex-1 px-4 py-2 rounded-lg border-2 border-ts-border bg-white text-ts-text placeholder-ts-text-muted focus:outline-none focus:border-ts-accent-blue transition-colors"
                   />
-                  <button className="px-4 py-2 bg-ts-primary text-white rounded-lg hover:bg-ts-primary/90 transition-colors">
+                  <button className="px-4 py-2 bg-ts-accent-blue text-white rounded-lg shadow-md hover:shadow-lg transition-all">
                     Subscribe
                   </button>
                 </div>
@@ -89,41 +89,41 @@ export default function Footer() {
           </div>
 
           {/* Certifications */}
-          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
               <div className="w-2 h-2 bg-ts-success rounded-full"></div>
               ISO 27001 Certified
             </div>
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
               <div className="w-2 h-2 bg-ts-success rounded-full"></div>
               EU DPP Compliant
             </div>
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
               <div className="w-2 h-2 bg-ts-success rounded-full"></div>
               GDPR Compliant
             </div>
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted">
+            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
               <div className="w-2 h-2 bg-ts-success rounded-full"></div>
               Carbon Neutral
             </div>
           </div>
 
           {/* Bottom Footer */}
-          <div className="border-t pt-8 border-ts-primary/20">
+          <div className="border-t-2 pt-8 border-ts-border">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
               <div className="text-sm text-ts-text-muted">
                 © 2024 TraceSecure. All rights reserved.
               </div>
               <div className="flex flex-wrap justify-center gap-6 text-sm">
-                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Privacy Policy</a>
-                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Terms of Service</a>
-                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Cookie Policy</a>
-                <a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Data Processing</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Privacy Policy</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Terms of Service</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Cookie Policy</a>
+                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Data Processing</a>
               </div>
             </div>
             
             {/* Beta Program Notice */}
-            <div className="mt-6 p-4 bg-ts-primary/10 rounded-lg border border-ts-primary/20">
+            <div className="mt-6 p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
               <p className="text-sm text-ts-text-muted text-center">
                 <strong className="text-ts-text">Beta Program:</strong> TraceSecure is currently in beta. Features and pricing may change before public release. Join our beta program to lock in early access pricing.
               </p>

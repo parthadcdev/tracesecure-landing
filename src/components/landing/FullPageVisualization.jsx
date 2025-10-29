@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const traceabilitySteps = [
@@ -67,7 +67,12 @@ const traceabilitySteps = [
 export default function FullPageVisualization() {
   const [activeStep, setActiveStep] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const [scrollEffectDisabled, setScrollEffectDisabled] = useState(false);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
   
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
@@ -79,24 +84,36 @@ export default function FullPageVisualization() {
       const stepIndex = Math.min(Math.floor(scrollPercent * traceabilitySteps.length), traceabilitySteps.length - 1);
       setActiveStep(stepIndex);
       
+      // Check if we've scrolled past this component
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const componentBottom = rect.bottom;
+        
+        // If the bottom of this component is at or above the top of the viewport (scrolled past)
+        if (componentBottom <= 0 && !scrollEffectDisabled) {
+          setScrollEffectDisabled(true);
+        } else if (componentBottom > 0 && scrollEffectDisabled) {
+          // Re-enable if scrolled back up (optional - remove if you want it to stay disabled)
+          setScrollEffectDisabled(false);
+        }
+      }
+      
       setTimeout(() => setIsScrolling(false), 100);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [scrollEffectDisabled]);
 
   return (
-    <div className="relative min-h-[300vh] w-full overflow-hidden">
+    <div ref={containerRef} className="relative min-h-[300vh] w-full overflow-hidden">
       {/* Flat Design Background */}
       <motion.div 
         className="fixed inset-0 w-full h-full"
-        style={{ y: backgroundY }}
+        style={{ y: scrollEffectDisabled ? "100%" : backgroundY }}
       >
         <div className="absolute inset-0 bg-ts-background" />
-        
-        {/* Abstract Background Pattern */}
-        <div className="abstract-bg absolute inset-0" />
         
         {/* Simplified Floating Elements */}
         <div className="absolute inset-0">
@@ -144,12 +161,12 @@ export default function FullPageVisualization() {
             
             {/* Flat Design Scroll Indicator */}
             <motion.div
-              className="flex flex-col items-center p-4 bg-ts-surface rounded-lg flat-shadow"
+              className="flex flex-col items-center p-4 bg-ts-surface rounded-lg shadow-md"
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               <span className="text-ts-text-muted mb-2 text-sm font-medium">Scroll Down</span>
-              <svg className="w-5 h-5 text-ts-accent-blue vector-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-ts-accent-blue [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </motion.div>
@@ -262,9 +279,7 @@ export default function FullPageVisualization() {
         {/* Seamless Final CTA Section */}
         <div className="h-screen flex items-center justify-center relative overflow-hidden">
           {/* Background with same style as phases */}
-          <div className="absolute inset-0 bg-ts-background">
-            <div className="abstract-bg absolute inset-0" />
-          </div>
+          <div className="absolute inset-0 bg-ts-background" />
           
           {/* Content with smooth transition */}
           <motion.div 
@@ -319,7 +334,7 @@ export default function FullPageVisualization() {
               </motion.p>
               
               <motion.button
-                className="px-8 py-4 bg-ts-accent-blue text-white text-lg font-semibold rounded-lg flat-shadow-lg hover:flat-shadow-xl transition-all duration-300"
+                className="px-8 py-4 bg-ts-accent-blue text-white text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ 
                   opacity: 1, 

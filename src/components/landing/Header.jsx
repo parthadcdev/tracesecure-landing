@@ -118,7 +118,7 @@ export default function Header() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-ts-surface flat-shadow border-b-2 border-ts-border`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-ts-surface shadow-md border-b-2 border-ts-border`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -154,7 +154,7 @@ export default function Header() {
           <div className="hidden md:flex">
             <Button 
               onClick={() => scrollTo('waitlist-form')}
-              className="text-white font-semibold px-6 py-3 rounded-lg flat-shadow hover:flat-shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary"
+              className="text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary"
             >
               Join Beta
             </Button>
@@ -181,7 +181,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-ts-surface flat-shadow-lg"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-ts-surface shadow-lg"
             >
               <div className="p-6 flex justify-between items-center border-b">
                  <div 
@@ -210,7 +210,7 @@ export default function Header() {
                 ))}
                 <Button 
                   onClick={() => scrollTo('waitlist-form')}
-                  className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg flat-shadow bg-ts-accent-blue hover:bg-ts-primary"
+                  className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-md bg-ts-accent-blue hover:bg-ts-primary"
                 >
                   Join Beta
                 </Button>

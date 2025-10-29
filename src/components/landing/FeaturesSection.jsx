@@ -8,48 +8,48 @@ const features = [
     title: 'Tamper-Proof Security',
     description: 'Advanced encryption and blockchain-backed verification ensure your product authenticity cannot be forged or compromised.',
     features: ['256-bit encryption', 'Blockchain verification', 'Tamper detection'],
-    iconColor: 'from-red-500 to-pink-500',
-    iconBg: 'from-red-50 to-pink-50'
+    iconColor: 'bg-ts-error',
+    iconBg: 'bg-ts-accent'
   },
   {
     icon: Zap,
     title: 'Instant Verification',
     description: 'Customers verify authenticity in seconds with a simple QR code scan using any smartphone camera.',
     features: ['One-touch scanning', 'Real-time results', 'Cross-platform support'],
-    iconColor: 'from-yellow-500 to-orange-500',
-    iconBg: 'from-yellow-50 to-orange-50'
+    iconColor: 'bg-ts-warning',
+    iconBg: 'bg-ts-accent'
   },
   {
     icon: Route,
     title: 'Complete Product Journey',
     description: 'Document every step of your product\'s creation, from raw materials to finished goods and beyond.',
     features: ['Material sourcing', 'Production tracking', 'Ownership history'],
-    iconColor: 'from-blue-500 to-cyan-500',
-    iconBg: 'from-blue-50 to-cyan-50'
+    iconColor: 'bg-ts-accent-blue',
+    iconBg: 'bg-ts-accent'
   },
   {
     icon: Users,
     title: 'Customer Engagement',
     description: 'Transform verification into engagement with rich product stories, care instructions, and brand connection.',
     features: ['Product stories', 'Care guides', 'Brand messaging'],
-    iconColor: 'from-green-500 to-emerald-500',
-    iconBg: 'from-green-50 to-emerald-50'
+    iconColor: 'bg-ts-success',
+    iconBg: 'bg-ts-accent'
   },
   {
     icon: CheckCircle,
     title: 'EU DPP Compliance',
     description: 'Built-in compliance with EU Digital Product Passport requirements for sustainable and circular economy.',
     features: ['DPP standards', 'Sustainability data', 'Regulatory compliance'],
-    iconColor: 'from-purple-500 to-violet-500',
-    iconBg: 'from-purple-50 to-violet-50'
+    iconColor: 'bg-ts-accent-purple',
+    iconBg: 'bg-ts-accent'
   },
   {
     icon: BarChart3,
     title: 'Analytics & Insights',
     description: 'Track verification rates, customer engagement, and product performance with comprehensive analytics.',
     features: ['Verification metrics', 'Customer insights', 'Performance tracking'],
-    iconColor: 'from-indigo-500 to-blue-500',
-    iconBg: 'from-indigo-50 to-blue-50'
+    iconColor: 'bg-ts-accent-orange',
+    iconBg: 'bg-ts-accent'
   }
 ];
 
@@ -69,7 +69,7 @@ export default function FeaturesSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
             Powerful Features for
             <br />
-            <span className="text-ts-primary">
+            <span className="text-ts-accent-blue">
               Modern Producers
             </span>
           </h2>
@@ -78,33 +78,33 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="bg-ts-card rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 border border-ts-primary/20"
+              className="bg-ts-card border-2 border-ts-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
             >
-              <div className={`w-20 h-20 bg-gradient-to-br ${feature.iconColor} rounded-2xl flex items-center justify-center mb-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden`}>
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.iconBg} opacity-0 hover:opacity-100 transition-opacity duration-300`}></div>
-                <feature.icon className="w-10 h-10 text-white relative z-10" />
+              {/* Flat Design Icon */}
+              <div className={`w-16 h-16 ${feature.iconColor} rounded-lg flex items-center justify-center mb-6 shadow-md`}>
+                <feature.icon className="w-8 h-8 text-white [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]" />
               </div>
               
-              <h3 className="text-2xl font-bold mb-4 text-ts-text">
+              <h3 className="text-xl font-bold mb-4 text-ts-text">
                 {feature.title}
               </h3>
               
-              <p className="text-ts-text-muted mb-6">
+              <p className="text-ts-text-muted mb-6 text-sm leading-relaxed">
                 {feature.description}
               </p>
               
               <ul className="space-y-2">
                 {feature.features.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-center text-sm text-ts-text-muted">
-                    <div className="w-2 h-2 bg-ts-primary rounded-full mr-3 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-ts-accent-blue rounded-full mr-3 flex-shrink-0"></div>
                     {item}
                   </li>
                 ))}
