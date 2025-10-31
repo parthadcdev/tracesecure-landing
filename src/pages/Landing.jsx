@@ -4,8 +4,9 @@ import React, { Suspense, lazy } from "react";
 import HeroSection from "../components/landing/HeroSection";
 const HowItWorks = lazy(() => import("../components/landing/HowItWorks"));
 const FeaturesSection = lazy(() => import("../components/landing/FeaturesSection"));
-const TrustedSection = lazy(() => import("../components/landing/TrustedSection"));
+const SocialProof = lazy(() => import("../components/landing/SocialProof"));
 const WhyMattersSection = lazy(() => import("../components/landing/WhyMattersSection"));
+const ValuePropsSection = lazy(() => import("../components/landing/ValuePropsSection"));
 const CTASection = lazy(() => import("../components/landing/CTASection"));
 const DPPComplianceSection = lazy(() => import("../components/landing/DPPComplianceSection"));
 const FAQSection = lazy(() => import("../components/landing/FAQSection"));
@@ -21,7 +22,8 @@ export default function Landing() {
       <Suspense fallback={<div className="h-screen w-full" style={{backgroundColor: "var(--color-background)"}} />}>
         <HowItWorks />
         <FeaturesSection />
-        <TrustedSection />
+        <ValuePropsSection />
+        <SocialProof />
         <WhyMattersSection />
         <CTASection />
         <DPPComplianceSection />

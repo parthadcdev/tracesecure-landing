@@ -114,30 +114,6 @@ export default function FullPageVisualization() {
         style={{ y: scrollEffectDisabled ? "100%" : backgroundY }}
       >
         <div className="absolute inset-0 bg-ts-background" />
-        
-        {/* Simplified Floating Elements */}
-        <div className="absolute inset-0">
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-3 h-3 bg-ts-primary/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -80, 0],
-                opacity: [0.3, 0.8, 0.3],
-                scale: [0.8, 1.2, 0.8]
-              }}
-              transition={{
-                duration: 4 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 3
-              }}
-            />
-          ))}
-        </div>
       </motion.div>
 
       {/* Main Content */}

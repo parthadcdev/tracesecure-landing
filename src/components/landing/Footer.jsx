@@ -1,5 +1,7 @@
 import React from "react";
 import { Linkedin, Twitter, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
 
 export default function Footer() {
   return (
@@ -80,7 +82,7 @@ export default function Footer() {
             <div>
               <h4 className="font-bold text-ts-text mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">About Us</a></li>
+                <li><Link to={createPageUrl('About')} className="text-ts-text-muted hover:text-ts-primary transition-colors">About Us</Link></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Careers</a></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Partners</a></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Press Kit</a></li>
@@ -92,19 +94,11 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
             <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
               <div className="w-2 h-2 bg-ts-success rounded-full"></div>
-              ISO 27001 Certified
-            </div>
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
-              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
               EU DPP Compliant
             </div>
             <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
               <div className="w-2 h-2 bg-ts-success rounded-full"></div>
               GDPR Compliant
-            </div>
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
-              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
-              Carbon Neutral
             </div>
           </div>
 

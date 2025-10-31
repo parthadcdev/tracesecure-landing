@@ -1,57 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, Users, Shield, Leaf } from 'lucide-react';
 
 const challenges = [
   {
-    value: '$500B',
-    title: 'Annual counterfeit market',
-    description: 'The global counterfeit market is worth over $500 billion annually, with luxury goods being the primary target.'
+    value: '$100B+',
+    title: 'Lost opportunity in wine',
+    description:
+      "It's not just counterfeits. It's the Customer Gap — retail buyers you never meet."
   },
   {
-    value: '73%',
-    title: 'Consumers lack trust',
-    description: '73% of consumers report being concerned about product authenticity when making premium purchases.'
+    value: '0% visibility',
+    title: 'Anonymous retail buyers',
+    description:
+      'You can’t thank them, tell your story, or invite them to buy direct next time.'
   },
   {
-    value: '40%',
-    title: 'Revenue loss potential',
-    description: 'Counterfeit products cause irreparable harm to brand reputation and customer relationships.'
+    value: 'High margin',
+    title: 'Missed DTC sales',
+    description:
+      'Thousands of potential, lifelong customers slip away every year.'
   }
 ];
 
 const transformations = [
   {
-    icon: TrendingUp,
-    title: 'Instant Verification',
-    subtitle: 'Increased Sales',
-    description: 'Customers gain immediate confidence in their purchases with tamper-proof digital certificates.',
-    iconColor: 'from-green-500 to-emerald-500',
-    iconBg: 'from-green-50 to-emerald-50'
+    title: 'Digital Passport QR',
+    subtitle: 'A direct channel',
+    description:
+      'Every bottle becomes a two-way marketing channel that invites buyers to connect, join your list, and become loyal fans.'
   },
   {
-    icon: Users,
-    title: 'Direct Connection',
-    subtitle: 'Customer Loyalty',
-    description: 'Build lasting relationships with customers through authentic product storytelling and engagement.',
-    iconColor: 'from-blue-500 to-cyan-500',
-    iconBg: 'from-blue-50 to-cyan-50'
+    title: 'Story + Offer',
+    subtitle: 'From scan to signup',
+    description:
+      'Show your story, tasting notes, and a clear offer like “Join Our Wine Club for 10% Off.”'
   },
   {
-    icon: Shield,
-    title: 'Brand Protection',
-    subtitle: 'Brand Value',
-    description: 'Protect your intellectual property and reputation with unbreakable digital authenticity.',
-    iconColor: 'from-red-500 to-pink-500',
-    iconBg: 'from-red-50 to-pink-50'
+    title: 'Proven Authenticity',
+    subtitle: 'Trust built-in',
+    description:
+      'Every scan proves authenticity, protecting your brand reputation and building consumer trust.'
   },
   {
-    icon: Leaf,
-    title: 'Sustainability Proof',
-    subtitle: 'Market Differentiation',
-    description: 'Demonstrate your commitment to ethical sourcing and environmental responsibility.',
-    iconColor: 'from-green-600 to-teal-500',
-    iconBg: 'from-green-50 to-teal-50'
+    title: 'Actionable Insights',
+    subtitle: 'Know your buyers',
+    description:
+      'See engagement and leads from retail scans to inform marketing and allocations.'
   }
 ];
 
@@ -92,21 +86,27 @@ export default function WhyMattersSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            Why Authenticity
-            <br />
-            <span className="text-ts-primary">
-              Matters More Than Ever
-            </span>
+            The $100 Billion Problem No One Talks About
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            In a world where counterfeits flood the market, protecting your brand and customers requires more than traditional methods.
+            It’s not just counterfeits. It’s the Customer Gap.
           </p>
         </motion.div>
+
+        {/* Problem Copy */}
+        <div className="mb-16 max-w-4xl mx-auto text-center text-ts-text-muted">
+          <p className="mb-4">
+            You spend years perfecting your wine. A customer buys it from a store in another city. The relationship ends right there.
+          </p>
+          <p>
+            You have no idea who they are. You can’t thank them. And you can’t invite them to buy directly from you next time. You are losing thousands of potential, high-margin, lifelong customers every single year.
+          </p>
+        </div>
 
         {/* The Challenge Section */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
-            The Challenge Facing Luxury & Craft Producers
+            The Challenge Facing Wineries
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             {challenges.map((challenge, index) => (
@@ -134,10 +134,10 @@ export default function WhyMattersSection() {
           </div>
         </div>
 
-        {/* How TraceSecure Transforms Section */}
+        {/* Solution Section */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
-            How TraceSecure Transforms Your Business
+            A Direct Marketing Channel in Every Bottle
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {transformations.map((transformation, index) => (
@@ -150,10 +150,6 @@ export default function WhyMattersSection() {
                 transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
               >
                 <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${transformation.iconColor} rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden`}>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${transformation.iconBg} opacity-0 hover:opacity-100 transition-opacity duration-300`}></div>
-                    <transformation.icon className="w-8 h-8 text-white relative z-10" />
-                  </div>
                   <h4 className="text-lg font-bold mb-2 text-ts-text">
                     {transformation.title}
                   </h4>
@@ -168,41 +164,6 @@ export default function WhyMattersSection() {
             ))}
           </div>
         </div>
-
-        {/* Industries Section */}
-        <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
-            Industries Embracing Digital Authenticity
-          </h3>
-          <p className="text-lg text-center text-ts-text-muted mb-12">
-            Leading brands across luxury sectors are experiencing significant growth by implementing digital authentication solutions.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {industries.map((industry, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={viewport}
-                transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
-              >
-                <div className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
-                  <div className="text-3xl font-bold text-ts-primary mb-2">
-                    {industry.growth}
-                  </div>
-                  <h4 className="text-lg font-bold mb-2 text-ts-text">
-                    {industry.name}
-                  </h4>
-                  <p className="text-sm text-ts-text-muted">
-                    {industry.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
         {/* CTA */}
         <motion.div 
           className="text-center"
@@ -211,11 +172,9 @@ export default function WhyMattersSection() {
           viewport={viewport}
           transition={{ duration: 0.7 }}
         >
-          <h3 className="text-3xl font-bold mb-4 text-ts-text">
-            Ready to protect your brand and delight your customers?
-          </h3>
+          <h3 className="text-3xl font-bold mb-4 text-ts-text">Want to see it in action?</h3>
           <button className="mt-8 px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-            Join TraceSecure Beta
+            Watch the 60-sec Video
           </button>
         </motion.div>
       </div>

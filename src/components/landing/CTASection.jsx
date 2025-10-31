@@ -2,74 +2,80 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Loader2, CheckCircle, AlertTriangle, Check } from 'lucide-react';
+import { Loader2, CheckCircle, AlertTriangle, Check, Sparkles, TrendingUp, BarChart3, Crown } from 'lucide-react';
 
 const pricingPlans = [
   {
     name: "Starter",
-    price: "Free",
+    price: "$0",
     originalPrice: null,
-    description: "Perfect for small craft producers and individual artisans",
+    description: "10 items/month",
     features: [
-      "Up to 100 verified products",
-      "Basic QR code generation", 
-      "Product authenticity tracking",
-      "Customer verification portal",
-      "Email support",
-      "Mobile-friendly dashboard"
+      "Create Digital Passports",
+      "Basic QR Code Generation",
+      "Basic Dashboard & Analytics",
+      "Earn Basic Rewards"
     ],
-    limit: "during beta",
-    icon: "/images/free-plan-icon.png",
-    alt: "Free plan badge",
-    cta: "Start Free Beta"
+    limit: null,
+    icon: Sparkles,
+    cta: "Start Free"
   },
   {
-    name: "Professional",
-    price: "$49",
-    originalPrice: "$99",
-    description: "Ideal for growing luxury brands and established producers",
+    name: "Growth",
+    price: "$79",
+    originalPrice: null,
+    description: "Up to 1,000 items/month",
+    priceNote: "(or pay with $TRACE for a discount)",
     features: [
-      "Up to 10,000 verified products",
-      "Advanced QR codes with branding",
-      "Complete product journey tracking",
-      "Customer engagement tools",
-      "Analytics and insights",
-      "Priority support",
-      "EU DPP compliance tools",
-      "Custom verification pages",
-      "API access"
+      "All Starter features +",
+      "Unlimited Traces & Scans",
+      "Advanced Analytics & Reports",
+      "Custom Branded Verification Page",
+      "Full Rewards Program (Staking & Discounts)"
     ],
-    icon: "/images/growth-plan-icon.png",
-    alt: "Growth plan icon",
-    cta: "Join Professional Beta",
+    icon: TrendingUp,
+    cta: "Start Free",
     highlight: true,
+  },
+  {
+    name: "Scale",
+    price: "$299",
+    originalPrice: null,
+    description: "Up to 10,000 items/month",
+    features: [
+      "All Growth features +",
+      "Full API Access (for ERP/CRM integration)",
+      "IoT Sensor Integration",
+      "Multi-User Roles & Permissions",
+      "Advanced Audit Logs"
+    ],
+    icon: BarChart3,
+    cta: "Start Free"
   },
   {
     name: "Enterprise",
     price: "Custom",
     originalPrice: null,
-    description: "For large-scale operations and multi-brand portfolios",
+    description: "10,000+ items/month",
     features: [
-      "Unlimited verified products",
-      "White-label solutions",
-      "Advanced blockchain integration",
-      "Multi-brand management",
-      "Custom integrations",
-      "Dedicated account manager",
-      "SLA guarantees",
-      "Advanced compliance tools",
-      "Custom reporting"
+      "A bespoke plan for \"atomic networks\"",
+      "Custom Smart Contracts",
+      "Dedicated Support Manager",
+      "Custom Overage Pricing"
     ],
-    icon: "/images/scale-plan-icon.png",
-    alt: "Scale plan icon",
+    icon: Crown,
     cta: "Contact Sales"
   }
 ];
 
-const PricingCard = ({ plan, onCtaClick }) => (
+const PricingCard = ({ plan, onCtaClick }) => {
+  const Icon = plan.icon;
+  return (
   <div className={`bg-ts-card border-2 ${plan.highlight ? 'border-ts-border-dark shadow-lg bg-ts-accent/5' : 'border-ts-border'} rounded-xl p-6 flex flex-col text-center items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
-    <div className="w-20 h-20 rounded-lg bg-ts-accent-blue p-2 mb-6 shadow-md">
-      <img src={plan.icon} alt={plan.alt} className="w-full h-full rounded-lg object-cover" />
+    <div className="w-20 h-20 rounded-lg bg-gradient-to-br from-ts-primary to-ts-secondary p-2 mb-6 shadow-md flex items-center justify-center">
+      <div className="w-full h-full rounded-lg bg-ts-card flex items-center justify-center">
+        <Icon className="w-10 h-10 text-ts-accent-blue" />
+      </div>
     </div>
     {plan.highlight && (
       <div className="bg-ts-accent-blue text-white text-xs font-bold px-3 py-1 rounded-lg mb-4">
@@ -82,8 +88,12 @@ const PricingCard = ({ plan, onCtaClick }) => (
         <span className="text-lg text-ts-text-muted line-through mr-2">{plan.originalPrice}</span>
       )}
       <span className="text-3xl font-bold text-ts-accent-blue">{plan.price}</span>
-      {plan.originalPrice && <span className="text-sm text-ts-text-muted">/month</span>}
+      {plan.price !== "Custom" && plan.price !== "$0" && <span className="text-sm text-ts-text-muted">/mo</span>}
+      {plan.price === "$0" && <span className="text-sm text-ts-text-muted">/month</span>}
     </div>
+    {plan.priceNote && (
+      <p className="text-xs text-ts-text-muted mb-2 italic">{plan.priceNote}</p>
+    )}
     <p className="text-sm mb-4 h-10 text-ts-text-muted">{plan.description}</p>
     <ul className="space-y-2 text-left mb-6 flex-grow">
       {plan.features.map(feature => (
@@ -101,7 +111,8 @@ const PricingCard = ({ plan, onCtaClick }) => (
       {plan.cta}
     </Button>
   </div>
-);
+  );
+};
 
 
 export default function CTASection() {
@@ -112,7 +123,16 @@ export default function CTASection() {
   const viewport = { once: true, amount: 0.2 };
 
   const scrollToWaitlist = () => {
-    document.getElementById("waitlist-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const element = document.getElementById("waitlist-form");
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 16;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -200,7 +220,7 @@ export default function CTASection() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {pricingPlans.map(plan => (
               <PricingCard key={plan.name} plan={plan} onCtaClick={scrollToWaitlist} />
             ))}
@@ -211,7 +231,7 @@ export default function CTASection() {
               <p className="text-ts-text-muted mb-6">Our beta program includes personalized onboarding and direct access to our product team.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="px-6 py-3 bg-ts-accent-blue text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">
-                  Contact Sales
+                  Start Free
                 </button>
                 <button className="px-6 py-3 border-2 border-ts-border-dark text-ts-accent-blue font-semibold rounded-lg hover:bg-ts-accent-blue hover:text-white transition-all">
                   Schedule Demo

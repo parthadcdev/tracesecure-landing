@@ -126,40 +126,42 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Inter', sans-serif;
           
-        /* New Color Theme - High-Contrast Dark Blue & Gold */
-        --color-background: #eef0f2;
+        /* New Color Theme - Blue, Gold & Burgundy */
+        --color-background: #FAFAFA;
         --color-surface: #ffffff;
-        --color-card: #fcfcfc;
-        --color-text: #141414;
-        --color-text-muted: #0d21a1;
-        --color-primary: #011638;
-        --color-secondary: #0d21a1;
-        --color-accent: #eec643;
-        --color-success: #0d21a1;
-        --color-warning: #eec643;
-        --color-error: #9d0208;
+        --color-card: #E0E6ED;
+        --color-text: #222222;
+        --color-text-muted: #2874A6;
+        --color-primary: #223A5E;
+        --color-secondary: #E0E6ED;
+        --color-accent: #FFD700;
+        --color-accent-burgundy: #8C243B;
+        --color-success: #2874A6;
+        --color-warning: #FFD700;
+        --color-error: #8C243B;
         
         /* Theme Color Variants */
-        --color-russian-violet: #011638;
-        --color-persian-indigo: #0d21a1;
-        --color-tekhelet: #0d21a1;
-        --color-french-violet: #0d21a1;
-        --color-amethyst: #0d21a1;
-        --color-heliotrope: #eec643;
-        --color-mauve: #eec643;
+        --color-russian-violet: #223A5E;
+        --color-persian-indigo: #2874A6;
+        --color-tekhelet: #223A5E;
+        --color-french-violet: #223A5E;
+        --color-amethyst: #2874A6;
+        --color-heliotrope: #FFD700;
+        --color-mauve: #FFD700;
         
         /* Solid Colors for Flat Design */
-        --color-primary-solid: #011638;
-        --color-secondary-solid: #0d21a1;
-        --color-accent-solid: #eec643;
-        --color-success-solid: #0d21a1;
-        --color-warning-solid: #eec643;
-        --color-error-solid: #9d0208;
+        --color-primary-solid: #223A5E;
+        --color-secondary-solid: #E0E6ED;
+        --color-accent-solid: #FFD700;
+        --color-accent-burgundy-solid: #8C243B;
+        --color-success-solid: #2874A6;
+        --color-warning-solid: #FFD700;
+        --color-error-solid: #8C243B;
         
         /* Border and Outline Colors */
-        --color-border: #0d21a1;
-        --color-border-dark: #011638;
-        --color-outline: #eec643;
+        --color-border: #2874A6;
+        --color-border-dark: #223A5E;
+        --color-outline: #FFD700;
         }
 
         body {

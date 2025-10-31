@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const navItems = [
   { name: "Features", anchor: "features" },
@@ -15,11 +15,18 @@ const navItems = [
   { name: "FAQ", anchor: "faq" },
 ];
 
+const companyMenuItems = [
+  { name: "Platform", page: "Platform" },
+  { name: "About Us", page: "About" },
+];
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCompanyMenuOpen, setIsCompanyMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const companyMenuRef = useRef(null);
 
   const isLandingPage = location.pathname === createPageUrl('Landing') || location.pathname === '/';
 
@@ -44,7 +51,32 @@ export default function Header() {
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    // Close company menu when clicking outside
+    const handleClickOutside = (event) => {
+      if (companyMenuRef.current && !companyMenuRef.current.contains(event.target)) {
+        setIsCompanyMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   
+  const scrollToElement = (element) => {
+    if (element) {
+      const headerHeight = 80; // h-20 = 80px
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 16; // 16px extra spacing
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const handleNavClick = (item) => {
     setIsMenuOpen(false); // Close menu on navigation
     if (item.page) {
@@ -55,7 +87,7 @@ export default function Header() {
       if (isLandingPage) {
         const element = document.getElementById(item.anchor);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          scrollToElement(element);
         } else {
           console.warn(`Element with id "${item.anchor}" not found`);
         }
@@ -65,14 +97,14 @@ export default function Header() {
         setTimeout(() => {
           const element = document.getElementById(item.anchor);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollToElement(element);
           } else {
             console.warn(`Element with id "${item.anchor}" not found`);
             // Try again after a longer delay for lazy-loaded components
             setTimeout(() => {
               const retryElement = document.getElementById(item.anchor);
               if (retryElement) {
-                retryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToElement(retryElement);
               }
             }, 500);
           }
@@ -86,7 +118,7 @@ export default function Header() {
     if (isLandingPage) {
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          scrollToElement(element);
         } else {
           console.warn(`Element with id "${id}" not found`);
         }
@@ -95,14 +127,14 @@ export default function Header() {
         setTimeout(() => {
             const element = document.getElementById(id);
             if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              scrollToElement(element);
             } else {
               console.warn(`Element with id "${id}" not found`);
               // Try again after a longer delay for lazy-loaded components
               setTimeout(() => {
                 const retryElement = document.getElementById(id);
                 if (retryElement) {
-                  retryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  scrollToElement(retryElement);
                 }
               }, 500);
             }
@@ -149,6 +181,42 @@ export default function Header() {
                 {item.name}
               </button>
             ))}
+            
+            {/* Company Dropdown */}
+            <div className="relative" ref={companyMenuRef}>
+              <button
+                onClick={() => setIsCompanyMenuOpen(!isCompanyMenuOpen)}
+                className="text-sm font-medium transition-colors duration-300 hover:text-ts-primary text-ts-text-muted flex items-center gap-1"
+              >
+                Company
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isCompanyMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              <AnimatePresence>
+                {isCompanyMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 bg-ts-surface border-2 border-ts-border rounded-lg shadow-lg overflow-hidden min-w-[160px] z-50"
+                  >
+                    {companyMenuItems.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => {
+                          handleNavClick(item);
+                          setIsCompanyMenuOpen(false);
+                        }}
+                        className="w-full text-left px-4 py-3 text-sm text-ts-text-muted hover:text-ts-primary hover:bg-ts-card transition-colors"
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
           
           <div className="hidden md:flex">
@@ -208,6 +276,21 @@ export default function Header() {
                     {item.name}
                   </button>
                 ))}
+                
+                {/* Company Menu in Mobile */}
+                <div className="flex flex-col gap-2">
+                  <div className="text-lg font-semibold text-ts-text mb-2">Company</div>
+                  {companyMenuItems.map((item) => (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavClick(item)}
+                      className="text-lg font-medium text-ts-text-muted text-left hover:text-ts-primary transition-colors pl-4"
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </div>
+                
                 <Button 
                   onClick={() => scrollTo('waitlist-form')}
                   className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-md bg-ts-accent-blue hover:bg-ts-primary"

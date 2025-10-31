@@ -5,7 +5,16 @@ import { Button } from '@/components/ui/button';
 
 export default function DPPSection() {
   const scrollToWaitlist = () => {
-    document.getElementById("waitlist-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const element = document.getElementById("waitlist-form");
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 16;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const viewport = { once: true, amount: 0.2 };
@@ -32,7 +41,7 @@ export default function DPPSection() {
                 className="text-lg px-8 py-6 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:scale-105 font-semibold"
                 style={{ background: 'var(--gradient-primary)', color: 'white' }}
               >
-                Sign Up Free
+                Start Free
               </Button>
               <Button
                 onClick={scrollToWaitlist}

@@ -4,16 +4,11 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: "TraceSecure built buyer trust instantly. Our sales are up and returns are down. It's a game-changer for independent creators.",
-    name: "Elena Rojas",
-    title: "Textile Weaver, Peru",
-    image: "/images/textile-weaver.png"
-  },
-  {
-    quote: "I can finally focus on my craft instead of worrying about fakes. The time I've saved is invaluable.",
-    name: "Kenji Tanaka",
-    title: "Bespoke Potter, Japan",
-    image: "https://images.unsplash.com/photo-1565551981084-2f3e7a35c292?q=80&w=2920&auto=format&fit=crop"
+    quote:
+      "TraceSecure gives us a direct line to our retail customers for the first time. We're finally turning anonymous buyers into new wine club members. It's a game-changer for our direct-to-consumer sales.",
+    name: "John S.",
+    title: "Owner, Loudoun Valley Vineyard",
+    image: "/images/logo-symbol.png"
   }
 ];
 
@@ -31,10 +26,10 @@ export default function SocialProof() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>
-            Join Protected Creators Like You
+            Built for Virginia's Best Wineries
           </h2>
           <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--color-text)' }}>
-            We secure entire networks. One introduction to a guild can protect dozens of artisans. Who can you connect us with?
+            Trusted locally. Designed specifically for Loudoun and Virginia wineries.
           </p>
         </motion.div>
         

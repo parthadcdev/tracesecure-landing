@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Clock, Shield, X } from 'lucide-react';
+import { CheckCircle, Clock, Shield, X, AlertTriangle, Loader2 } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 const testimonials = [
   {
@@ -57,6 +59,53 @@ const guarantees = [
 
 export default function FinalCTASection() {
   const viewport = { once: true, amount: 0.2 };
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [vineyard, setVineyard] = useState('');
+  const [status, setStatus] = useState('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('loading');
+    setMessage('');
+
+    const portalId = '243989543';
+    const formId = 'be0e0acc-6317-4da9-b98f-62483aa4e332';
+    const hubspotApiUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+    const payload = {
+      fields: [
+        { name: 'email', value: email },
+        { name: 'firstname', value: name.split(' ')[0] || '' },
+        { name: 'lastname', value: name.split(' ').slice(1).join(' ') || '' },
+        { name: 'company', value: vineyard }
+      ],
+      context: { pageUri: window.location.href, pageName: document.title }
+    };
+
+    try {
+      const response = await fetch(hubspotApiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setMessage('Thanks! You’re in. We’ll reach out to confirm your pilot spot.');
+        setName('');
+        setEmail('');
+        setVineyard('');
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Submission failed. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage(error.message || 'An unexpected error occurred.');
+    }
+  };
 
   return (
     <section id="final-cta" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
@@ -69,14 +118,10 @@ export default function FinalCTASection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            Ready to Secure
-            <br />
-            <span className="text-ts-primary">
-              Your Brand's Future?
-            </span>
+            Ready to Turn Your Bottles Into Customers?
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            Join forward-thinking luxury and craft producers who are already protecting their products and delighting their customers with TraceSecure's beta program.
+            Start our risk-free, 6-month free pilot for Loudoun wineries. The first 200 members get our full Growth tier, completely free.
           </p>
         </motion.div>
 
@@ -97,14 +142,26 @@ export default function FinalCTASection() {
           ))}
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <button className="px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-            Join Beta Program
-          </button>
-          <button className="px-8 py-4 border-2 border-ts-primary text-ts-primary font-semibold rounded-xl hover:bg-ts-primary/10 transition-colors">
-            Schedule Demo
-          </button>
+        {/* Pilot Signup Form */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <form onSubmit={handleSubmit} className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
+            <div className="grid md:grid-cols-3 gap-4">
+              <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+              <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+              <Input type="text" placeholder="Vineyard Name" value={vineyard} onChange={(e) => setVineyard(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+            </div>
+            <div className="mt-4">
+              <Button type="submit" disabled={status === 'loading'} className="w-full text-lg font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
+                {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Start Free'}
+              </Button>
+            </div>
+            {status === 'error' && (
+              <p className="mt-3 text-ts-error text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>
+            )}
+            {status === 'success' && (
+              <div className="mt-3 flex items-center gap-2 text-ts-success"><CheckCircle className="w-5 h-5" />{message}</div>
+            )}
+          </form>
         </div>
 
         {/* Testimonials */}
@@ -155,7 +212,7 @@ export default function FinalCTASection() {
           ))}
         </div>
 
-        {/* Limited Beta Spots */}
+        {/* Limited Pilot Spots */}
         <motion.div 
           className="text-center bg-gradient-to-r from-ts-primary/10 to-ts-accent/10 rounded-2xl p-8 border border-ts-primary/20"
           initial={{ opacity: 0, y: 30 }}
@@ -164,13 +221,16 @@ export default function FinalCTASection() {
           transition={{ duration: 0.7 }}
         >
           <h3 className="text-2xl font-bold mb-4 text-ts-text">
-            Limited Beta Spots Available
+            Limited Free Pilot Spots Available (200)
           </h3>
           <p className="text-ts-text-muted mb-6">
-            Join today to secure your early access pricing
+            Loudoun wineries only. Join today to secure your free 6-month Growth tier.
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-            Join Beta Program
+          <button onClick={() => {
+            const el = document.getElementById('final-cta');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }} className="px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+            Start Free
           </button>
         </motion.div>
       </div>
