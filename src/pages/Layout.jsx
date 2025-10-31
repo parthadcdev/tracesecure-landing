@@ -13,7 +13,7 @@ export default function Layout({ children, currentPageName }) {
       link.rel = "icon";
       document.getElementsByTagName("head")[0].appendChild(link);
     }
-    link.href = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/19debe86d_symbol-only-nobg.png";
+    link.href = "/images/logo-symbol.png";
     link.type = "image/png";
 
     // Set document metadata
@@ -55,7 +55,7 @@ export default function Layout({ children, currentPageName }) {
 
     const ogImage = document.createElement('meta');
     ogImage.setAttribute('property', 'og:image');
-    ogImage.content = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/85846833d_64badb72-d11f-417b-9321-82f03500f530.png';
+    ogImage.content = '/images/og-image.png';
     document.head.appendChild(ogImage);
 
     const ogType = document.createElement('meta');
@@ -86,7 +86,7 @@ export default function Layout({ children, currentPageName }) {
 
     const twitterImage = document.createElement('meta');
     twitterImage.name = 'twitter:image';
-    twitterImage.content = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/85846833d_64badb72-d11f-417b-9321-82f03500f530.png';
+    twitterImage.content = '/images/og-image.png';
     document.head.appendChild(twitterImage);
 
     // Canonical URL
@@ -122,15 +122,46 @@ export default function Layout({ children, currentPageName }) {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&family=Montserrat:wght@400;700&display=swap');
         
         :root {
-          --font-serif: 'Playfair Display', serif;
+          --font-serif: 'Inter', sans-serif;
           --font-sans: 'Inter', sans-serif;
-          --font-brand: 'Montserrat', sans-serif;
+          --font-brand: 'Inter', sans-serif;
           
-          --color-background: #F8F5F2;
-          --color-text: #4E4239;
-          --color-primary: #8C6A5D;
-          --color-accent: #5A8C5A;
-          --color-surface: #FFFFFF;
+        /* New Color Theme - Blue, Gold & Burgundy */
+        --color-background: #FAFAFA;
+        --color-surface: #ffffff;
+        --color-card: #E0E6ED;
+        --color-text: #222222;
+        --color-text-muted: #2874A6;
+        --color-primary: #223A5E;
+        --color-secondary: #E0E6ED;
+        --color-accent: #FFD700;
+        --color-accent-burgundy: #8C243B;
+        --color-success: #2874A6;
+        --color-warning: #FFD700;
+        --color-error: #8C243B;
+        
+        /* Theme Color Variants */
+        --color-russian-violet: #223A5E;
+        --color-persian-indigo: #2874A6;
+        --color-tekhelet: #223A5E;
+        --color-french-violet: #223A5E;
+        --color-amethyst: #2874A6;
+        --color-heliotrope: #FFD700;
+        --color-mauve: #FFD700;
+        
+        /* Solid Colors for Flat Design */
+        --color-primary-solid: #223A5E;
+        --color-secondary-solid: #E0E6ED;
+        --color-accent-solid: #FFD700;
+        --color-accent-burgundy-solid: #8C243B;
+        --color-success-solid: #2874A6;
+        --color-warning-solid: #FFD700;
+        --color-error-solid: #8C243B;
+        
+        /* Border and Outline Colors */
+        --color-border: #2874A6;
+        --color-border-dark: #223A5E;
+        --color-outline: #FFD700;
         }
 
         body {

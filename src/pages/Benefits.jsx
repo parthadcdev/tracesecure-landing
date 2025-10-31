@@ -158,7 +158,7 @@ export default function BenefitsPage() {
               className="text-lg px-8 py-6 rounded-lg shadow-lg transition-transform hover:scale-105"
               style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
             >
-              Sign Up Free
+              Start Free
             </Button>
             <Button
               variant="outline"

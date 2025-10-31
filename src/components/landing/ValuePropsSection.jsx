@@ -1,26 +1,29 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Clock } from 'lucide-react';
+import { ShieldCheck, UserPlus, BookOpen } from 'lucide-react';
 
 const benefits = [
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e0dd83a4a_Gemini_Generated_Image_7ehyoz7ehyoz7ehy.png',
-    title: 'Enhance Brand Value Through Provenance',
-    description: 'Charge 15-20% more with unbreakable proof of authenticity. Buyers trust and pay premiums for verified goods.',
-    example: 'A Vietnamese handbag maker boosted sales by 25% after adopting TraceSecure.',
+    icon: UserPlus,
+    title: 'Build Your Wine Club',
+    description:
+      'Turn anonymous retail buyers into high-quality leads. Our platform is a powerful lead-generation tool that drives signups for your most profitable program — your wine club.',
+    example: 'Grow memberships directly from retail scans.'
   },
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/0d6bf3bc5_Gemini_Generated_Image_vzdb6kvzdb6kvzdb.png',
-    title: 'Streamline Operations with Cost-Effective Traceability',
-    description: 'Eliminate 20-30% of revenue loss from fakes and fraudulent returns. Protect your brand without expensive lawyers.',
-    example: 'A jeweler cut losses from fake component swaps significantly.',
+    icon: BookOpen,
+    title: 'Tell Your Story',
+    description:
+      'Share winemaker videos, tasting notes, and food pairings. Build a direct relationship with your end customer and turn a one-time purchase into a loyal fan.',
+    example: 'Drive repeat purchases with engaging content.'
   },
   {
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68dc91d01bc5a24ad7723bfb/e20515e9a_Gemini_Generated_Image_b9eud1b9eud1b9eu.png',
-    title: 'Save Time and Focus on Creation',
-    description: 'Automate your product\'s journey with a quick scan. Ditch the paperwork and focus on what you do best: creating.',
-    example: 'Creators save up to 10 hours a week on record-keeping.',
+    icon: ShieldCheck,
+    title: 'Protect Your Brand',
+    description:
+      'As a built-in benefit, every scan also proves your bottle is authentic, protecting your hard-won reputation from fakes and building consumer trust.',
+    example: 'Instant authenticity checks on every bottle.'
   }
 ];
 
@@ -37,38 +40,45 @@ export default function ValuePropsSection() {
           viewport={viewport}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>
-            Why Luxury Artisans Need TraceSecure
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
+            How This Grows Your Business
           </h2>
-          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--color-text)' }}>
-            As a creator of high-end crafts, fakes steal your reputation and up to 30% of your sales. Manual records get forged, costing you time and money.
+          <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
+            A direct, two-way channel to your retail buyers — built right into every bottle.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+        <div className="grid md:grid-cols-3 gap-8 justify-items-center">
+          {benefits.map((benefit, index) => {
+            const IconComponent = benefit.icon;
+            return (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-lg p-8 text-center flex flex-col"
+              className="bg-ts-card rounded-2xl shadow-2xl hover:shadow-3xl p-8 text-center flex flex-col items-center transition-all duration-300 hover:-translate-y-2 border border-ts-primary/20 w-full max-w-md"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
             >
-              <div className="mx-auto mb-6">
-                <img src={benefit.image} alt={benefit.title} className="w-24 h-24 rounded-full object-cover"/>
+              <div className="flex justify-center mb-6">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1 flex items-center justify-center">
+                  <div className="w-full h-full rounded-full bg-ts-card flex items-center justify-center">
+                    <IconComponent className="w-12 h-12 text-ts-primary" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--color-text)' }}>
+              <h3 className="text-2xl font-bold mb-3 text-ts-text">
                 {benefit.title}
               </h3>
-              <p className="text-base mb-4 flex-grow" style={{ color: 'var(--color-text)' }}>
+              <p className="text-base mb-4 flex-grow text-ts-text-muted">
                 {benefit.description}
               </p>
-              <p className="text-sm italic" style={{ color: 'var(--color-primary)' }}>
+              <p className="text-sm italic text-ts-primary">
                 "{benefit.example}"
               </p>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

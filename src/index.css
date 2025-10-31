@@ -155,4 +155,10 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Scroll margin for sections to account for fixed header */
+  section[id],
+  [id="waitlist-form"] {
+    scroll-margin-top: 96px; /* 80px header + 16px spacing */
+  }
 }

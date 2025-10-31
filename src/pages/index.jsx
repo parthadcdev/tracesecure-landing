@@ -4,6 +4,10 @@ import Landing from "./Landing";
 
 import Benefits from "./Benefits";
 
+import About from "./About";
+
+import Platform from "./Platform";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
@@ -11,6 +15,10 @@ const PAGES = {
     Landing: Landing,
     
     Benefits: Benefits,
+    
+    About: About,
+    
+    Platform: Platform,
     
 }
 
@@ -42,6 +50,10 @@ function PagesContent() {
                 <Route path="/Landing" element={<Landing />} />
                 
                 <Route path="/Benefits" element={<Benefits />} />
+                
+                <Route path="/About" element={<About />} />
+                
+                <Route path="/Platform" element={<Platform />} />
                 
             </Routes>
         </Layout>
