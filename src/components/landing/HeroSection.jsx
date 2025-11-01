@@ -92,7 +92,7 @@ export default function HeroSection() {
             </span>
           </div>
 
-          {/* Flat Design Buttons - Primary/Secondary CTAs */}
+          {/* Flat Design Buttons - Primary CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -105,18 +105,6 @@ export default function HeroSection() {
               >
                 Claim Your Free Pilot Spot
               </Button>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <button
-                onClick={scrollToNextSection}
-                className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-transparent border-2 border-ts-accent-blue text-ts-accent-blue hover:bg-ts-accent-blue hover:text-white transition-all"
-                aria-label="See How It Works"
-              >
-                See How It Works (Video)
-              </button>
             </motion.div>
           </div>
 
