@@ -162,13 +162,7 @@ export default function CTASection() {
 
       if (response.ok) {
         setStatus('success');
-        setMessage("Success! Your free guide is downloading now.");
-        const link = document.createElement('a');
-        link.href = '/downloads/free-guide-beat-counterfeits.pdf';
-        link.setAttribute('download', 'TraceSecure-5-Ways-to-Beat-Counterfeits.pdf');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        setMessage("Thanks! You're in. We'll reach out to confirm your pilot spot.");
         setName('');
         setEmail('');
       } else {
@@ -239,13 +233,13 @@ export default function CTASection() {
               </div>
           </div>
 
-          <div id="waitlist-form" className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-ts-card border-2 border-ts-border rounded-xl p-6">
-            <div className="text-center md:text-left w-full">
-              <h3 className="text-2xl font-bold mb-3 text-ts-text">Sign Up Now & Get Your Free Guide</h3>
-              <p className="mb-4 text-ts-text-muted">Get early access and a free PDF guide: <br/><span className="font-bold text-ts-text">"5 Ways to Beat Counterfeits as a Creator."</span></p>
+          <div id="waitlist-form" className="flex flex-col items-center bg-ts-card border-2 border-ts-border rounded-xl p-6 max-w-2xl mx-auto">
+            <div className="text-center w-full">
+              <h3 className="text-2xl font-bold mb-3 text-ts-text">Claim Your Free Pilot Spot</h3>
+              <p className="mb-4 text-ts-text-muted">Join our risk-free, 6-month free pilot for wineries. The first 200 members get our full Growth tier, completely free.</p>
               
               {status !== 'success' ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
                   <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors"/>
                   <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors"/>
                   <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
@@ -254,18 +248,11 @@ export default function CTASection() {
                   {status === 'error' && <p className="text-ts-error text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>}
                 </form>
               ) : (
-                <div className="flex flex-col items-center justify-center text-center p-4 bg-ts-success/10 rounded-lg h-full border-2 border-ts-border">
+                <div className="flex flex-col items-center justify-center text-center p-4 bg-ts-success/10 rounded-lg border-2 border-ts-border max-w-md mx-auto">
                   <CheckCircle className="w-12 h-12 text-ts-success mb-4" />
                   <p className="text-ts-success font-semibold">{message}</p>
                 </div>
               )}
-            </div>
-            <div className="flex items-center justify-center w-full">
-              <img 
-                src="/images/trace-rewards-menu.png"
-                alt="$TRACE earnings UI"
-                className="rounded-lg shadow-md w-full max-w-[400px] h-auto"
-              />
             </div>
           </div>
         </div>
