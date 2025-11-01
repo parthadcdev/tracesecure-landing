@@ -6,23 +6,26 @@ import { ShieldCheck, UserPlus, BookOpen } from 'lucide-react';
 const benefits = [
   {
     icon: UserPlus,
+    category: 'MAKE MORE MONEY',
     title: 'Build Your Wine Club',
     description:
-      'Turn anonymous retail buyers into high-quality leads. Our platform is a powerful lead-generation tool that drives signups for your most profitable program — your wine club.',
+      'Turn anonymous retail buyers into high-quality, opt-in leads. Our platform is a powerful lead-generation tool that uses micro-rewards to drive signups for your most profitable program.',
     example: 'Grow memberships directly from retail scans.'
   },
   {
     icon: BookOpen,
-    title: 'Tell Your Story',
+    category: 'CONNECT WITH CUSTOMERS',
+    title: 'Tell Your Unique Story',
     description:
       'Share winemaker videos, tasting notes, and food pairings. Build a direct relationship with your end customer and turn a one-time purchase into a loyal fan.',
     example: 'Drive repeat purchases with engaging content.'
   },
   {
     icon: ShieldCheck,
-    title: 'Protect Your Brand',
+    category: 'BUILD TRUST',
+    title: 'Prove Authenticity (Instantly)',
     description:
-      'As a built-in benefit, every scan also proves your bottle is authentic, protecting your hard-won reputation from fakes and building consumer trust.',
+      'As a built-in benefit, every scan also proves your bottle is authentic, protecting your hard-won reputation and giving customers peace of mind.',
     example: 'Instant authenticity checks on every bottle.'
   }
 ];
@@ -66,6 +69,9 @@ export default function ValuePropsSection() {
                     <IconComponent className="w-12 h-12 text-ts-primary" />
                   </div>
                 </div>
+              </div>
+              <div className="text-xs uppercase tracking-wider font-semibold text-ts-primary mb-2">
+                {benefit.category}
               </div>
               <h3 className="text-2xl font-bold mb-3 text-ts-text">
                 {benefit.title}

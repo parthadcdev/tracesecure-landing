@@ -62,7 +62,7 @@ export default function About() {
               <div className="h-1 w-20 bg-ts-accent mb-8"></div>
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
-                {/* Headshot Placeholder */}
+                {/* Headshot */}
                 <motion.div
                   className="flex-shrink-0"
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -70,17 +70,12 @@ export default function About() {
                   viewport={viewport}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-ts-card border-2 border-ts-border flex items-center justify-center shadow-lg">
-                    <div className="text-center p-6">
-                      <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 bg-ts-secondary rounded-full flex items-center justify-center">
-                        <svg className="w-16 h-16 md:w-20 md:h-20 text-ts-text-muted" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-ts-text-muted italic">
-                        (Insert Your Professional Headshot Here)
-                      </p>
-                    </div>
+                  <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-ts-card border-2 border-ts-border shadow-lg overflow-hidden">
+                    <img 
+                      src="/images/monochrome-headshot.png" 
+                      alt="Partha Chandramohan, Founder & CEO of TraceSecure"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </motion.div>
 

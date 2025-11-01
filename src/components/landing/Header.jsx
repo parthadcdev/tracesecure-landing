@@ -7,8 +7,8 @@ import { createPageUrl } from "@/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const navItems = [
-  { name: "Features", anchor: "features" },
   { name: "How It Works", anchor: "how-it-works" },
+  { name: "Features", anchor: "features" },
   { name: "Why It Matters", anchor: "why-matters" },
   { name: "Pricing", anchor: "pricing" },
   { name: "DPP Compliance", anchor: "dpp-compliance" },
