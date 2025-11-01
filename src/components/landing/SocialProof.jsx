@@ -26,11 +26,8 @@ export default function SocialProof() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>
-            Built for Virginia's Best Wineries
+            Built for Virginia's Most Innovative Wineries
           </h2>
-          <p className="text-lg max-w-3xl mx-auto" style={{ color: 'var(--color-text)' }}>
-            Trusted locally. Designed specifically for Loudoun and Virginia wineries.
-          </p>
         </motion.div>
         
         <div className="grid md:grid-cols-2 gap-8">

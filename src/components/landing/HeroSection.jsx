@@ -73,8 +73,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl" style={{ color: '#2874A6' }}>
-            Your retail customers are anonymous. TraceSecure gives every bottle a unique digital passport.
-            When a customer scans the QR code, they don’t just see “authentic” — they get your brand story and a direct invitation to join your wine club.
+            Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool. When a customer scans the QR code, we give them an instant $TRACE reward to share their email and join your marketing list.
           </p>
 
           {/* Flat Design Feature Badges - Consistent outlined style */}
@@ -102,10 +101,22 @@ export default function HeroSection() {
               <Button
                 onClick={scrollToWaitlist}
                   className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
-                aria-label="Join Beta Access"
+                aria-label="Claim Your Free Pilot Spot"
               >
-                Start Free
+                Claim Your Free Pilot Spot
               </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <button
+                onClick={scrollToNextSection}
+                className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-transparent border-2 border-ts-accent-blue text-ts-accent-blue hover:bg-ts-accent-blue hover:text-white transition-all"
+                aria-label="See How It Works"
+              >
+                See How It Works (Video)
+              </button>
             </motion.div>
           </div>
 
@@ -119,6 +130,9 @@ export default function HeroSection() {
             </span>
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               EU DPP Ready
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
+              Blockchain Verification
             </span>
           </div>
         </motion.div>

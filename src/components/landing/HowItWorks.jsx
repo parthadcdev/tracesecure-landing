@@ -11,15 +11,15 @@ const steps = [
   },
   {
     number: '02',
-    title: 'Customer Scans',
+    title: 'Customer Scans & Engages',
     description:
-      "Your customer scans the code at home to see the wine's authentic story, tasting notes, and your custom offer."
+      "Your customer scans the code at home. They see the wine's authentic story and a compelling offer: 'Join our Wine Club and earn 0.5 $TRACE Rewards!'"
   },
   {
     number: '03',
     title: 'Capture the Lead',
     description:
-      'They see your offer — like “Join Our Wine Club for 10% Off” — and sign up. You just gained a high-value customer lead.'
+      'They voluntarily share their email to claim the reward. You just got a new, high-value customer lead. We handle all the reward fulfillment.'
   }
 ];
 

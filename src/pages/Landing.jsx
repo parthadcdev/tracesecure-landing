@@ -7,6 +7,7 @@ const FeaturesSection = lazy(() => import("../components/landing/FeaturesSection
 const SocialProof = lazy(() => import("../components/landing/SocialProof"));
 const WhyMattersSection = lazy(() => import("../components/landing/WhyMattersSection"));
 const ValuePropsSection = lazy(() => import("../components/landing/ValuePropsSection"));
+const LocalCredibility = lazy(() => import("../components/landing/LocalCredibility"));
 const CTASection = lazy(() => import("../components/landing/CTASection"));
 const DPPComplianceSection = lazy(() => import("../components/landing/DPPComplianceSection"));
 const FAQSection = lazy(() => import("../components/landing/FAQSection"));
@@ -25,6 +26,7 @@ export default function Landing() {
         <ValuePropsSection />
         <SocialProof />
         <WhyMattersSection />
+        <LocalCredibility />
         <CTASection />
         <DPPComplianceSection />
         <FAQSection />

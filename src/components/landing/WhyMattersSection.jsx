@@ -86,20 +86,20 @@ export default function WhyMattersSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            The $100 Billion Problem No One Talks About
+            The "Customer Gap": Your Biggest Untapped Opportunity
           </h2>
-          <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            It’s not just counterfeits. It’s the Customer Gap.
-          </p>
         </motion.div>
 
         {/* Problem Copy */}
         <div className="mb-16 max-w-4xl mx-auto text-center text-ts-text-muted">
-          <p className="mb-4">
-            You spend years perfecting your wine. A customer buys it from a store in another city. The relationship ends right there.
+          <p className="mb-4 text-lg">
+            You spend years perfecting your wine. A customer buys it from a retail store 100 miles away. The relationship ends right there.
           </p>
-          <p>
-            You have no idea who they are. You can’t thank them. And you can’t invite them to buy directly from you next time. You are losing thousands of potential, high-margin, lifelong customers every single year.
+          <p className="mb-4 text-lg">
+            You have no idea who they are. You can't thank them. You can't tell them the story of that vintage. And you can't invite them to buy directly from you next time.
+          </p>
+          <p className="text-lg font-semibold text-ts-text">
+            You are losing thousands of potential, high-margin, lifelong customers every single year.
           </p>
         </div>
 
@@ -136,9 +136,20 @@ export default function WhyMattersSection() {
 
         {/* Solution Section */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
-            A Direct Marketing Channel in Every Bottle
-          </h3>
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-3xl font-bold mb-6 text-ts-text">
+              A Direct Marketing Channel in Every Bottle
+            </h3>
+            <p className="text-lg max-w-4xl mx-auto text-ts-text-muted">
+              TraceSecure closes the "Customer Gap." Our Digital Passport doesn't just verify your bottle—it makes a compelling, irresistible offer. We give your customer a small, instant $TRACE reward for sharing their email, turning a simple scan into a confirmed lead for your wine club or email list.
+            </p>
+          </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {transformations.map((transformation, index) => (
               <motion.div

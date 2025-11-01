@@ -102,6 +102,16 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Powered by Polygon */}
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <span className="text-sm text-ts-text-muted">Powered by</span>
+            <img 
+              src="/images/polygon-logo.png" 
+              alt="Polygon" 
+              className="h-6"
+            />
+          </div>
+
           {/* Bottom Footer */}
           <div className="border-t-2 pt-8 border-ts-border">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">

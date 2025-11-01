@@ -342,7 +342,7 @@ export default function DPPComplianceSection() {
                           item.status === 'Active' 
                             ? 'bg-ts-success/20 text-ts-success' 
                             : item.status === 'Upcoming'
-                            ? 'bg-ts-warning/20 text-ts-warning'
+                            ? 'bg-ts-warning/20 text-ts-primary border border-ts-warning/40'
                             : 'bg-ts-text-muted/20 text-ts-text-muted'
                         }`}
                         initial={{ opacity: 0, scale: 0.8 }}

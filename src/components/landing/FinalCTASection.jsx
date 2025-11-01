@@ -152,7 +152,7 @@ export default function FinalCTASection() {
             </div>
             <div className="mt-4">
               <Button type="submit" disabled={status === 'loading'} className="w-full text-lg font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
-                {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Start Free'}
+                {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Claim My Free Pilot Spot'}
               </Button>
             </div>
             {status === 'error' && (
@@ -230,7 +230,7 @@ export default function FinalCTASection() {
             const el = document.getElementById('final-cta');
             if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }} className="px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-            Start Free
+            Claim My Free Pilot Spot
           </button>
         </motion.div>
       </div>
