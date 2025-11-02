@@ -34,7 +34,7 @@ export default function SocialProof() {
           {testimonials.map((testimonial, index) => (
             <motion.div 
               key={index}
-              className="bg-white rounded-lg shadow-lg p-8"
+              className="bg-ts-surface rounded-lg shadow-lg p-8"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewport}

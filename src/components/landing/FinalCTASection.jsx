@@ -146,9 +146,9 @@ export default function FinalCTASection() {
         <div className="max-w-3xl mx-auto mb-16">
           <form onSubmit={handleSubmit} className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
             <div className="grid md:grid-cols-3 gap-4">
-              <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
-              <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
-              <Input type="text" placeholder="Vineyard Name" value={vineyard} onChange={(e) => setVineyard(e.target.value)} required className="bg-white border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+              <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+              <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+              <Input type="text" placeholder="Vineyard Name" value={vineyard} onChange={(e) => setVineyard(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
             </div>
             <div className="mt-4">
               <Button type="submit" disabled={status === 'loading'} className="w-full text-lg font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
