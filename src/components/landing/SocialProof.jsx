@@ -7,7 +7,7 @@ const testimonials = [
     quote:
       "TraceSecure gives us a direct line to our retail customers for the first time. We're finally turning anonymous buyers into new wine club members. It's a game-changer for our direct-to-consumer sales.",
     name: "John S.",
-    title: "Owner, Loudoun Valley Vineyard",
+    title: "Owner, Valley Vineyard",
     image: "/images/logo-symbol.png"
   }
 ];

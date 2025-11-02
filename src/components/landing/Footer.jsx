@@ -26,21 +26,6 @@ export default function Footer() {
               <p className="text-ts-text-muted mb-6 max-w-md">
                 Secure QR code-based digital history for luxury and craft producers. Prove authenticity, stop counterfeits, and connect directly with customers.
               </p>
-              
-              {/* Newsletter Signup */}
-              <div className="mb-6">
-                <h4 className="font-bold text-ts-text mb-3">Stay Updated on Beta Progress</h4>
-                <div className="flex gap-2">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    className="flex-1 px-4 py-2 rounded-lg border-2 border-ts-border bg-white text-ts-text placeholder-ts-text-muted focus:outline-none focus:border-ts-accent-blue transition-colors"
-                  />
-                  <button className="px-4 py-2 bg-ts-accent-blue text-white rounded-lg shadow-md hover:shadow-lg transition-all">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
             </div>
 
             {/* Product Links */}

@@ -121,7 +121,7 @@ export default function FinalCTASection() {
             Ready to Turn Your Bottles Into Customers?
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            Start our risk-free, 6-month free pilot for Loudoun wineries. The first 200 members get our full Growth tier, completely free.
+            Start our risk-free, 6-month free pilot for wineries. The first 200 members get our full Growth tier, completely free.
           </p>
         </motion.div>
 
@@ -224,7 +224,7 @@ export default function FinalCTASection() {
             Limited Free Pilot Spots Available (200)
           </h3>
           <p className="text-ts-text-muted mb-6">
-            Loudoun wineries only. Join today to secure your free 6-month Growth tier.
+            Wineries only. Join today to secure your free 6-month Growth tier.
           </p>
           <button onClick={() => {
             const el = document.getElementById('final-cta');
