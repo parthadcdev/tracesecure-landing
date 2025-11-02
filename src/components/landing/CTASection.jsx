@@ -224,10 +224,16 @@ export default function CTASection() {
               <h3 className="text-2xl font-bold text-ts-text mb-4">Questions about pricing?</h3>
               <p className="text-ts-text-muted mb-6">Our beta program includes personalized onboarding and direct access to our product team.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-6 py-3 bg-ts-accent-blue text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all">
+                <button 
+                  onClick={scrollToWaitlist}
+                  className="px-6 py-3 bg-ts-accent-blue text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+                >
                   Start Free
                 </button>
-                <button className="px-6 py-3 border-2 border-ts-border-dark text-ts-accent-blue font-semibold rounded-lg hover:bg-ts-accent-blue hover:text-white transition-all">
+                <button 
+                  onClick={() => window.open('https://calendly.com/demo-tracesecure', '_blank')}
+                  className="px-6 py-3 border-2 border-ts-border-dark text-ts-accent-blue font-semibold rounded-lg hover:bg-ts-accent-blue hover:text-white transition-all"
+                >
                   Schedule Demo
                 </button>
               </div>

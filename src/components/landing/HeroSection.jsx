@@ -56,13 +56,6 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
-          {/* Flat Design Badge */}
-          <div className="mb-6">
-            <span className="inline-block px-6 py-3 bg-ts-accent-blue text-white text-sm font-semibold rounded-lg shadow-md">
-              Join the Beta - Early Access Available
-            </span>
-          </div>
-          
           {/* Typography - Dark text on light background */}
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8" style={{ color: '#223A5E' }}>
             Turn Every Bottle
