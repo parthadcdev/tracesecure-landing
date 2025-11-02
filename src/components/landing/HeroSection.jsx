@@ -36,7 +36,7 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 dark:opacity-80"
         style={{
           backgroundImage: "url('/images/hero1.webp')",
           backgroundSize: 'cover',
@@ -44,6 +44,8 @@ export default function HeroSection() {
           backgroundRepeat: 'no-repeat'
         }}
       />
+      {/* Dark mode overlay for better contrast */}
+      <div className="absolute inset-0 bg-ts-background/50 dark:bg-ts-background/30 pointer-events-none" />
       
       {/* Solid Light Background - No geometric elements */}
       
@@ -56,16 +58,16 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
-          {/* Typography - Dark text on light background */}
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8" style={{ color: '#223A5E' }}>
+          {/* Typography - Adapts to dark mode */}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
             Turn Every Bottle
             <br />
-            <span style={{ color: '#2874A6' }}>
+            <span className="text-ts-text-muted">
               Into a Customer
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl" style={{ color: '#2874A6' }}>
+          <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl text-ts-text-muted">
             Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool. When a customer scans the QR code, we give them an instant $TRACE reward to share their email and join your marketing list.
           </p>
 

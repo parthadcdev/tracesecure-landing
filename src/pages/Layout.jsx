@@ -126,7 +126,7 @@ export default function Layout({ children, currentPageName }) {
           --font-sans: 'Inter', sans-serif;
           --font-brand: 'Inter', sans-serif;
           
-        /* New Color Theme - Blue, Gold & Burgundy */
+        /* Light Mode Color Theme - Blue, Gold & Burgundy */
         --color-background: #FAFAFA;
         --color-surface: #ffffff;
         --color-card: #E0E6ED;
@@ -164,15 +164,70 @@ export default function Layout({ children, currentPageName }) {
         --color-outline: #FFD700;
         }
 
+        .dark {
+          /* Dark Mode Color Theme */
+          --color-background: #0f172a;
+          --color-surface: #1e293b;
+          --color-card: #334155;
+          --color-text: #f1f5f9;
+          --color-text-muted: #94a3b8;
+          --color-primary: #3b82f6;
+          --color-secondary: #475569;
+          --color-accent: #fbbf24;
+          --color-accent-burgundy: #b91c1c;
+          --color-success: #60a5fa;
+          --color-warning: #fbbf24;
+          --color-error: #ef4444;
+          
+          /* Theme Color Variants - Dark Mode */
+          --color-russian-violet: #3b82f6;
+          --color-persian-indigo: #60a5fa;
+          --color-tekhelet: #3b82f6;
+          --color-french-violet: #3b82f6;
+          --color-amethyst: #60a5fa;
+          --color-heliotrope: #fbbf24;
+          --color-mauve: #fbbf24;
+          
+          /* Solid Colors for Flat Design - Dark Mode */
+          --color-primary-solid: #3b82f6;
+          --color-secondary-solid: #475569;
+          --color-accent-solid: #fbbf24;
+          --color-accent-burgundy-solid: #b91c1c;
+          --color-success-solid: #60a5fa;
+          --color-warning-solid: #fbbf24;
+          --color-error-solid: #ef4444;
+          
+          /* Border and Outline Colors - Dark Mode */
+          --color-border: #60a5fa;
+          --color-border-dark: #3b82f6;
+          --color-outline: #fbbf24;
+        }
+
         body {
           background-color: var(--color-background);
           color: var(--color-text);
           font-family: var(--font-sans);
+          transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         h1, h2, h3 {
           font-family: var(--font-serif);
           color: var(--color-text);
+        }
+
+        /* Image visibility in dark mode */
+        .dark img:not([class*="brightness"]) {
+          opacity: 0.9;
+        }
+
+        .dark img[src*="hero"] {
+          filter: brightness(0.75) contrast(1.1);
+        }
+
+        /* Ensure darker images are visible in dark mode */
+        .dark section img,
+        .dark .bg-ts-card img {
+          filter: brightness(1.1) contrast(1.05);
         }
       `}</style>
       
