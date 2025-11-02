@@ -7,61 +7,121 @@ import TraceabilityVisualization from "./TraceabilityVisualization";
 
 export default function HeroSection() {
   const scrollToWaitlist = () => {
-    document.getElementById("waitlist-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    const element = document.getElementById("waitlist-form");
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 16;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const scrollToNextSection = () => {
-    document.querySelector("#how-it-works")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.querySelector("#how-it-works");
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight - 16;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-      {/* Lighter gradient base for better visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900" />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 dark:opacity-80"
+        style={{
+          backgroundImage: "url('/images/hero1.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      {/* Dark mode overlay for better contrast */}
+      <div className="absolute inset-0 bg-ts-background/50 dark:bg-ts-background/30 pointer-events-none" />
       
-      {/* Traceability visualization - hidden on mobile */}
-      <div className="hidden md:block">
-        <TraceabilityVisualization />
-      </div>
+      {/* Solid Light Background - No geometric elements */}
       
-      {/* Much lighter overlay to show background better */}
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 60%)' }} />
-
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center mt-16 md:mt-0 mb-24 md:mb-32">
+      
+      
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
         <motion.div
-          className="max-w-4xl"
+          className="max-w-4xl text-left"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6" style={{ fontFamily: "var(--font-serif)" }}>
-            Fight Fakes. Build Loyalty. Start Free.
+          {/* Typography - Adapts to dark mode */}
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
+            Turn Every Bottle
+            <br />
+            <span className="text-ts-text-muted">
+              Into a Customer
+            </span>
           </h1>
 
-          <p className="text-base md:text-lg text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto text-center" style={{ fontFamily: "var(--font-sans)" }}>
-            Immutable blockchain certificates for independent creators: Prove authenticity with one scan, boost customer loyalty, start in 5 minutes - no tech expertise needed.
+          <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl text-ts-text-muted">
+            Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool. When a customer scans the QR code, we give them an instant $TRACE reward to share their email and join your marketing list.
           </p>
 
-          <div className="flex justify-center">
+          {/* Flat Design Feature Badges - Consistent outlined style */}
+          <div className="flex flex-wrap justify-start gap-3 mb-12">
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
+              Build Loyalty
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
+              Prove Authenticity
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
+              Stop Counterfeits
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
+              EU DPP Compliant
+            </span>
+          </div>
+
+          {/* Flat Design Buttons - Primary CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <Button
                 onClick={scrollToWaitlist}
-                className="text-base sm:text-lg px-6 py-4 sm:px-8 sm:py-6 rounded-lg shadow-lg transition-all hover:shadow-xl"
-                style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
-                aria-label="Start free authenticity certificate for your craft"
+                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
+                aria-label="Claim Your Free Pilot Spot"
               >
-                Secure Your First Craft Free
+                Claim Your Free Pilot Spot
               </Button>
             </motion.div>
+          </div>
+
+          {/* Additional Info Badges - Blue tones */}
+          <div className="flex flex-wrap justify-start gap-3 mt-12">
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
+              Enterprise Security
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
+              GDPR Compliant
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
+              EU DPP Ready
+            </span>
+            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
+              Blockchain Verification
+            </span>
           </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator - properly centered */}
+      {/* Flat Design Scroll Indicator */}
       <motion.div
         className="absolute bottom-12 left-0 right-0 flex justify-center"
         initial={{ opacity: 0, y: -10 }}
@@ -70,13 +130,13 @@ export default function HeroSection() {
       >
         <motion.button
           onClick={scrollToNextSection}
-          className="flex flex-col items-center gap-2 text-white/60 hover:text-white/90 transition-colors"
-          animate={{ y: [0, 8, 0] }}
+          className="flex flex-col items-center gap-3 p-4 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue rounded-lg shadow-md hover:shadow-lg hover:bg-ts-accent-blue hover:text-white transition-all"
+          animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           aria-label="Scroll to next section"
         >
-          <span className="text-xs uppercase tracking-wider font-sans">Discover How</span>
-          <ChevronDown className="w-6 h-6" />
+          <span className="text-xs uppercase tracking-wider font-medium">Discover How</span>
+              <ChevronDown className="w-5 h-5 [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]" />
         </motion.button>
       </motion.div>
     </section>
