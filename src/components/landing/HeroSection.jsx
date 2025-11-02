@@ -49,7 +49,7 @@ export default function HeroSection() {
       
       
       
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-start mt-16 md:pt-20 mb-24 md:mb-32">
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
         <motion.div
           className="max-w-4xl text-left"
           initial={{ opacity: 0, y: 30 }}
