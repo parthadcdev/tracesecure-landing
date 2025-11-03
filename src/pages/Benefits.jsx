@@ -41,7 +41,7 @@ export default function BenefitsPage() {
     {
       icon: <Zap className="w-6 h-6 mr-4 text-primary" />,
       title: "Easy Anti-Counterfeit Tools",
-      text: "QR Codes for Buyers, optional IoT Tracking for shipments, and Trace-to-Earn Rewards ($TRACE tokens)."
+      text: "QR Codes for Buyers, optional IoT Tracking for shipments, and Trace-to-Earn Rewards ($TRSR tokens)."
     }
   ];
 
