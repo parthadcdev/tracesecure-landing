@@ -13,7 +13,7 @@ const steps = [
     number: '02',
     title: 'Customer Scans & Engages',
     description:
-      "Your customer scans the code at home. They see the wine's authentic story and a compelling offer: 'Join our Wine Club and earn 0.5 $TRACE Rewards!'"
+      "Your customer scans the code at home. They see the wine's authentic story and a compelling offer: 'Join our Wine Club and earn 0.5 $TRSR Rewards!'"
   },
   {
     number: '03',
