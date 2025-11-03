@@ -39,7 +39,7 @@ export default function Layout({ children, currentPageName }) {
     // Meta keywords
     const metaKeywords = document.createElement('meta');
     metaKeywords.name = 'keywords';
-    metaKeywords.content = 'Web3, blockchain, Ethereum, Polygon, dApp, smart contracts, crypto wallets, transparency, traceability, NFT, tokens, digital product passport, DPP, authentication, anti-counterfeit, artisan, handmade, luxury goods, supply chain, provenance, $TRACE token';
+    metaKeywords.content = 'Web3, blockchain, Ethereum, Polygon, dApp, smart contracts, crypto wallets, transparency, traceability, NFT, tokens, digital product passport, DPP, authentication, anti-counterfeit, artisan, handmade, luxury goods, supply chain, provenance, $TRSR token';
     document.head.appendChild(metaKeywords);
 
     // Open Graph tags

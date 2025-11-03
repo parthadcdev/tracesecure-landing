@@ -25,7 +25,7 @@ const pricingPlans = [
     price: "$79",
     originalPrice: null,
     description: "Up to 1,000 items/month",
-    priceNote: "(or pay with $TRACE for a discount)",
+            priceNote: "(or pay with $TRSR for a discount)",
     features: [
       "All Starter features +",
       "Unlimited Traces & Scans",

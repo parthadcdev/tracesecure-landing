@@ -147,7 +147,7 @@ export default function WhyMattersSection() {
               A Direct Marketing Channel in Every Bottle
             </h3>
             <p className="text-lg max-w-4xl mx-auto text-ts-text-muted">
-              TraceSecure closes the "Customer Gap." Our Digital Passport doesn't just verify your bottle—it makes a compelling, irresistible offer. We give your customer a small, instant $TRACE reward for sharing their email, turning a simple scan into a confirmed lead for your wine club or email list.
+              TraceSecure closes the "Customer Gap." Our Digital Passport doesn't just verify your bottle—it makes a compelling, irresistible offer. We give your customer a small, instant $TRSR reward for sharing their email, turning a simple scan into a confirmed lead for your wine club or email list.
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
