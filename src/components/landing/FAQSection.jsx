@@ -220,9 +220,6 @@ export default function FAQSection() {
             Our team is here to help you get started with TraceSecure
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-6 py-3 bg-ts-primary text-white font-semibold rounded-xl hover:bg-ts-primary/90 transition-colors">
-              Contact Support
-            </button>
             <button className="px-6 py-3 border-2 border-ts-primary text-ts-primary font-semibold rounded-xl hover:bg-ts-primary/10 transition-colors">
               Schedule a Call
             </button>

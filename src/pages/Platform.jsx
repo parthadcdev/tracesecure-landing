@@ -367,12 +367,14 @@ export default function Platform() {
               <p className="text-ts-text-muted mb-6 max-w-2xl mx-auto">
                 Join TraceSecure today and start protecting your brand while building direct relationships with your customers.
               </p>
-              <Button
-                onClick={scrollToWaitlist}
-                className="px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white"
+              <a
+                href="https://app.tracesecure.co/auth?tab=signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white text-center inline-block"
               >
                 Start Free
-              </Button>
+              </a>
             </motion.div>
           </div>
         </div>

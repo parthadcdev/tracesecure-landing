@@ -93,13 +93,15 @@ export default function HeroSection() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button
-                onClick={scrollToWaitlist}
-                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
-                aria-label="Claim Your Free Pilot Spot"
+              <a
+                href="https://app.tracesecure.co/auth?tab=signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
+                aria-label="Join Beta"
               >
-                Claim Your Free Pilot Spot
-              </Button>
+                Join Beta
+              </a>
             </motion.div>
           </div>
 

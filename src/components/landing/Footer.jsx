@@ -57,7 +57,6 @@ export default function Footer() {
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Documentation</a></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">API Reference</a></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Help Center</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Contact Support</a></li>
               </ul>
             </div>
           </div>

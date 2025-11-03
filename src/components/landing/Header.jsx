@@ -219,13 +219,23 @@ export default function Header() {
             </div>
           </nav>
           
-          <div className="hidden md:flex">
-            <Button 
-              onClick={() => scrollTo('waitlist-form')}
+          <div className="hidden md:flex items-center gap-4">
+            <a 
+              href="https://app.tracesecure.co/auth"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-ts-text-muted hover:text-ts-primary transition-colors duration-300"
+            >
+              Sign In
+            </a>
+            <a
+              href="https://app.tracesecure.co/auth?tab=signup"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary"
             >
               Join Beta
-            </Button>
+            </a>
           </div>
 
           <div className="md:hidden">
@@ -291,12 +301,22 @@ export default function Header() {
                   ))}
                 </div>
                 
-                <Button 
-                  onClick={() => scrollTo('waitlist-form')}
-                  className="w-full text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-md bg-ts-accent-blue hover:bg-ts-primary"
+                <a
+                  href="https://app.tracesecure.co/auth"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center text-ts-text-muted hover:text-ts-primary text-lg py-4 font-medium border-2 border-ts-border rounded-lg hover:bg-ts-card transition-colors"
+                >
+                  Sign In
+                </a>
+                <a
+                  href="https://app.tracesecure.co/auth?tab=signup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-md bg-ts-accent-blue hover:bg-ts-primary transition-all"
                 >
                   Join Beta
-                </Button>
+                </a>
               </div>
             </motion.div>
           </motion.div>

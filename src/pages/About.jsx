@@ -136,12 +136,14 @@ export default function About() {
               <p className="text-ts-text-muted mb-6 max-w-2xl mx-auto">
                 Join TraceSecure today and discover how simple, powerful tools can help you connect with customers and protect your brand.
               </p>
-              <Button
-                onClick={scrollToWaitlist}
-                className="px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white"
+              <a
+                href="https://app.tracesecure.co/auth?tab=signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white text-center inline-block"
               >
                 Start Free
-              </Button>
+              </a>
             </motion.div>
           </div>
         </div>
