@@ -60,10 +60,10 @@ export default function HeroSection() {
 
           {/* Typography - Adapts to dark mode */}
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
-            Turn Every Bottle
+            <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">Turn Every Bottle Into</span>
             <br />
             <span className="text-ts-text-muted">
-              Into a Customer
+              a Known Customer
             </span>
           </h1>
 
