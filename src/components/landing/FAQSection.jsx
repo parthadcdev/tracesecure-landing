@@ -6,7 +6,6 @@ const faqCategories = [
   'All',
   'Getting Started',
   'Technical',
-  'Compliance',
   'Business',
   'Support'
 ];
@@ -46,21 +45,6 @@ const faqs = [
     category: 'Technical',
     question: 'Can TraceSecure integrate with my existing systems?',
     answer: 'Yes, we provide API access and integrations with popular inventory management, e-commerce, and ERP systems. Our team can help set up custom integrations during the beta program.'
-  },
-  {
-    category: 'Compliance',
-    question: 'Is TraceSecure compliant with EU Digital Product Passport (DPP) regulations?',
-    answer: 'Absolutely. TraceSecure is built from the ground up to meet EU DPP requirements. We automatically capture and store all required sustainability data, material information, and product lifecycle details needed for compliance.'
-  },
-  {
-    category: 'Compliance',
-    question: 'How does TraceSecure handle GDPR and data privacy?',
-    answer: 'We are fully GDPR compliant with data centers in the EU. Customer data is encrypted, anonymized where possible, and we provide complete data portability and deletion capabilities. Privacy is built into our core architecture.'
-  },
-  {
-    category: 'Compliance',
-    question: 'What sustainability data can TraceSecure track?',
-    answer: 'We track carbon footprint, material sourcing, production methods, transportation, recyclability information, and end-of-life instructions. All data is structured to meet current and upcoming EU sustainability requirements.'
   },
   {
     category: 'Business',
@@ -220,9 +204,6 @@ export default function FAQSection() {
             Our team is here to help you get started with TraceSecure
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-6 py-3 bg-ts-primary text-white font-semibold rounded-xl hover:bg-ts-primary/90 transition-colors">
-              Contact Support
-            </button>
             <button className="px-6 py-3 border-2 border-ts-primary text-ts-primary font-semibold rounded-xl hover:bg-ts-primary/10 transition-colors">
               Schedule a Call
             </button>

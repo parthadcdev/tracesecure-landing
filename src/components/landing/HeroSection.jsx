@@ -60,10 +60,10 @@ export default function HeroSection() {
 
           {/* Typography - Adapts to dark mode */}
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
-            Turn Every Bottle
+            <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">Turn Every Bottle Into</span>
             <br />
             <span className="text-ts-text-muted">
-              Into a Customer
+              a Known Customer
             </span>
           </h1>
 
@@ -82,9 +82,6 @@ export default function HeroSection() {
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
               Stop Counterfeits
             </span>
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
-              EU DPP Compliant
-            </span>
           </div>
 
           {/* Flat Design Buttons - Primary CTA */}
@@ -93,13 +90,15 @@ export default function HeroSection() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button
-                onClick={scrollToWaitlist}
-                  className="text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
-                aria-label="Claim Your Free Pilot Spot"
+              <a
+                href="https://app.tracesecure.co/auth?tab=signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
+                aria-label="Join Beta"
               >
-                Claim Your Free Pilot Spot
-              </Button>
+                Join Beta
+              </a>
             </motion.div>
           </div>
 
@@ -107,9 +106,6 @@ export default function HeroSection() {
           <div className="flex flex-wrap justify-start gap-3 mt-12">
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               Enterprise Security
-            </span>
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
-              GDPR Compliant
             </span>
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               EU DPP Ready

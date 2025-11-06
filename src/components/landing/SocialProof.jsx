@@ -13,6 +13,9 @@ const testimonials = [
 ];
 
 export default function SocialProof() {
+  // Section hidden per request
+  return null;
+  
   const viewport = { once: true, amount: 0.2 };
 
   return (

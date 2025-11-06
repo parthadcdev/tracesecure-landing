@@ -13,9 +13,9 @@ export default function LocalCredibility() {
           viewport={viewport}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-ts-text">Built in Virginia, for Virginia Wineries</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-ts-text">Born in Wine Country. Built for Craft Producers.</h2>
           <p className="text-lg text-ts-text-muted">
-            As a fellow Virginia founder, I'm passionate about helping our local craft community thrive. We're not just another tech vendor; we're your neighbors. We're building TraceSecure right here in Ashburn, in partnership with local experts, to solve the real challenges our wineries face.
+            As a founder based in Virginia's burgeoning wine country (Ashburn, VA), I'm passionate about helping the entire craft community thrive. We're building TraceSecure right here, in partnership with local experts, to solve the real challenges all craft producers face.
           </p>
         </motion.div>
       </div>
