@@ -72,7 +72,7 @@ export default function About() {
                 >
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-ts-card border-2 border-ts-border shadow-lg overflow-hidden">
                     <img 
-                      src="/images/monochrome-headshot.png" 
+                      src="/images/headshot-11-6.webp" 
                       alt="Partha Chandramohan, Founder & CEO of TraceSecure"
                       className="w-full h-full object-cover"
                     />
