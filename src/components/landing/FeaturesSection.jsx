@@ -37,7 +37,7 @@ const features = [
   },
   {
     icon: CheckCircle,
-    title: 'EU DPP Compliance',
+    title: 'EU DPP Ready',
     description: 'Built-in compliance with EU Digital Product Passport requirements for sustainable and circular economy.',
     features: ['DPP standards', 'Sustainability data', 'Regulatory compliance'],
     iconColor: 'bg-ts-accent-purple',

@@ -72,7 +72,7 @@ export default function About() {
                 >
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-ts-card border-2 border-ts-border shadow-lg overflow-hidden">
                     <img 
-                      src="/images/monochrome-headshot.png" 
+                      src="/images/headshot-11-6.webp" 
                       alt="Partha Chandramohan, Founder & CEO of TraceSecure"
                       className="w-full h-full object-cover"
                     />
@@ -107,7 +107,7 @@ export default function About() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
                     <p>
-                      Partha is a seasoned technology consultant and the founder of AxonSphere Consulting, an Ashburn, VA-based technology strategy firm. With over 15 years of experience in cloud architecture, supply chain logistics, and digital transformation, he has a deep expertise in building scalable, enterprise-grade systems.
+                      Partha is a seasoned technology consultant and the founder of AxonSphere Consulting, an Ashburn, VA based technology strategy firm. With over 15 years of experience in cloud architecture, supply chain logistics, and digital transformation, he has a deep expertise in building scalable, enterprise-grade systems.
                     </p>
                     <p>
                       He founded TraceSecure to solve the real-world challenges he saw facing independent, high-value producers. His goal is to leverage cutting-edge technology (like cloud infrastructure and blockchain) to build simple, affordable, and powerful tools that empower small businesses to thrive.
@@ -136,12 +136,14 @@ export default function About() {
               <p className="text-ts-text-muted mb-6 max-w-2xl mx-auto">
                 Join TraceSecure today and discover how simple, powerful tools can help you connect with customers and protect your brand.
               </p>
-              <Button
-                onClick={scrollToWaitlist}
-                className="px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white"
+              <a
+                href="https://app.tracesecure.co/auth?tab=signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-6 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white text-center inline-block"
               >
                 Start Free
-              </Button>
+              </a>
             </motion.div>
           </div>
         </div>

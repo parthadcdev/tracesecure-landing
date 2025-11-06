@@ -104,12 +104,23 @@ const PricingCard = ({ plan, onCtaClick }) => {
       ))}
     </ul>
     {plan.limit && <p className="text-xs mb-4 text-ts-text-muted">{plan.limit}</p>}
-    <Button 
-      onClick={onCtaClick} 
-      className="w-full mt-auto font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white"
-    >
-      {plan.cta}
-    </Button>
+    {plan.cta === "Start Free" || plan.cta === "Contact Sales" ? (
+      <a
+        href={plan.cta === "Contact Sales" ? "https://calendly.com/demo-tracesecure" : "https://app.tracesecure.co/auth?tab=signup"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full mt-auto font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white text-center inline-block"
+      >
+        {plan.cta}
+      </a>
+    ) : (
+      <Button 
+        onClick={onCtaClick} 
+        className="w-full mt-auto font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary text-white"
+      >
+        {plan.cta}
+      </Button>
+    )}
   </div>
   );
 };
@@ -122,17 +133,8 @@ export default function CTASection() {
   const [message, setMessage] = useState('');
   const viewport = { once: true, amount: 0.2 };
 
-  const scrollToWaitlist = () => {
-    const element = document.getElementById("waitlist-form");
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight - 16;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+  const handleSignupClick = () => {
+    window.open('https://app.tracesecure.co/auth?tab=signup', '_blank', 'noopener,noreferrer');
   };
 
   const handleSubmit = async (e) => {
@@ -216,7 +218,7 @@ export default function CTASection() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {pricingPlans.map(plan => (
-              <PricingCard key={plan.name} plan={plan} onCtaClick={scrollToWaitlist} />
+              <PricingCard key={plan.name} plan={plan} onCtaClick={handleSignupClick} />
             ))}
           </div>
 
@@ -224,12 +226,14 @@ export default function CTASection() {
               <h3 className="text-2xl font-bold text-ts-text mb-4">Questions about pricing?</h3>
               <p className="text-ts-text-muted mb-6">Our beta program includes personalized onboarding and direct access to our product team.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
-                  onClick={scrollToWaitlist}
-                  className="px-6 py-3 bg-ts-accent-blue text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+                <a
+                  href="https://app.tracesecure.co/auth?tab=signup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-ts-accent-blue text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all text-center"
                 >
                   Start Free
-                </button>
+                </a>
                 <button 
                   onClick={() => window.open('https://calendly.com/demo-tracesecure', '_blank')}
                   className="px-6 py-3 border-2 border-ts-border-dark text-ts-accent-blue font-semibold rounded-lg hover:bg-ts-accent-blue hover:text-white transition-all"
@@ -239,7 +243,8 @@ export default function CTASection() {
               </div>
           </div>
 
-          <div id="waitlist-form" className="flex flex-col items-center bg-ts-card border-2 border-ts-border rounded-xl p-6 max-w-2xl mx-auto">
+          {/* Hidden: Claim Your Free Pilot Spot section */}
+          <div id="waitlist-form" className="hidden flex flex-col items-center bg-ts-card border-2 border-ts-border rounded-xl p-6 max-w-2xl mx-auto">
             <div className="text-center w-full">
               <h3 className="text-2xl font-bold mb-3 text-ts-text">Claim Your Free Pilot Spot</h3>
               <p className="mb-4 text-ts-text-muted">Join our risk-free, 6-month free pilot for wineries. The first 200 members get our full Growth tier, completely free.</p>

@@ -153,13 +153,15 @@ export default function BenefitsPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Secure Your Craft?</h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">Don't let fakes dim your spark. Join the waitlist today and create your first Digital Product Passport in minutes.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={scrollToWaitlist}
-              className="text-lg px-8 py-6 rounded-lg shadow-lg transition-transform hover:scale-105"
+            <a
+              href="https://app.tracesecure.co/auth?tab=signup"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg px-8 py-6 rounded-lg shadow-lg transition-transform hover:scale-105 text-center inline-block"
               style={{ backgroundColor: 'var(--color-accent)', color: 'white' }}
             >
               Start Free
-            </Button>
+            </a>
             <Button
               variant="outline"
               className="text-lg px-8 py-6 rounded-lg shadow-lg transition-transform hover:scale-105"

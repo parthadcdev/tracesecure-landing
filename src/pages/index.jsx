@@ -8,6 +8,14 @@ import About from "./About";
 
 import Platform from "./Platform";
 
+import PrivacyPolicy from "./PrivacyPolicy";
+
+import TermsOfService from "./TermsOfService";
+
+import CookiePolicy from "./CookiePolicy";
+
+import DataProcessing from "./DataProcessing";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
@@ -19,6 +27,14 @@ const PAGES = {
     About: About,
     
     Platform: Platform,
+    
+    PrivacyPolicy: PrivacyPolicy,
+    
+    TermsOfService: TermsOfService,
+    
+    CookiePolicy: CookiePolicy,
+    
+    DataProcessing: DataProcessing,
     
 }
 
@@ -54,6 +70,14 @@ function PagesContent() {
                 <Route path="/About" element={<About />} />
                 
                 <Route path="/Platform" element={<Platform />} />
+                
+                <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+                
+                <Route path="/TermsOfService" element={<TermsOfService />} />
+                
+                <Route path="/CookiePolicy" element={<CookiePolicy />} />
+                
+                <Route path="/DataProcessing" element={<DataProcessing />} />
                 
             </Routes>
         </Layout>

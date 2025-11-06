@@ -458,14 +458,6 @@ export default function DPPComplianceSection() {
           <p className="text-lg text-ts-text-muted mb-8 max-w-3xl mx-auto">
             Don't wait for regulations to catch up. Join TraceSecure's beta program and ensure your products are compliant, sustainable, and ready for the future of digital commerce.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-              Get DPP Compliant Now
-            </button>
-            <button className="px-8 py-4 border-2 border-ts-primary text-ts-primary font-semibold rounded-xl hover:bg-ts-primary/10 transition-colors">
-              Download Compliance Guide
-            </button>
-          </div>
         </motion.div>
       </div>
     </section>
