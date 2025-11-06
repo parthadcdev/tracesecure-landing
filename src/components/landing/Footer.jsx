@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Main Footer Content */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
@@ -28,6 +28,14 @@ export default function Footer() {
               </p>
             </div>
 
+            {/* Company Links */}
+            <div>
+              <h4 className="font-bold text-ts-text mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><Link to={createPageUrl('About')} className="text-ts-text-muted hover:text-ts-primary transition-colors">About Us</Link></li>
+              </ul>
+            </div>
+
             {/* Product Links */}
             <div>
               <h4 className="font-bold text-ts-text mb-4">Product</h4>
@@ -35,54 +43,7 @@ export default function Footer() {
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Features</a></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">How It Works</a></li>
                 <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Pricing</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Security</a></li>
               </ul>
-            </div>
-
-            {/* Compliance Links */}
-            <div>
-              <h4 className="font-bold text-ts-text mb-4">Compliance</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">EU DPP</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">GDPR</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Data Privacy</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Sustainability</a></li>
-              </ul>
-            </div>
-
-            {/* Support Links */}
-            <div>
-              <h4 className="font-bold text-ts-text mb-4">Support</h4>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Documentation</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">API Reference</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Help Center</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Company Links */}
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div>
-              <h4 className="font-bold text-ts-text mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><Link to={createPageUrl('About')} className="text-ts-text-muted hover:text-ts-primary transition-colors">About Us</Link></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Careers</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Partners</a></li>
-                <li><a href="#" className="text-ts-text-muted hover:text-ts-primary transition-colors">Press Kit</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
-              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
-              EU DPP Compliant
-            </div>
-            <div className="flex items-center gap-2 text-sm text-ts-text-muted px-3 py-2 bg-ts-surface rounded-lg border-2 border-ts-border">
-              <div className="w-2 h-2 bg-ts-success rounded-full"></div>
-              GDPR Compliant
             </div>
           </div>
 
@@ -103,10 +64,10 @@ export default function Footer() {
                 © 2024 TraceSecure. All rights reserved.
               </div>
               <div className="flex flex-wrap justify-center gap-6 text-sm">
-                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Privacy Policy</a>
-                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Terms of Service</a>
-                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Cookie Policy</a>
-                <a href="#" className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Data Processing</a>
+                <Link to={createPageUrl('PrivacyPolicy')} className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Privacy Policy</Link>
+                <Link to={createPageUrl('TermsOfService')} className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Terms of Service</Link>
+                <Link to={createPageUrl('CookiePolicy')} className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Cookie Policy</Link>
+                <Link to={createPageUrl('DataProcessing')} className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Data Processing</Link>
               </div>
             </div>
             

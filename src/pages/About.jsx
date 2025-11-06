@@ -107,7 +107,7 @@ export default function About() {
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
                     <p>
-                      Partha is a seasoned technology consultant and the founder of AxonSphere Consulting, an Ashburn, VA-based technology strategy firm. With over 15 years of experience in cloud architecture, supply chain logistics, and digital transformation, he has a deep expertise in building scalable, enterprise-grade systems.
+                      Partha is a seasoned technology consultant and the founder of AxonSphere Consulting, an Ashburn, VA based technology strategy firm. With over 15 years of experience in cloud architecture, supply chain logistics, and digital transformation, he has a deep expertise in building scalable, enterprise-grade systems.
                     </p>
                     <p>
                       He founded TraceSecure to solve the real-world challenges he saw facing independent, high-value producers. His goal is to leverage cutting-edge technology (like cloud infrastructure and blockchain) to build simple, affordable, and powerful tools that empower small businesses to thrive.

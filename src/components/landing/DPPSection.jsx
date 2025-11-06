@@ -30,7 +30,7 @@ export default function DPPSection() {
             transition={{ duration: 0.7 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-ts-text" style={{ lineHeight: '1.2', fontSize: '32pt' }}>
-              Empower Your Craft with EU DPP Compliance
+              Empower Your Craft with EU DPP Ready
             </h2>
             <p className="text-lg mb-8 text-ts-text-muted">
               Fakes cost artisans $100B+ yearly. The EU's Digital Product Passport (DPP), launching 2026, fights counterfeits by tracking your craft's journey - materials, origins, authenticity. TraceSecure makes it easy: Create digital passports in 5 minutes, no tech skills needed. Slash 40% of fake losses, charge 15-20% more, and sell freely in Europe. Smart Trace, Trusted Trade.

@@ -82,9 +82,6 @@ export default function HeroSection() {
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
               Stop Counterfeits
             </span>
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
-              EU DPP Compliant
-            </span>
           </div>
 
           {/* Flat Design Buttons - Primary CTA */}
@@ -109,9 +106,6 @@ export default function HeroSection() {
           <div className="flex flex-wrap justify-start gap-3 mt-12">
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               Enterprise Security
-            </span>
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
-              GDPR Compliant
             </span>
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               EU DPP Ready

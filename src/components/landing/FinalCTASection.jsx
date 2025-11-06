@@ -4,21 +4,6 @@ import { CheckCircle, Clock, Shield, X, AlertTriangle, Loader2 } from 'lucide-re
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
-const testimonials = [
-  {
-    quote: "TraceSecure transformed how our customers trust our luxury handbags. Verification rates increased by 340%.",
-    author: "Sarah Chen",
-    title: "Founder, Artisan Leather Co.",
-    avatar: "/images/sarah-chen-avatar.png"
-  },
-  {
-    quote: "EU DPP compliance was a nightmare until TraceSecure. Now it's automatic and our sustainability story is powerful.",
-    author: "Marcus Weber",
-    title: "CEO, Alpine Craft Distillery",
-    avatar: "/images/marcus-weber-avatar.png"
-  }
-];
-
 const benefits = [
   {
     icon: CheckCircle,
@@ -162,37 +147,6 @@ export default function FinalCTASection() {
               <div className="mt-3 flex items-center gap-2 text-ts-success"><CheckCircle className="w-5 h-5" />{message}</div>
             )}
           </form>
-        </div>
-
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              className="bg-ts-card rounded-2xl p-8 shadow-xl border border-ts-primary/20"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewport}
-              transition={{ delay: 0.1 + index * 0.1, duration: 0.6 }}
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-ts-primary to-ts-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-lg">
-                    {testimonial.author.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <div className="flex-1">
-                  <p className="text-ts-text-muted italic mb-4">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <p className="font-bold text-ts-text">{testimonial.author}</p>
-                    <p className="text-sm text-ts-text-muted">{testimonial.title}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </div>
 
         {/* Guarantees */}
