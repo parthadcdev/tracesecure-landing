@@ -149,7 +149,7 @@ export default function Platform() {
                     </svg>
                   </div>
                   <p className="text-ts-text-muted text-center italic">
-                    (Embed Your New 60-Second Explainer Video Here)
+
                   </p>
                 </div>
               </motion.div>
@@ -222,7 +222,7 @@ export default function Platform() {
               </div>
 
               <p className="text-sm text-ts-text-muted text-center italic">
-                (Insert 3-4 High-Quality Screenshots of Your Actual Dashboard UI Here)
+
               </p>
             </motion.section>
 
