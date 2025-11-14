@@ -68,7 +68,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl text-ts-text-muted">
-            Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool. When a customer scans the QR code, we give them an instant $TRSR reward to share their email and join your marketing list.
+            Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool. When a customer scans the QR code, we give them an instant $TRSR crypto reward for sharing their email. Their tokens are kept safe in a highly secure wallet, ready to be redeemed.
           </p>
 
           {/* Flat Design Feature Badges - Consistent outlined style */}
