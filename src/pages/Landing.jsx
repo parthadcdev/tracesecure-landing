@@ -7,6 +7,8 @@ const FeaturesSection = lazy(() => import("../components/landing/FeaturesSection
 const SocialProof = lazy(() => import("../components/landing/SocialProof"));
 const WhyMattersSection = lazy(() => import("../components/landing/WhyMattersSection"));
 const ValuePropsSection = lazy(() => import("../components/landing/ValuePropsSection"));
+const WhyTraceSecureIsDifferent = lazy(() => import("../components/landing/WhyTraceSecureIsDifferent"));
+const TheWinWinWin = lazy(() => import("../components/landing/TheWinWinWin"));
 const LocalCredibility = lazy(() => import("../components/landing/LocalCredibility"));
 const CTASection = lazy(() => import("../components/landing/CTASection"));
 const DPPComplianceSection = lazy(() => import("../components/landing/DPPComplianceSection"));
@@ -22,10 +24,12 @@ export default function Landing() {
       <HeroSection />
       <Suspense fallback={<div className="h-screen w-full" style={{backgroundColor: "var(--color-background)"}} />}>
         <HowItWorks />
-        <FeaturesSection />
         <ValuePropsSection />
         <SocialProof />
         <WhyMattersSection />
+        <WhyTraceSecureIsDifferent />
+        <TheWinWinWin />
+        <FeaturesSection />
         <LocalCredibility />
         <CTASection />
         <DPPComplianceSection />

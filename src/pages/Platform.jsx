@@ -180,8 +180,12 @@ export default function Platform() {
                   viewport={viewport}
                   transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                  <div className="aspect-video bg-ts-secondary flex items-center justify-center">
-                    <QrCode className="w-16 h-16 text-ts-text-muted" />
+                  <div className="aspect-video overflow-hidden flex items-center justify-center p-2" style={{ backgroundColor: 'var(--color-background)' }}>
+                    <img 
+                      src="/images/Screenshot1.png" 
+                      alt="The main analytics dashboard"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div className="p-4">
                     <p className="text-sm font-semibold text-ts-text mb-2">Screenshot 1: The main analytics dashboard.</p>
@@ -196,8 +200,12 @@ export default function Platform() {
                   viewport={viewport}
                   transition={{ duration: 0.5, delay: 0.8 }}
                 >
-                  <div className="aspect-video bg-ts-secondary flex items-center justify-center">
-                    <Shield className="w-16 h-16 text-ts-text-muted" />
+                  <div className="aspect-video overflow-hidden flex items-center justify-center p-2" style={{ backgroundColor: 'var(--color-background)' }}>
+                    <img 
+                      src="/images/Screenshot2.png" 
+                      alt="The Create New Product workflow"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div className="p-4">
                     <p className="text-sm font-semibold text-ts-text mb-2">Screenshot 2: The "Create New Product" workflow.</p>
@@ -212,8 +220,12 @@ export default function Platform() {
                   viewport={viewport}
                   transition={{ duration: 0.5, delay: 0.9 }}
                 >
-                  <div className="aspect-video bg-ts-secondary flex items-center justify-center">
-                    <Users className="w-16 h-16 text-ts-text-muted" />
+                  <div className="aspect-video overflow-hidden flex items-center justify-center p-2" style={{ backgroundColor: 'var(--color-background)' }}>
+                    <img 
+                      src="/images/Screenshot3.png" 
+                      alt="The consumer-facing Verification Page with Join Wine Club CTA"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div className="p-4">
                     <p className="text-sm font-semibold text-ts-text mb-2">Screenshot 3: The consumer-facing "Verification Page" with the "Join Wine Club" CTA.</p>
@@ -262,6 +274,116 @@ export default function Platform() {
                     </motion.div>
                   );
                 })}
+              </div>
+            </motion.section>
+
+            {/* Divider */}
+            <div className="h-px w-full bg-ts-border my-16"></div>
+
+            {/* Analytics Dashboard Section */}
+            <motion.section
+              className="mb-16"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewport}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-ts-text text-center">
+                A Dashboard That Proves Your ROI
+              </h2>
+              <div className="h-1 w-20 bg-ts-accent mb-8 mx-auto"></div>
+              
+              <p className="text-lg leading-relaxed text-ts-text-muted mb-8 text-center max-w-3xl mx-auto">
+                TraceSecure isn't just a lead-capture tool; it's a powerful analytics platform. We give you the data to stop guessing and see exactly what's working.
+              </p>
+
+              {/* Dashboard Screenshot Placeholder */}
+              <motion.div
+                className="w-full max-w-5xl mx-auto bg-ts-card border-2 border-ts-border rounded-xl overflow-hidden shadow-lg mb-12"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={viewport}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <div className="aspect-video bg-gradient-to-br from-ts-secondary to-ts-primary/20 flex flex-col items-center justify-center p-8">
+                  <BarChart3 className="w-20 h-20 mb-4 text-ts-accent-blue" />
+                  <p className="text-ts-text-muted text-center italic">
+                    Analytics Dashboard Screenshot (Heatmap/Analytics)
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Key Analytics Features */}
+              <div className="max-w-4xl mx-auto">
+                <h3 className="text-2xl font-bold mb-6 text-ts-text">Key Analytics Features:</h3>
+                
+                <div className="space-y-6">
+                  {/* Geographic Scan Heatmap */}
+                  <motion.div
+                    className="bg-ts-card border-2 border-ts-border rounded-xl p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.5, delay: 0.9 }}
+                  >
+                    <h4 className="text-xl font-bold mb-3 text-ts-text">Geographic Scan Heatmap</h4>
+                    <p className="text-ts-text-muted leading-relaxed">
+                      We use the anonymous scan data to build a live "scan map" of where your products are being engaged. This allows you to discover hidden, high-performing markets and see where your brand is gaining traction in the real world.
+                    </p>
+                  </motion.div>
+
+                  {/* DTC Lead Generation Funnel */}
+                  <motion.div
+                    className="bg-ts-card border-2 border-ts-border rounded-xl p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.5, delay: 1.0 }}
+                  >
+                    <h4 className="text-xl font-bold mb-3 text-ts-text">DTC Lead Generation Funnel</h4>
+                    <p className="text-ts-text-muted leading-relaxed mb-3">
+                      Our dashboard shows you the full funnel:
+                    </p>
+                    <ol className="list-decimal list-inside space-y-2 text-ts-text-muted ml-4">
+                      <li>Total Scans</li>
+                      <li>Total Leads Captured</li>
+                      <li>Your Scan-to-Lead Conversion Rate</li>
+                    </ol>
+                  </motion.div>
+
+                  {/* Marketing Pixel Integration */}
+                  <motion.div
+                    className="bg-ts-card border-2 border-ts-border rounded-xl p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.5, delay: 1.1 }}
+                  >
+                    <h4 className="text-xl font-bold mb-3 text-ts-text">Marketing Pixel Integration (Retargeting)</h4>
+                    <p className="text-ts-text-muted leading-relaxed">
+                      We make it easy to connect your Meta (Facebook/Instagram) and Google Ads pixels. This allows you to build powerful, low-cost retargeting audiences of everyone who has scanned your bottle but hasn't provided their email yet—turning an anonymous scan into a hot lead.
+                    </p>
+                  </motion.div>
+
+                  {/* Closed-Loop ROI Tracking */}
+                  <motion.div
+                    className="bg-ts-card border-2 border-ts-border rounded-xl p-6 border-ts-accent-blue/50"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.5, delay: 1.2 }}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <h4 className="text-xl font-bold text-ts-text">Closed-Loop ROI Tracking</h4>
+                      <span className="px-3 py-1 bg-ts-accent-blue/20 text-ts-accent-blue text-sm font-semibold rounded-full">
+                        Coming Soon
+                      </span>
+                    </div>
+                    <p className="text-ts-text-muted leading-relaxed">
+                      Our upcoming "Coupon Manager" will be our most powerful feature. You'll be able to upload your unique, one-time-use sales codes (from Shopify, etc.). When a new lead signs up, we'll give them a code. This allows you to see the <strong className="text-ts-text">exact dollar amount of new sales</strong> generated directly from TraceSecure leads, right in your own sales dashboard.
+                    </p>
+                  </motion.div>
+                </div>
               </div>
             </motion.section>
 
