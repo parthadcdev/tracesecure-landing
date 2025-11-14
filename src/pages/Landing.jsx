@@ -24,12 +24,12 @@ export default function Landing() {
       <HeroSection />
       <Suspense fallback={<div className="h-screen w-full" style={{backgroundColor: "var(--color-background)"}} />}>
         <HowItWorks />
-        <FeaturesSection />
         <ValuePropsSection />
         <SocialProof />
         <WhyMattersSection />
         <WhyTraceSecureIsDifferent />
         <TheWinWinWin />
+        <FeaturesSection />
         <LocalCredibility />
         <CTASection />
         <DPPComplianceSection />

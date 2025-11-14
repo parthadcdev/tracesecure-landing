@@ -8,8 +8,9 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 const navItems = [
   { name: "How It Works", anchor: "how-it-works" },
-  { name: "Features", anchor: "features" },
   { name: "Why It Matters", anchor: "why-matters" },
+  { name: "Why TraceSecure", anchor: "why-different" },
+  { name: "Features", anchor: "features" },
   { name: "Pricing", anchor: "pricing" },
   { name: "DPP Compliance", anchor: "dpp-compliance" },
   { name: "FAQ", anchor: "faq" },
