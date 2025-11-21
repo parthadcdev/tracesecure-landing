@@ -112,7 +112,7 @@ export default function Platform() {
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-ts-success rounded-full"></div>
                   <p className="text-lg text-ts-text-muted">
-                    <strong className="text-ts-text">Status:</strong> Live in Beta (Launched November 2025)
+                    <strong className="text-ts-text">Status:</strong> Live (Launched November 2025)
                   </p>
                 </div>
               </div>

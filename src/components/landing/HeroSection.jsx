@@ -95,9 +95,9 @@ export default function HeroSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
-                aria-label="Join Beta"
+                aria-label="Join"
               >
-                Join Beta
+                Join
               </a>
             </motion.div>
           </div>

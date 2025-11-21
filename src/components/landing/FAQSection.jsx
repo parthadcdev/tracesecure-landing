@@ -49,7 +49,7 @@ const faqs = [
   {
     category: 'Business',
     question: 'How much does TraceSecure cost after the beta?',
-    answer: 'Beta participants lock in special pricing: Starter remains free for up to 100 products, Professional will be $49/month (50% off), and Enterprise pricing is customized. Current beta pricing is guaranteed for your first year.'
+    answer: 'Early adopters lock in special pricing: Starter remains free for up to 100 products, Professional will be $49/month (50% off), and Enterprise pricing is customized. Current pricing is guaranteed for your first year.'
   },
   {
     category: 'Business',
@@ -64,7 +64,7 @@ const faqs = [
   {
     category: 'Support',
     question: 'What kind of support do you provide?',
-    answer: 'Beta users get priority support via email, chat, and phone. Professional and Enterprise plans include dedicated account managers. We also provide comprehensive documentation, video tutorials, and training sessions.'
+    answer: 'All users get priority support via email, chat, and phone. Professional and Enterprise plans include dedicated account managers. We also provide comprehensive documentation, video tutorials, and training sessions.'
   },
   {
     category: 'Support',
@@ -114,7 +114,7 @@ export default function FAQSection() {
             </span>
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            Everything you need to know about TraceSecure and our beta program. Can't find what you're looking for? Contact our support team.
+            Everything you need to know about TraceSecure. Can't find what you're looking for? Contact our support team.
           </p>
         </motion.div>
 

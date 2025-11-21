@@ -188,18 +188,18 @@ export default function CTASection() {
             viewport={viewport}
             transition={{ duration: 0.6 }}
           >
-            Simple Pricing for Beta Members
+            Simple Pricing
           </motion.h2>
           
           <div className="text-center mb-12">
             <p className="text-lg text-ts-text-muted mb-8">
-              Join our beta program and get exclusive pricing with all the features you need to secure your products.
+              Get exclusive pricing with all the features you need to secure your products.
             </p>
             
             <div className="grid md:grid-cols-4 gap-4 mb-8">
               <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Early Bird Pricing</h3>
-                <p className="text-sm text-ts-text-muted">50% off for the first year when you join our beta program</p>
+                <p className="text-sm text-ts-text-muted">50% off for the first year when you join</p>
               </div>
               <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Direct Access</h3>
@@ -207,7 +207,7 @@ export default function CTASection() {
               </div>
               <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Locked-in Rates</h3>
-                <p className="text-sm text-ts-text-muted">Keep your beta pricing even after public launch</p>
+                <p className="text-sm text-ts-text-muted">Locked-in rates guaranteed for your first year</p>
               </div>
               <div className="text-center p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
                 <h3 className="font-bold text-ts-text mb-2">Free Training</h3>
@@ -224,7 +224,7 @@ export default function CTASection() {
 
           <div className="text-center space-y-2 mb-16">
               <h3 className="text-2xl font-bold text-ts-text mb-4">Questions about pricing?</h3>
-              <p className="text-ts-text-muted mb-6">Our beta program includes personalized onboarding and direct access to our product team.</p>
+              <p className="text-ts-text-muted mb-6">We include personalized onboarding and direct access to our product team.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="https://app.tracesecure.co/auth?tab=signup"
@@ -254,7 +254,7 @@ export default function CTASection() {
                   <Input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors"/>
                   <Input type="email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors"/>
                   <Button type="submit" disabled={status === 'loading'} className="w-full text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
-                    {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : "Join Beta"}
+                    {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : "Join"}
                   </Button>
                   {status === 'error' && <p className="text-ts-error text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4" />{message}</p>}
                 </form>

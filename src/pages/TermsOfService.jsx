@@ -105,9 +105,9 @@ export default function TermsOfService() {
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">8. Beta Program</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">8. Service Status</h2>
                   <p>
-                    TraceSecure is currently in beta. Features, functionality, and pricing may change before public release. Beta users acknowledge that the Service may contain bugs, errors, or incomplete features.
+                    TraceSecure is continuously improving. Features, functionality, and pricing may change with 30 days' notice to existing customers. Users acknowledge that the Service may contain bugs, errors, or incomplete features.
                   </p>
                 </section>
 

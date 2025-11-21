@@ -70,13 +70,6 @@ export default function Footer() {
                 <Link to={createPageUrl('DataProcessing')} className="text-ts-text-muted hover:text-ts-accent-blue transition-colors">Data Processing</Link>
               </div>
             </div>
-            
-            {/* Beta Program Notice */}
-            <div className="mt-6 p-4 bg-ts-surface rounded-lg border-2 border-ts-border">
-              <p className="text-sm text-ts-text-muted text-center">
-                <strong className="text-ts-text">Beta Program:</strong> TraceSecure is currently in beta. Features and pricing may change before public release. Join our beta program to lock in early access pricing.
-              </p>
-            </div>
           </div>
         </div>
       </div>
