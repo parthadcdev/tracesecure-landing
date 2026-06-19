@@ -19,31 +19,88 @@ gcloud services enable sts.googleapis.com
 
 ## Step 2: Create Workload Identity Pool
 
+**⚠️ IMPORTANT**: If you get "Listed 0 items" when running the list command, you need to create the pool first!
+
+### Option A: Create via gcloud CLI (Recommended - Faster)
+```bash
+gcloud iam workload-identity-pools create staticsite-github-actions-pool \
+  --location="global" \
+  --project="canvas-griffin-475520-b7" \
+  --display-name="GitHub Actions Pool" \
+  --description="Workload Identity Pool for GitHub Actions"
+```
+
+### Option B: Create via Google Cloud Console
 1. Go to [Google Cloud Console → IAM & Admin → Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools)
 2. Click **"Create Pool"**
 3. Fill in the details:
-   - **Pool ID**: `staticsite-github-actions-pool` (or your preferred name)
+   - **Pool ID**: `staticsite-github-actions-pool` ⚠️ Must be exactly this
    - **Display name**: `GitHub Actions Pool`
    - **Description**: `Workload Identity Pool for GitHub Actions`
 4. Click **"Continue"**
 5. Click **"Create Pool"**
 
+### Verify the pool was created:
+```bash
+gcloud iam workload-identity-pools list --location="global" --project="canvas-griffin-475520-b7"
+```
+
+You should see `staticsite-github-actions-pool` in the list.
+
 ## Step 3: Create Workload Identity Provider
 
-1. In the pool you just created, click **"Add Provider"**
-2. Select **"OpenID Connect (OIDC)"**
-3. Fill in the details:
-   - **Provider name**: `github-provider` ✅ (This is your provider ID)
-   - **Issuer (URL)**: `https://token.actions.githubusercontent.com` (⚠️ Must be exactly this)
-   - **Allowed audiences**: Leave blank (default) or use `sts.amazonaws.com` (GitHub Actions will use this automatically)
-4. Under **"Attribute mapping"**, add:
+**⚠️ IMPORTANT**: The pool must exist before creating the provider! Complete Step 2 first.
+
+### Option A: Create via gcloud CLI (Recommended - Faster)
+```bash
+gcloud iam workload-identity-pools providers create-oidc github-provider \
+  --location="global" \
+  --workload-identity-pool="staticsite-github-actions-pool" \
+  --project="canvas-griffin-475520-b7" \
+  --issuer-uri="https://token.actions.githubusercontent.com" \
+  --allowed-audiences="https://github.com/parthadcdev" \
+  --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository"
+```
+
+### Option B: Create via Google Cloud Console
+1. Go to [Google Cloud Console → IAM & Admin → Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools)
+2. Click on `staticsite-github-actions-pool`
+3. Click **"Add Provider"**
+4. Select **"OpenID Connect (OIDC)"**
+5. Fill in the details:
+   - **Provider name**: `github-provider` ⚠️ Must be exactly this
+   - **Issuer (URL)**: `https://token.actions.githubusercontent.com` ⚠️ Must be exactly this (no trailing slash)
+   - **Allowed audiences**: `https://github.com/parthadcdev` (your GitHub org/username) or leave blank
+6. Under **"Attribute mapping"**, add:
    - **Google subject**: `assertion.sub`
-   - **Google subject_assertion**: `assertion.repository` (optional, for repository-specific access)
-5. Click **"Save"**
-6. **Important**: After creating, copy the full provider resource name - you'll see it at the top of the provider details page. It should look like:
-   ```
-   projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_NAME
-   ```
+   - **Google subject_assertion** (optional): `assertion.repository`
+7. Click **"Save"**
+
+### Verify the provider was created:
+```bash
+gcloud iam workload-identity-pools providers list \
+  --workload-identity-pool="staticsite-github-actions-pool" \
+  --location="global" \
+  --project="canvas-griffin-475520-b7"
+```
+
+You should see `github-provider` in the list.
+
+### Get the provider resource name:
+```bash
+gcloud iam workload-identity-pools providers describe github-provider \
+  --workload-identity-pool="staticsite-github-actions-pool" \
+  --location="global" \
+  --project="canvas-griffin-475520-b7" \
+  --format="value(name)"
+```
+
+This will output:
+```
+projects/1050494669271/locations/global/workloadIdentityPools/staticsite-github-actions-pool/providers/github-provider
+```
+
+**Copy this exact output** - you'll need it for your `WIF_PROVIDER` GitHub secret!
 
 ## Step 4: Create Service Account
 
@@ -227,59 +284,93 @@ You can restrict access to specific repositories by updating the attribute condi
 - Check that the service account exists in the correct project
 
 ### Error: "invalid_target" or "The target service indicated by the \"audience\" parameters is invalid"
-This error typically means the Workload Identity Provider path is incorrect or the provider doesn't exist/is disabled.
+This error typically means the Workload Identity Provider path is incorrect, the provider doesn't exist/is disabled, or the issuer/audience configuration is wrong.
 
-**To fix:**
-1. **Verify the provider exists and is active:**
+**Step-by-step fix:**
+
+0. **First, verify the pool exists and list all providers:**
    ```bash
-   gcloud iam workload-identity-pools providers describe github-provider \
+   # Check if the pool exists
+   gcloud iam workload-identity-pools list --location="global" --project="canvas-griffin-475520-b7"
+   
+   # List all providers in the pool (to see the actual provider names)
+   gcloud iam workload-identity-pools providers list \
+     --workload-identity-pool="staticsite-github-actions-pool" \
+     --location="global" \
+     --project="canvas-griffin-475520-b7"
+   ```
+   
+   If the pool doesn't exist or the provider name is different, you'll need to:
+   - Create the pool if it doesn't exist (see Step 2 in setup)
+   - Create the provider if it doesn't exist (see Step 3 in setup)
+   - Use the correct provider name from the list above
+
+1. **Once you confirm the provider exists, verify and get its full details:**
+   ```bash
+   # Replace PROVIDER_NAME with the actual provider name from the list above
+   gcloud iam workload-identity-pools providers describe PROVIDER_NAME \
      --location="global" \
      --workload-identity-pool="staticsite-github-actions-pool" \
      --project="canvas-griffin-475520-b7"
    ```
-
-2. **Check the exact provider path:**
-   - Go to [Google Cloud Console → IAM & Admin → Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools)
-   - Click on your pool → Click on your provider
-   - At the top of the provider details page, you'll see the **Resource name**
-   - Copy this **exact** path (including `projects/...`)
-   - Update your `WIF_PROVIDER` GitHub secret with this exact value
-
-3. **Verify the provider is enabled:**
-   - In the provider details, ensure it shows as **"Active"** or **"Enabled"**
-   - If disabled, click **"Edit"** and ensure all required fields are filled
-
-4. **Double-check the issuer URL:**
-   - The issuer must be exactly: `https://token.actions.githubusercontent.com`
-   - No trailing slash, no variations
-
-5. **Verify the secret format in GitHub:**
-   - The `WIF_PROVIDER` secret should be in format:
-     ```
-     projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_NAME
-     ```
-   - Your values:
-     - `PROJECT_NUMBER`: `1050494669271` (your project number)
-     - `POOL_ID`: `staticsite-github-actions-pool` (your actual pool ID)
-     - `PROVIDER_NAME`: `github-provider` (your actual provider ID)
    
-   **Your complete WIF_PROVIDER path should be:**
-   ```
-   projects/1050494669271/locations/global/workloadIdentityPools/staticsite-github-actions-pool/providers/github-provider
+   **Check for:**
+   - Status should show as active/enabled
+   - Issuer URL should be exactly: `https://token.actions.githubusercontent.com`
+   - No trailing slashes or spaces
+
+2. **Verify the pool exists:**
+   ```bash
+   gcloud iam workload-identity-pools describe staticsite-github-actions-pool \
+     --location="global" \
+     --project="canvas-griffin-475520-b7"
    ```
 
-6. **Get the correct path using gcloud:**
+3. **Get the EXACT provider resource name (this is critical):**
    ```bash
-   gcloud iam workload-identity-pools providers describe github-provider \
-     --location="global" \
+   # Replace PROVIDER_NAME with the actual provider name from step 0
+   gcloud iam workload-identity-pools providers describe PROVIDER_NAME \
      --workload-identity-pool="staticsite-github-actions-pool" \
+     --location="global" \
      --project="canvas-griffin-475520-b7" \
      --format="value(name)"
    ```
-   This will output the full resource name you should use in `WIF_PROVIDER`. The output should be:
+   
+   **This will output something like:**
    ```
-   projects/1050494669271/locations/global/workloadIdentityPools/staticsite-github-actions-pool/providers/github-provider
+   projects/1050494669271/locations/global/workloadIdentityPools/staticsite-github-actions-pool/providers/PROVIDER_NAME
    ```
+   
+   ⚠️ **Important**: Copy this EXACT output (including all slashes, no extra spaces, no trailing newlines) and use it as your `WIF_PROVIDER` secret value.
+
+4. **Check the provider issuer configuration:**
+   ```bash
+   # Replace PROVIDER_NAME with the actual provider name from step 0
+   gcloud iam workload-identity-pools providers describe PROVIDER_NAME \
+     --workload-identity-pool="staticsite-github-actions-pool" \
+     --location="global" \
+     --project="canvas-griffin-475520-b7" \
+     --format="value(oidc.issuerUri)"
+   ```
+   
+   Should output: `https://token.actions.githubusercontent.com`
+   
+5. **If issuer is wrong, update the provider:**
+   If the issuer is not correct, you may need to recreate the provider with the correct issuer URL. Go to Google Cloud Console and verify the issuer is set to exactly: `https://token.actions.githubusercontent.com`
+
+6. **Verify in Google Cloud Console:**
+   - Go to [Google Cloud Console → IAM & Admin → Workload Identity Pools](https://console.cloud.google.com/iam-admin/workload-identity-pools)
+   - Click on `staticsite-github-actions-pool` → Click on `github-provider`
+   - At the top of the provider details page, you'll see the **Resource name**
+   - Copy this **exact** path (including `projects/...`)
+   - Compare it with your `WIF_PROVIDER` GitHub secret - they must match EXACTLY
+   - Make sure there are no trailing spaces, newlines, or extra characters
+
+7. **Common Issues:**
+   - **Trailing spaces or newlines**: Make sure your GitHub secret has no extra spaces or newlines at the end
+   - **Wrong project number**: Double-check that 1050494669271 is correct using: `gcloud projects describe canvas-griffin-475520-b7 --format="value(projectNumber)"`
+   - **Provider disabled**: Check that the provider is enabled in Google Cloud Console
+   - **Issuer mismatch**: The issuer must be exactly `https://token.actions.githubusercontent.com` (no trailing slash)
 
 ## Resources
 

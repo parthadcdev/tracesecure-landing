@@ -12,7 +12,7 @@ export const landingContent = {
     hero: {
       headlineTop: 'Turn Every Product Into',
       headlineBottom: 'a Customer You Can Reach',
-      backgroundImage: '/images/three-step-infographic.png',
+      backgroundImage: '/images/hero-product-right.webp',
       backgroundPosition: 'center right',
       description:
         'Your retail buyers are anonymous. TraceSecure turns every product you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
@@ -209,8 +209,8 @@ export const landingContent = {
     hero: {
       headlineTop: 'Turn Every Bottle Into',
       headlineBottom: 'a Customer You Can Reach',
-      backgroundImage: '/images/hero1.webp',
-      backgroundPosition: 'center',
+      backgroundImage: '/images/hero-wine-right.webp',
+      backgroundPosition: 'center right',
       description:
         'Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your wine is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
       badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
@@ -406,7 +406,7 @@ export const landingContent = {
     hero: {
       headlineTop: 'Turn Every Supplement Into',
       headlineBottom: 'a Customer You Can Reach',
-      backgroundImage: '/images/tag-your-item.png',
+      backgroundImage: '/images/hero-product-right.webp',
       backgroundPosition: 'center right',
       description:
         'Your retail and marketplace buyers are anonymous. TraceSecure turns every supplement you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',

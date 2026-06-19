@@ -30,14 +30,21 @@ export default function HeroSection() {
           backgroundImage: `url('${backgroundImage}')`,
           backgroundSize: 'cover',
           backgroundPosition,
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
         }}
       />
-      <div className="absolute inset-0 bg-ts-background/50 dark:bg-ts-background/30 pointer-events-none" />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(to right, var(--color-background) 0%, color-mix(in srgb, var(--color-background) 92%, transparent) 35%, color-mix(in srgb, var(--color-background) 45%, transparent) 55%, transparent 75%)',
+        }}
+      />
+      <div className="absolute inset-0 bg-ts-background/20 dark:bg-ts-background/30 pointer-events-none" />
       
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
         <motion.div
-          className="max-w-4xl text-left"
+          className="max-w-2xl lg:max-w-3xl text-left"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>

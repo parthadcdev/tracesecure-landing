@@ -1,29 +1,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const steps = [
-  {
-    number: '01',
-    title: 'Apply Your Tag',
-    description:
-      'You (or your label designer) add our unique, secure QR code to your bottles.'
-  },
-  {
-    number: '02',
-    title: 'Customer Scans & Engages',
-    description:
-      "Your customer scans the code at home. They see the wine's authentic story and a compelling offer: 'Join our Wine Club and earn 0.5 $TRSR Rewards!'"
-  },
-  {
-    number: '03',
-    title: 'Capture the Lead',
-    description:
-      'They voluntarily share their email to claim the reward. You just got a new, high-value customer lead. We handle all the reward fulfillment.'
-  }
-];
+import { useLandingContent } from '@/context/LandingVariantContext';
 
 export default function HowItWorks() {
+  const { howItWorks } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
   return (
     <section id="how-it-works" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
@@ -36,15 +17,15 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            From Bottle to Brand Fan in 3 Simple Steps
+            {howItWorks.title}
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            A 60-second explainer video shows the flow — scan to story to signup.
+            {howItWorks.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step, index) => (
+          {howItWorks.steps.map((step, index) => (
             <motion.div
               key={index}
               className="bg-ts-card rounded-2xl p-8 shadow-xl border border-ts-primary/20 text-center"

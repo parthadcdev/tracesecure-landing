@@ -1,26 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Gift, Network } from 'lucide-react';
+import { useLandingContent } from '@/context/LandingVariantContext';
 
-const wins = [
-  {
-    icon: Users,
-    title: 'The Winery Wins',
-    description: 'You get what you want most: A high-quality, verified customer lead for your highest-margin channel (your wine club). You solve the "Customer Gap" and build a real, measurable marketing list.'
-  },
-  {
-    icon: Gift,
-    title: 'The Customer Wins',
-    description: 'They get real, tangible value: The customer receives a real $TRSR reward for their 10 seconds of time, plus the authentic story of their wine and peace of mind. It\'s a fair value exchange, not a one-way data capture.'
-  },
-  {
-    icon: Network,
-    title: 'The Ecosystem Wins',
-    description: 'We build a stronger community: We (TraceSecure) fund the rewards from our treasury. This distributes our token to real, engaged fans of craft brands, creating a powerful network effect that makes every subsequent $TRSR reward more valuable.'
-  }
-];
+const winIcons = [Users, Gift, Network];
 
 export default function TheWinWinWin() {
+  const { winWinWin } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
 
   return (
@@ -54,8 +40,8 @@ export default function TheWinWinWin() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 justify-items-center">
-          {wins.map((win, index) => {
-            const IconComponent = win.icon;
+          {winWinWin.wins.map((win, index) => {
+            const IconComponent = winIcons[index] ?? Users;
             return (
               <motion.div
                 key={index}
@@ -86,4 +72,3 @@ export default function TheWinWinWin() {
     </section>
   );
 }
-
