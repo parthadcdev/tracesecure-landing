@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getWineIndustryUrl, isExternalUrl } from '@/utils/host';
 
 const verticals = [
-  { label: 'Beverage', getHref: getWineIndustryUrl },
+  { label: 'Wine & Beverage', getHref: getWineIndustryUrl },
   { label: 'Supplements', href: '/industries/supplements' },
   { label: 'Specialty Food', href: '/industries/specialty-food' },
   { label: 'Other', anchor: 'final-cta' },

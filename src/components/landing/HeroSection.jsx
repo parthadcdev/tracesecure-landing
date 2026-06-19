@@ -6,6 +6,8 @@ import { useLandingContent } from "@/context/LandingVariantContext";
 
 export default function HeroSection() {
   const { hero } = useLandingContent();
+  const backgroundImage = hero.backgroundImage ?? '/images/three-step-infographic.png';
+  const backgroundPosition = hero.backgroundPosition ?? 'center';
 
   const scrollToNextSection = () => {
     const element = document.querySelector("#how-it-works");
@@ -25,9 +27,9 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 dark:opacity-80"
         style={{
-          backgroundImage: "url('/images/hero1.webp')",
+          backgroundImage: `url('${backgroundImage}')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition,
           backgroundRepeat: 'no-repeat'
         }}
       />

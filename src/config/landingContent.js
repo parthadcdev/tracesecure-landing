@@ -12,6 +12,8 @@ export const landingContent = {
     hero: {
       headlineTop: 'Turn Every Product Into',
       headlineBottom: 'a Customer You Can Reach',
+      backgroundImage: '/images/three-step-infographic.png',
+      backgroundPosition: 'center right',
       description:
         'Your retail buyers are anonymous. TraceSecure turns every product you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
       badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
@@ -75,7 +77,7 @@ export const landingContent = {
       ],
       problemClosing:
         'You are losing thousands of potential, high-margin, lifelong customers every single year.',
-      challengeTitle: 'The Challenge Facing Craft Producers',
+      challengeTitle: 'The Challenge Facing Brands',
       challenges: [
         {
           value: '$4.5T+',
@@ -171,14 +173,19 @@ export const landingContent = {
         {
           title: 'The Ecosystem Wins',
           description:
-            'Rewards funded from our treasury distribute $TRSR to engaged fans of craft and DTC brands, strengthening the network for everyone.',
+            'Rewards funded from our treasury distribute $TRSR to engaged fans of DTC brands, strengthening the network for everyone.',
         },
       ],
     },
     localCredibility: {
-      title: 'Born in Wine Country. Built for All Craft Producers.',
+      title: 'Built for Every Brand That Gets Faked or Forgotten',
       description:
-        "As a founder based in Virginia's wine country (Ashburn, VA), I'm passionate about helping craft producers thrive — wineries and distilleries, supplement brands, specialty-food makers, and beyond. We're building TraceSecure in partnership with local experts to solve the real challenges all craft producers face.",
+        "TraceSecure was born in Virginia wine country (Ashburn, VA) — but we're building for every brand whose retail buyers disappear after the first sale: beverage, supplement, specialty food, and beyond.",
+    },
+    features: {
+      titleAccent: 'Modern Brands',
+      subtitle:
+        'Everything you need to protect, verify, and grow direct relationships with every product you sell.',
     },
     finalCta: {
       title: 'Ready to Turn Your Products Into Customers?',
@@ -202,6 +209,8 @@ export const landingContent = {
     hero: {
       headlineTop: 'Turn Every Bottle Into',
       headlineBottom: 'a Customer You Can Reach',
+      backgroundImage: '/images/hero1.webp',
+      backgroundPosition: 'center',
       description:
         'Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your wine is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
       badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
@@ -366,9 +375,14 @@ export const landingContent = {
       ],
     },
     localCredibility: {
-      title: 'Born in Wine Country. Built for All Craft Producers.',
+      title: 'Born in Wine Country. Built for Beverage Brands.',
       description:
-        "As a founder based in Virginia's wine country (Ashburn, VA), I'm passionate about helping craft producers thrive — starting with wineries and extending to distilleries, supplement brands, and specialty-food makers. We're building TraceSecure in partnership with local experts to solve the real challenges all craft producers face.",
+        "As a founder based in Virginia's wine country (Ashburn, VA), I'm passionate about helping wineries and craft beverage brands turn anonymous retail buyers into wine club members — and building a platform that serves producers across categories.",
+    },
+    features: {
+      titleAccent: 'Wineries & Beverage Brands',
+      subtitle:
+        'Everything you need to protect your reputation, verify every bottle, and grow your wine club from retail scans.',
     },
     finalCta: {
       title: 'Ready to Turn Your Bottles Into Customers?',
@@ -390,10 +404,12 @@ export const landingContent = {
   },
   supplements: {
     hero: {
-      headlineTop: 'Turn Every Bottle Into',
+      headlineTop: 'Turn Every Supplement Into',
       headlineBottom: 'a Customer You Can Reach',
+      backgroundImage: '/images/tag-your-item.png',
+      backgroundPosition: 'center right',
       description:
-        'Your retail buyers are anonymous. TraceSecure turns every supplement you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
+        'Your retail and marketplace buyers are anonymous. TraceSecure turns every supplement you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
       badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
     },
     howItWorks: {
@@ -429,20 +445,114 @@ export const landingContent = {
       pilotClosing: 'Supplement brands welcome. Secure your spot today.',
     },
     layout: {
-      title: 'TraceSecure for Supplements | Turn Products Into Subscribers',
+      title: 'TraceSecure for Supplements | Stop Counterfeits, Build Subscribers',
       description:
-        'Digital passports for supplement brands. Turn anonymous retail buyers into subscribers with QR scans, authenticity proof, and instant rewards — no crypto wallet required.',
-      ogTitle: 'TraceSecure for Supplements | Build Your Owned Audience',
+        'Fight marketplace counterfeits and capture anonymous retail buyers. Turn every supplement scan into a Subscribe & Save signup with instant rewards — no crypto wallet required.',
+      ogTitle: 'TraceSecure for Supplements | Authenticity + Subscription Leads',
       ogDescription:
-        'Prove authenticity, capture buyer emails, and drive Subscribe & Save signups from every retail scan.',
+        'Prove your supplement is genuine, capture buyer emails from Amazon and retail, and drive replenishment signups from every scan.',
+    },
+    verticalProof: {
+      title: 'Built for the Supplement Category',
+      subtitle: 'Marketplace counterfeits and anonymous retail buyers are costing you subscribers.',
+      points: [
+        {
+          stat: '$80B+',
+          title: 'Global supplement market',
+          description:
+            'Third-party sellers on Amazon and marketplaces drive counterfeits, copycats, and buyer confusion — eroding trust in brands that never meet their customers.',
+        },
+        {
+          stat: '3× LTV',
+          title: 'Subscription economics',
+          description:
+            'Every lost email is a missed replenishment cycle. Direct subscribers are your highest-margin, highest-LTV customers — and retail scans are how you find them.',
+        },
+        {
+          stat: '0% visibility',
+          title: 'Marketplace blind spot',
+          description:
+            'Your CRM knows your DTC buyers. TraceSecure captures the retail and marketplace customers your email list will never see otherwise.',
+        },
+      ],
+    },
+    whyMatters: {
+      title: 'The "Customer Gap": Your Biggest Untapped Opportunity',
+      problem: [
+        'You invest in formulation, testing, and brand trust. A customer buys your supplement on Amazon or from a retail shelf. The relationship ends there.',
+        'You cannot verify they got the real product. You cannot invite them to Subscribe & Save. You cannot build a replenishment relationship.',
+      ],
+      problemClosing:
+        'Every anonymous buyer is a subscription you never started.',
+      challengeTitle: 'The Challenge Facing Supplement Brands',
+      challenges: [
+        {
+          value: '$80B+',
+          title: 'Global supplement market',
+          description:
+            'Counterfeits and third-party sellers on marketplaces erode trust and steal high-margin direct sales.',
+        },
+        {
+          value: '0% visibility',
+          title: 'Anonymous retail buyers',
+          description:
+            'You cannot verify authenticity, drive replenishment, or invite marketplace buyers to buy direct.',
+        },
+        {
+          value: '3× LTV',
+          title: 'Missed subscriptions',
+          description: 'Every lost email is a replenishment cycle — and lifetime value — you never capture.',
+        },
+      ],
+      solutionTitle: 'A Direct Channel in Every Unit',
+      solutionDescription:
+        'TraceSecure closes the gap between your product and your buyer. Every scan proves authenticity and offers an instant reward for an email — turning a one-time purchase into a Subscribe & Save lead.',
+      transformations: [
+        {
+          title: 'Anti-Counterfeit QR',
+          subtitle: 'Prove it\'s real',
+          description:
+            'Buyers verify your supplement is genuine — critical for marketplace-sourced purchases and brand trust.',
+        },
+        {
+          title: 'Subscribe & Save Offer',
+          subtitle: 'From scan to subscriber',
+          description:
+            'Convert retail and marketplace buyers into direct subscribers with a compelling post-scan offer.',
+        },
+        {
+          title: 'Replenishment Triggers',
+          subtitle: 'Know your buyers',
+          description:
+            'Capture emails at first purchase to drive repeat orders and subscription conversions.',
+        },
+        {
+          title: 'Batch Traceability',
+          subtitle: 'Compliance-ready',
+          description:
+            'Document lot numbers, ingredients, and sourcing for regulatory and buyer transparency.',
+        },
+      ],
+    },
+    localCredibility: {
+      title: 'Built for Every Brand That Gets Faked or Forgotten',
+      description:
+        "Supplement brands face a unique trust problem: buyers can't always tell the real product from a counterfeit. TraceSecure was built to prove authenticity at the point of consumption — and turn that moment into a subscriber relationship.",
+    },
+    features: {
+      titleAccent: 'Supplement Brands',
+      subtitle:
+        'Fight counterfeits, capture marketplace buyers, and drive Subscribe & Save signups from every unit you sell.',
     },
   },
   specialtyFood: {
     hero: {
-      headlineTop: 'Turn Every Jar Into',
+      headlineTop: 'Turn Every Product Into',
       headlineBottom: 'a Customer You Can Reach',
+      backgroundImage: '/images/enhance-brand-value.png',
+      backgroundPosition: 'center right',
       description:
-        'Your retail buyers are anonymous. TraceSecure turns every product you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
+        'Your retail buyers are anonymous. TraceSecure turns every jar, tin, and bag you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
       badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EUDR Ready'],
     },
     howItWorks: {
@@ -478,28 +588,124 @@ export const landingContent = {
       pilotClosing: 'Specialty-food brands welcome. Secure your spot today.',
     },
     layout: {
-      title: 'TraceSecure for Specialty Food | Turn Products Into Customers',
+      title: 'TraceSecure for Specialty Food | EUDR-Ready Product Passports',
       description:
-        'Digital passports for specialty-food brands. Turn anonymous retail buyers into loyal customers with QR scans, authenticity proof, and instant rewards — no crypto wallet required.',
-      ogTitle: 'TraceSecure for Specialty Food | Build Your Owned Audience',
+        'Digital passports for specialty-food brands. Prove origin, meet EUDR requirements for coffee and cocoa, and turn retail scans into direct customer relationships.',
+      ogTitle: 'TraceSecure for Specialty Food | Authenticity + EUDR Compliance',
       ogDescription:
-        'Prove authenticity, capture buyer emails, and build direct relationships from every retail scan. EUDR-ready for coffee, cocoa, and more.',
+        'EUDR-ready traceability for coffee, cocoa, and artisan food. Capture buyer emails and prove provenance from every scan.',
+    },
+    verticalProof: {
+      title: 'Built for Specialty & Artisan Food',
+      subtitle: 'Provenance matters — and so does the customer you never meet after retail.',
+      points: [
+        {
+          stat: 'EUDR',
+          title: 'Due diligence ready',
+          description:
+            'Coffee, cocoa, and other covered commodities need traceable supply chains. TraceSecure documents origin and chain-of-custody at the product level.',
+        },
+        {
+          stat: '2–3×',
+          title: 'DTC margin advantage',
+          description:
+            'Specialty-food buyers who discover your story buy direct. Every retail scan is a chance to invite them into your highest-margin channel.',
+        },
+        {
+          stat: '0% visibility',
+          title: 'Anonymous gift & retail buyers',
+          description:
+            'Holiday gift purchases and retail shelf sales are your biggest missed opportunity — buyers who loved the product but never found you again.',
+        },
+      ],
+    },
+    whyMatters: {
+      title: 'The "Customer Gap": Your Biggest Untapped Opportunity',
+      problem: [
+        'You source carefully, tell a compelling origin story, and sell through retail and gift channels. The buyer enjoys your product — then disappears.',
+        'You cannot share recipes, announce new harvests, or invite them to subscribe. For coffee and cocoa, you may also need to prove where it came from.',
+      ],
+      problemClosing:
+        'Every anonymous buyer is a direct relationship — and margin — you never built.',
+      challengeTitle: 'The Challenge Facing Specialty-Food Brands',
+      challenges: [
+        {
+          value: 'EUDR',
+          title: 'Regulatory pressure',
+          description:
+            'Coffee, cocoa, and covered commodities require traceable supply chains and due diligence documentation.',
+        },
+        {
+          value: '0% visibility',
+          title: 'Anonymous retail buyers',
+          description:
+            'Gift purchases and retail shelf sales are one-and-done unless you capture the relationship at the point of consumption.',
+        },
+        {
+          value: '2–3×',
+          title: 'Missed DTC margin',
+          description: 'Direct buyers who know your story pay premium prices — but retail buyers never get the invitation.',
+        },
+      ],
+      solutionTitle: 'A Story — and a Signup — in Every Package',
+      solutionDescription:
+        'TraceSecure puts your origin story, EUDR data, and a compelling offer in every scan. Buyers prove authenticity, learn where their product came from, and opt in for more.',
+      transformations: [
+        {
+          title: 'Origin Story QR',
+          subtitle: 'Provenance on every unit',
+          description:
+            'Share farm, roaster, or maker details — building the trust that drives repeat and direct purchases.',
+        },
+        {
+          title: 'EUDR Documentation',
+          subtitle: 'Compliance built-in',
+          description:
+            'Chain-of-custody and sourcing data accessible via scan for coffee, cocoa, and covered commodities.',
+        },
+        {
+          title: 'Register & Reward',
+          subtitle: 'From scan to subscriber',
+          description:
+            'Offer an instant reward for email signup — turning a gift or retail purchase into a direct relationship.',
+        },
+        {
+          title: 'Seasonal Campaigns',
+          subtitle: 'Know your buyers',
+          description:
+            'Announce new harvests, limited releases, and subscription boxes to buyers you finally know by name.',
+        },
+      ],
+    },
+    localCredibility: {
+      title: 'Built for Every Brand That Gets Faked or Forgotten',
+      description:
+        "Specialty-food brands live and die on provenance and trust. TraceSecure helps you prove where your product came from, meet EUDR requirements, and finally reach the retail buyer who loved your product but never found you again.",
+    },
+    features: {
+      titleAccent: 'Specialty-Food Brands',
+      subtitle:
+        'Document provenance, meet EUDR requirements, and turn every jar, tin, and bag into a direct customer channel.',
     },
   },
 };
 
-// Resolve supplements/specialtyFood sections that reference generic before generic is fully defined
+// Shared sections for supplements (vertical-specific sections defined above)
 landingContent.supplements.valueProps = landingContent.generic.valueProps;
-landingContent.supplements.whyMatters = landingContent.generic.whyMatters;
 landingContent.supplements.whyDifferent = landingContent.generic.whyDifferent;
 landingContent.supplements.winWinWin = landingContent.generic.winWinWin;
-landingContent.supplements.localCredibility = landingContent.generic.localCredibility;
 
 landingContent.specialtyFood.valueProps = landingContent.generic.valueProps;
-landingContent.specialtyFood.whyMatters = landingContent.generic.whyMatters;
 landingContent.specialtyFood.whyDifferent = landingContent.generic.whyDifferent;
 landingContent.specialtyFood.winWinWin = landingContent.generic.winWinWin;
-landingContent.specialtyFood.localCredibility = landingContent.generic.localCredibility;
+
+// Default features copy for variants without their own
+landingContent.generic.features = landingContent.generic.features ?? {
+  titleAccent: 'Modern Brands',
+  subtitle:
+    'Everything you need to protect, verify, and grow direct relationships with every product you sell.',
+};
+landingContent.wine.features = landingContent.wine.features ?? landingContent.generic.features;
 
 export function getLandingContent(variant = LANDING_VARIANTS.generic) {
   return landingContent[variant] ?? landingContent.generic;
