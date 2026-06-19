@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LANDING_VARIANTS } from '@/config/landingContent';
+import { useHeroSlide } from '@/context/HeroSlideContext';
 import { useLandingVariant } from '@/context/LandingVariantContext';
 import { getWineIndustryUrl, isExternalUrl, isWineHostname } from '@/utils/host';
 
 const verticals = [
-  { label: 'Wine & Beverage', getHref: getWineIndustryUrl },
-  { label: 'Supplements', href: '/industries/supplements' },
-  { label: 'Specialty Food', href: '/industries/specialty-food' },
+  { label: 'Wine & Beverage', slideLabel: 'Wine & Beverage', getHref: getWineIndustryUrl },
+  { label: 'Supplements', slideLabel: 'Supplements', href: '/industries/supplements' },
+  { label: 'Specialty Food', slideLabel: 'Specialty Food', href: '/industries/specialty-food' },
   { label: 'Other', anchor: 'final-cta' },
 ];
 
@@ -46,16 +47,26 @@ export default function VerticalSelector() {
   const navigate = useNavigate();
   const location = useLocation();
   const variant = useLandingVariant();
-  const activeLabel = getActiveLabel(variant, location.pathname);
+  const heroSlide = useHeroSlide();
+  const isHomepage = variant === LANDING_VARIANTS.generic;
+
+  const activeLabel = isHomepage && heroSlide?.activeLabel
+    ? heroSlide.activeLabel
+    : getActiveLabel(variant, location.pathname);
 
   const handleSelect = (vertical) => {
-    if (vertical.label === activeLabel) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (vertical.anchor) {
+      scrollToElement(vertical.anchor);
       return;
     }
 
-    if (vertical.anchor) {
-      scrollToElement(vertical.anchor);
+    if (isHomepage && vertical.slideLabel && heroSlide?.goToSlideByLabel) {
+      heroSlide.goToSlideByLabel(vertical.slideLabel);
+      return;
+    }
+
+    if (vertical.label === activeLabel) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 

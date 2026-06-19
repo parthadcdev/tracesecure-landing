@@ -1,48 +1,28 @@
 
-import React, { useCallback, useEffect, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useLandingContent, useLandingVariant } from "@/context/LandingVariantContext";
+import { useHeroSlide } from "@/context/HeroSlideContext";
 import { getHeroSlides } from "@/config/landingContent";
-
-const DEFAULT_INTERVAL_MS = 7000;
 
 export default function HeroSection() {
   const variant = useLandingVariant();
   const { hero } = useLandingContent();
-  const slides = getHeroSlides(variant);
-  const prefersReducedMotion = useReducedMotion();
-  const canRotate = slides.length > 1 && !prefersReducedMotion;
-  const intervalMs = hero.rotationIntervalMs ?? DEFAULT_INTERVAL_MS;
+  const heroSlide = useHeroSlide();
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const activeSlide = slides[activeIndex];
+  const fallbackSlides = getHeroSlides(variant);
+  const slides = heroSlide?.slides ?? fallbackSlides;
+  const activeIndex = heroSlide?.activeIndex ?? 0;
+  const activeSlide = heroSlide?.activeSlide ?? fallbackSlides[0];
+  const canRotate = heroSlide?.canRotate ?? false;
+  const fadeMs = heroSlide?.fadeMs ?? 500;
+  const setIsPaused = heroSlide?.setIsPaused;
+  const goToSlide = heroSlide?.goToSlide;
+  const goNext = heroSlide?.goNext;
 
-  const goToSlide = useCallback(
-    (index) => {
-      setActiveIndex((index + slides.length) % slides.length);
-    },
-    [slides.length]
-  );
-
-  const goNext = useCallback(() => {
-    goToSlide(activeIndex + 1);
-  }, [activeIndex, goToSlide]);
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [variant]);
-
-  useEffect(() => {
-    if (!canRotate || isPaused) return undefined;
-
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % slides.length);
-    }, intervalMs);
-
-    return () => window.clearInterval(timer);
-  }, [canRotate, isPaused, intervalMs, slides.length]);
+  const headlineTop = hero.headlineTop ?? activeSlide.headlineTop;
+  const headlineBottom = hero.headlineBottom ?? activeSlide.headlineBottom;
 
   const scrollToNextSection = () => {
     const element = document.querySelector("#how-it-works");
@@ -57,62 +37,73 @@ export default function HeroSection() {
     }
   };
 
+  const pauseHandlers = setIsPaused
+    ? {
+        onMouseEnter: () => setIsPaused(true),
+        onMouseLeave: () => setIsPaused(false),
+        onFocusCapture: () => setIsPaused(true),
+        onBlurCapture: () => setIsPaused(false),
+      }
+    : {};
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocusCapture={() => setIsPaused(true)}
-      onBlurCapture={() => setIsPaused(false)}
+      {...pauseHandlers}
     >
       <div className="absolute inset-0">
-        <AnimatePresence mode="sync">
+        {slides.map((slide, index) => (
           <motion.div
-            key={activeSlide.backgroundImage + activeIndex}
+            key={slide.label}
             className="absolute inset-0 dark:opacity-80"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.1, ease: 'easeInOut' }}
+            animate={{ opacity: index === activeIndex ? 1 : 0 }}
+            transition={{ duration: fadeMs / 1000, ease: 'easeInOut' }}
             style={{
-              backgroundImage: `url('${activeSlide.backgroundImage}')`,
+              backgroundImage: `url('${slide.backgroundImage}')`,
               backgroundSize: 'cover',
-              backgroundPosition: activeSlide.backgroundPosition ?? 'center right',
+              backgroundPosition: slide.backgroundPosition ?? 'center right',
               backgroundRepeat: 'no-repeat',
+              zIndex: index === activeIndex ? 1 : 0,
             }}
+            aria-hidden={index !== activeIndex}
           />
-        </AnimatePresence>
+        ))}
       </div>
 
-      <div
-        className="absolute inset-0 pointer-events-none hero-text-fade"
-      />
+      <div className="absolute inset-0 pointer-events-none hero-text-fade" />
       <div className="absolute inset-0 bg-ts-background/10 dark:bg-ts-background/25 pointer-events-none" />
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
-        <div className="max-w-xl sm:max-w-2xl lg:max-w-2xl text-left min-h-[28rem] sm:min-h-[26rem] lg:min-h-[24rem]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${activeSlide.headlineTop}-${activeIndex}`}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.55, ease: 'easeOut' }}
-            >
-              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
-                <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">
-                  {activeSlide.headlineTop}
-                </span>
-                <br />
-                <span className="text-ts-text-muted">{activeSlide.headlineBottom}</span>
-              </h1>
+        <div className="max-w-xl sm:max-w-2xl lg:max-w-2xl text-left">
+          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
+            <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">
+              {headlineTop}
+            </span>
+            <br />
+            <span className="text-ts-text-muted">{headlineBottom}</span>
+          </h1>
 
-              <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-xl text-ts-text-muted">
-                {activeSlide.description}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+          <div className="relative mb-12 min-h-[5.5rem] sm:min-h-[5rem]">
+            {slides.map((slide, index) => (
+              <motion.p
+                key={slide.label}
+                className="text-lg md:text-xl leading-relaxed max-w-xl text-ts-text-muted"
+                animate={{ opacity: index === activeIndex ? 1 : 0 }}
+                transition={{ duration: fadeMs / 1000, ease: 'easeInOut' }}
+                style={{
+                  position: index === activeIndex ? 'relative' : 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  pointerEvents: index === activeIndex ? 'auto' : 'none',
+                }}
+                aria-hidden={index !== activeIndex}
+              >
+                {slide.description}
+              </motion.p>
+            ))}
+          </div>
 
           <div className="flex flex-wrap justify-start gap-3 mb-12">
             {hero.badges.map((badge) => (
@@ -152,7 +143,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {slides.length > 1 && (
+        {slides.length > 1 && goToSlide && (
           <div
             className="mt-8 flex flex-wrap items-center gap-3"
             role="tablist"
@@ -168,7 +159,7 @@ export default function HeroSection() {
                   aria-selected={isActive}
                   aria-label={`Show ${slide.label} slide`}
                   onClick={() => goToSlide(index)}
-                  className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 transition-all ${
+                  className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 transition-colors ${
                     isActive
                       ? 'bg-ts-accent-blue border-ts-accent-blue text-white shadow-md'
                       : 'bg-ts-surface/90 border-ts-border text-ts-text-muted hover:border-ts-accent-blue hover:text-ts-primary'
@@ -178,11 +169,11 @@ export default function HeroSection() {
                 </button>
               );
             })}
-            {canRotate && (
+            {canRotate && goNext && (
               <button
                 type="button"
                 onClick={goNext}
-                className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 border-ts-border bg-ts-surface/90 text-ts-text-muted hover:border-ts-accent-blue hover:text-ts-primary transition-all"
+                className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 border-ts-border bg-ts-surface/90 text-ts-text-muted hover:border-ts-accent-blue hover:text-ts-primary transition-colors"
                 aria-label="Next slide"
               >
                 Next →
@@ -193,7 +184,7 @@ export default function HeroSection() {
       </div>
 
       <motion.div
-        className="absolute bottom-12 left-0 right-0 flex justify-center"
+        className="absolute bottom-12 left-0 right-0 flex justify-center z-10"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}

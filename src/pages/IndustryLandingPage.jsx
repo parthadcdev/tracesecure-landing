@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { LandingVariantProvider } from '@/context/LandingVariantContext';
+import { HeroSlideProvider } from '@/context/HeroSlideContext';
 import { LANDING_VARIANTS } from '@/config/landingContent';
 import HeroSection from '../components/landing/HeroSection';
 import VerticalSelector from '../components/landing/VerticalSelector';
@@ -43,13 +44,15 @@ function LandingSections() {
 export default function IndustryLandingPage({ variant = LANDING_VARIANTS.generic }) {
   return (
     <LandingVariantProvider variant={variant}>
-      <div>
-        <HeroSection />
-        <VerticalSelector />
-        <Suspense fallback={<SectionFallback />}>
-          <LandingSections />
-        </Suspense>
-      </div>
+      <HeroSlideProvider>
+        <div>
+          <HeroSection />
+          <VerticalSelector />
+          <Suspense fallback={<SectionFallback />}>
+            <LandingSections />
+          </Suspense>
+        </div>
+      </HeroSlideProvider>
     </LandingVariantProvider>
   );
 }

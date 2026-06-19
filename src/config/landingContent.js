@@ -10,7 +10,7 @@ export const LANDING_VARIANTS = {
 export const landingContent = {
   generic: {
     hero: {
-      rotationIntervalMs: 7000,
+      rotationIntervalMs: 6000,
       badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
       slides: [
         {
@@ -23,13 +23,13 @@ export const landingContent = {
             'Marketplace and retail supplement buyers disappear after checkout. Prove authenticity at the scan, capture their email with an instant reward, and drive Subscribe & Save signups — no app, no crypto wallet required.',
         },
         {
-          label: 'Spirits',
+          label: 'Wine & Beverage',
           headlineTop: 'Turn Every Product Into',
           headlineBottom: 'a Customer You Can Reach',
           backgroundImage: '/images/hero-wine-right.webp',
           backgroundPosition: 'center right',
           description:
-            'Retail spirits and beverage buyers are anonymous. Turn every bottle into a verified lead — authenticity proof, your brand story, and an instant reward at the scan. No app, no crypto wallet required.',
+            'Retail wine and beverage buyers are anonymous. Turn every bottle into a verified lead — authenticity proof, your brand story, and an instant reward at the scan. No app, no crypto wallet required.',
         },
         {
           label: 'Specialty Food',
