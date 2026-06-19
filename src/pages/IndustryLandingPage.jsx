@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { LandingVariantProvider, useLandingVariant } from '@/context/LandingVariantContext';
+import { LandingVariantProvider } from '@/context/LandingVariantContext';
 import { LANDING_VARIANTS } from '@/config/landingContent';
 import HeroSection from '../components/landing/HeroSection';
 import VerticalSelector from '../components/landing/VerticalSelector';
@@ -22,12 +22,8 @@ function SectionFallback() {
 }
 
 function LandingSections() {
-  const variant = useLandingVariant();
-  const showVerticalSelector = variant === LANDING_VARIANTS.generic;
-
   return (
     <>
-      {showVerticalSelector && <VerticalSelector />}
       <HowItWorks />
       <VerticalProofSection />
       <ValuePropsSection />
@@ -49,6 +45,7 @@ export default function IndustryLandingPage({ variant = LANDING_VARIANTS.generic
     <LandingVariantProvider variant={variant}>
       <div>
         <HeroSection />
+        <VerticalSelector />
         <Suspense fallback={<SectionFallback />}>
           <LandingSections />
         </Suspense>

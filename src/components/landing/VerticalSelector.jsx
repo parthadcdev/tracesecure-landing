@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { getWineIndustryUrl, isExternalUrl } from '@/utils/host';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { LANDING_VARIANTS } from '@/config/landingContent';
+import { useLandingVariant } from '@/context/LandingVariantContext';
+import { getWineIndustryUrl, isExternalUrl, isWineHostname } from '@/utils/host';
 
 const verticals = [
   { label: 'Wine & Beverage', getHref: getWineIndustryUrl },
@@ -18,10 +20,40 @@ function scrollToElement(id) {
   window.scrollTo({ top: elementPosition - headerHeight - 16, behavior: 'smooth' });
 }
 
+function getActiveLabel(variant, pathname) {
+  const path = pathname.toLowerCase();
+
+  if (
+    variant === LANDING_VARIANTS.wine ||
+    isWineHostname() ||
+    path.startsWith('/industries/wine')
+  ) {
+    return 'Wine & Beverage';
+  }
+
+  if (variant === LANDING_VARIANTS.supplements || path.startsWith('/industries/supplements')) {
+    return 'Supplements';
+  }
+
+  if (variant === LANDING_VARIANTS.specialtyFood || path.startsWith('/industries/specialty-food')) {
+    return 'Specialty Food';
+  }
+
+  return null;
+}
+
 export default function VerticalSelector() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const variant = useLandingVariant();
+  const activeLabel = getActiveLabel(variant, location.pathname);
 
   const handleSelect = (vertical) => {
+    if (vertical.label === activeLabel) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     if (vertical.anchor) {
       scrollToElement(vertical.anchor);
       return;
@@ -56,17 +88,26 @@ export default function VerticalSelector() {
           <span className="text-sm font-semibold uppercase tracking-wider text-ts-text-muted">
             I make
           </span>
-          <div className="flex flex-wrap justify-center gap-2">
-            {verticals.map((vertical) => (
-              <button
-                key={vertical.label}
-                type="button"
-                onClick={() => handleSelect(vertical)}
-                className="px-4 py-2 bg-ts-card border-2 border-ts-border text-ts-text text-sm font-medium rounded-lg shadow-sm hover:border-ts-accent-blue hover:text-ts-primary transition-all"
-              >
-                {vertical.label}
-              </button>
-            ))}
+          <div className="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Industry selector">
+            {verticals.map((vertical) => {
+              const isActive = vertical.label === activeLabel;
+              return (
+                <button
+                  key={vertical.label}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => handleSelect(vertical)}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all ${
+                    isActive
+                      ? 'bg-ts-accent-blue border-ts-accent-blue text-white shadow-md'
+                      : 'bg-ts-card border-ts-border text-ts-text shadow-sm hover:border-ts-accent-blue hover:text-ts-primary'
+                  }`}
+                >
+                  {vertical.label}
+                </button>
+              );
+            })}
           </div>
         </motion.div>
       </div>

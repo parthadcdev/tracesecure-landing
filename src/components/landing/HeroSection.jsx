@@ -1,13 +1,48 @@
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useLandingContent } from "@/context/LandingVariantContext";
+import { useLandingContent, useLandingVariant } from "@/context/LandingVariantContext";
+import { getHeroSlides } from "@/config/landingContent";
+
+const DEFAULT_INTERVAL_MS = 7000;
 
 export default function HeroSection() {
+  const variant = useLandingVariant();
   const { hero } = useLandingContent();
-  const backgroundImage = hero.backgroundImage ?? '/images/three-step-infographic.png';
-  const backgroundPosition = hero.backgroundPosition ?? 'center';
+  const slides = getHeroSlides(variant);
+  const prefersReducedMotion = useReducedMotion();
+  const canRotate = slides.length > 1 && !prefersReducedMotion;
+  const intervalMs = hero.rotationIntervalMs ?? DEFAULT_INTERVAL_MS;
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const activeSlide = slides[activeIndex];
+
+  const goToSlide = useCallback(
+    (index) => {
+      setActiveIndex((index + slides.length) % slides.length);
+    },
+    [slides.length]
+  );
+
+  const goNext = useCallback(() => {
+    goToSlide(activeIndex + 1);
+  }, [activeIndex, goToSlide]);
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [variant]);
+
+  useEffect(() => {
+    if (!canRotate || isPaused) return undefined;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, intervalMs);
+
+    return () => window.clearInterval(timer);
+  }, [canRotate, isPaused, intervalMs, slides.length]);
 
   const scrollToNextSection = () => {
     const element = document.querySelector("#how-it-works");
@@ -23,43 +58,61 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={() => setIsPaused(false)}
+    >
+      <div className="absolute inset-0">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={activeSlide.backgroundImage + activeIndex}
+            className="absolute inset-0 dark:opacity-80"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1, ease: 'easeInOut' }}
+            style={{
+              backgroundImage: `url('${activeSlide.backgroundImage}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: activeSlide.backgroundPosition ?? 'center right',
+              backgroundRepeat: 'no-repeat',
+            }}
+          />
+        </AnimatePresence>
+      </div>
+
       <div
-        className="absolute inset-0 dark:opacity-80"
-        style={{
-          backgroundImage: `url('${backgroundImage}')`,
-          backgroundSize: 'cover',
-          backgroundPosition,
-          backgroundRepeat: 'no-repeat',
-        }}
+        className="absolute inset-0 pointer-events-none hero-text-fade"
       />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(to right, var(--color-background) 0%, color-mix(in srgb, var(--color-background) 92%, transparent) 35%, color-mix(in srgb, var(--color-background) 45%, transparent) 55%, transparent 75%)',
-        }}
-      />
-      <div className="absolute inset-0 bg-ts-background/20 dark:bg-ts-background/30 pointer-events-none" />
-      
+      <div className="absolute inset-0 bg-ts-background/10 dark:bg-ts-background/25 pointer-events-none" />
+
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
-        <motion.div
-          className="max-w-2xl lg:max-w-3xl text-left"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
+        <div className="max-w-xl sm:max-w-2xl lg:max-w-2xl text-left min-h-[28rem] sm:min-h-[26rem] lg:min-h-[24rem]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${activeSlide.headlineTop}-${activeIndex}`}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.55, ease: 'easeOut' }}
+            >
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
+                <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">
+                  {activeSlide.headlineTop}
+                </span>
+                <br />
+                <span className="text-ts-text-muted">{activeSlide.headlineBottom}</span>
+              </h1>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
-            <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">{hero.headlineTop}</span>
-            <br />
-            <span className="text-ts-text-muted">
-              {hero.headlineBottom}
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl text-ts-text-muted">
-            {hero.description}
-          </p>
+              <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-xl text-ts-text-muted">
+                {activeSlide.description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
           <div className="flex flex-wrap justify-start gap-3 mb-12">
             {hero.badges.map((badge) => (
@@ -73,18 +126,15 @@ export default function HeroSection() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <a
                 href="https://app.tracesecure.co/auth?tab=signup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-lg sm:text-xl px-8 py-4 sm:px-10 sm:py-5 rounded-lg shadow-lg font-semibold bg-ts-accent text-ts-primary hover:bg-ts-accent hover:opacity-90 transition-all"
-                aria-label="Join"
+                aria-label="Start free"
               >
-                Join
+                Start free
               </a>
             </motion.div>
           </div>
@@ -100,7 +150,46 @@ export default function HeroSection() {
               Blockchain Verification
             </span>
           </div>
-        </motion.div>
+        </div>
+
+        {slides.length > 1 && (
+          <div
+            className="mt-8 flex flex-wrap items-center gap-3"
+            role="tablist"
+            aria-label="Hero slideshow"
+          >
+            {slides.map((slide, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={slide.label}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-label={`Show ${slide.label} slide`}
+                  onClick={() => goToSlide(index)}
+                  className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 transition-all ${
+                    isActive
+                      ? 'bg-ts-accent-blue border-ts-accent-blue text-white shadow-md'
+                      : 'bg-ts-surface/90 border-ts-border text-ts-text-muted hover:border-ts-accent-blue hover:text-ts-primary'
+                  }`}
+                >
+                  {slide.label}
+                </button>
+              );
+            })}
+            {canRotate && (
+              <button
+                type="button"
+                onClick={goNext}
+                className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium border-2 border-ts-border bg-ts-surface/90 text-ts-text-muted hover:border-ts-accent-blue hover:text-ts-primary transition-all"
+                aria-label="Next slide"
+              >
+                Next →
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       <motion.div
@@ -117,7 +206,7 @@ export default function HeroSection() {
           aria-label="Scroll to next section"
         >
           <span className="text-xs uppercase tracking-wider font-medium">Discover How</span>
-              <ChevronDown className="w-5 h-5 [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]" />
+          <ChevronDown className="w-5 h-5 [stroke-width:2] [stroke-linecap:round] [stroke-linejoin:round]" />
         </motion.button>
       </motion.div>
     </section>

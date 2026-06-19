@@ -322,7 +322,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary"
             >
-              Join
+              Start free
             </a>
           </div>
 
@@ -416,7 +416,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="w-full text-center text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-md bg-ts-accent-blue hover:bg-ts-primary transition-all"
                 >
-                  Join
+                  Start free
                 </a>
               </div>
             </motion.div>

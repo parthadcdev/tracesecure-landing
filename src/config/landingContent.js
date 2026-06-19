@@ -10,13 +10,44 @@ export const LANDING_VARIANTS = {
 export const landingContent = {
   generic: {
     hero: {
+      rotationIntervalMs: 7000,
+      badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
+      slides: [
+        {
+          label: 'Supplements',
+          headlineTop: 'Turn Every Product Into',
+          headlineBottom: 'a Customer You Can Reach',
+          backgroundImage: '/images/hero-product-right.webp',
+          backgroundPosition: 'center right',
+          description:
+            'Marketplace and retail supplement buyers disappear after checkout. Prove authenticity at the scan, capture their email with an instant reward, and drive Subscribe & Save signups — no app, no crypto wallet required.',
+        },
+        {
+          label: 'Spirits',
+          headlineTop: 'Turn Every Product Into',
+          headlineBottom: 'a Customer You Can Reach',
+          backgroundImage: '/images/hero-wine-right.webp',
+          backgroundPosition: 'center right',
+          description:
+            'Retail spirits and beverage buyers are anonymous. Turn every bottle into a verified lead — authenticity proof, your brand story, and an instant reward at the scan. No app, no crypto wallet required.',
+        },
+        {
+          label: 'Specialty Food',
+          headlineTop: 'Turn Every Product Into',
+          headlineBottom: 'a Customer You Can Reach',
+          backgroundImage: '/images/hero-coffee-right.webp',
+          backgroundPosition: 'center right',
+          description:
+            'Gift and retail specialty-food buyers loved your product — then vanished. Share your origin story, meet EUDR requirements for coffee and cocoa, and capture their email with an instant reward at the scan.',
+        },
+      ],
+      // Legacy single-slide fields kept for fallback helpers
       headlineTop: 'Turn Every Product Into',
       headlineBottom: 'a Customer You Can Reach',
       backgroundImage: '/images/hero-product-right.webp',
       backgroundPosition: 'center right',
       description:
         'Your retail buyers are anonymous. TraceSecure turns every product you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
-      badges: ['Build Loyalty', 'Prove Authenticity', 'Stop Counterfeits', 'EU DPP & EUDR Ready'],
     },
     howItWorks: {
       title: 'From Scan to Loyal Customer in 3 Simple Steps',
@@ -549,7 +580,7 @@ export const landingContent = {
     hero: {
       headlineTop: 'Turn Every Product Into',
       headlineBottom: 'a Customer You Can Reach',
-      backgroundImage: '/images/enhance-brand-value.png',
+      backgroundImage: '/images/hero-coffee-right.webp',
       backgroundPosition: 'center right',
       description:
         'Your retail buyers are anonymous. TraceSecure turns every jar, tin, and bag you sell into a lead-gen tool: when a customer scans the QR code, they get an instant reward for sharing their email — and proof your product is the real thing. You get a verified lead. They get value. No app, no crypto wallet required.',
@@ -709,4 +740,21 @@ landingContent.wine.features = landingContent.wine.features ?? landingContent.ge
 
 export function getLandingContent(variant = LANDING_VARIANTS.generic) {
   return landingContent[variant] ?? landingContent.generic;
+}
+
+export function getHeroSlides(variant = LANDING_VARIANTS.generic) {
+  const { hero } = getLandingContent(variant);
+  if (hero.slides?.length) {
+    return hero.slides;
+  }
+  return [
+    {
+      label: 'Hero',
+      headlineTop: hero.headlineTop,
+      headlineBottom: hero.headlineBottom,
+      description: hero.description,
+      backgroundImage: hero.backgroundImage ?? '/images/hero-product-right.webp',
+      backgroundPosition: hero.backgroundPosition ?? 'center right',
+    },
+  ];
 }
