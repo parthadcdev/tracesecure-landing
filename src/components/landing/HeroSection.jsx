@@ -1,23 +1,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import TraceabilityVisualization from "./TraceabilityVisualization";
+import { useLandingContent } from "@/context/LandingVariantContext";
 
 export default function HeroSection() {
-  const scrollToWaitlist = () => {
-    const element = document.getElementById("waitlist-form");
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight - 16;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const { hero } = useLandingContent();
 
   const scrollToNextSection = () => {
     const element = document.querySelector("#how-it-works");
@@ -34,7 +22,6 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
       <div
         className="absolute inset-0 dark:opacity-80"
         style={{
@@ -44,12 +31,7 @@ export default function HeroSection() {
           backgroundRepeat: 'no-repeat'
         }}
       />
-      {/* Dark mode overlay for better contrast */}
       <div className="absolute inset-0 bg-ts-background/50 dark:bg-ts-background/30 pointer-events-none" />
-      
-      {/* Solid Light Background - No geometric elements */}
-      
-      
       
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
         <motion.div
@@ -58,33 +40,29 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}>
 
-          {/* Typography - Adapts to dark mode */}
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
-            <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">Turn Every Bottle Into</span>
+            <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">{hero.headlineTop}</span>
             <br />
             <span className="text-ts-text-muted">
-              a Known Customer
+              {hero.headlineBottom}
             </span>
           </h1>
 
           <p className="text-lg md:text-xl mb-12 leading-relaxed max-w-4xl text-ts-text-muted">
-            Your retail customers are anonymous. TraceSecure turns every bottle into a lead-gen tool. When a customer scans the QR code, we give them an instant $TRSR crypto reward for sharing their email. Their tokens are kept safe in a highly secure wallet, ready to be redeemed.
+            {hero.description}
           </p>
 
-          {/* Flat Design Feature Badges - Consistent outlined style */}
           <div className="flex flex-wrap justify-start gap-3 mb-12">
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
-              Build Loyalty
-            </span>
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
-              Prove Authenticity
-            </span>
-            <span className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md">
-              Stop Counterfeits
-            </span>
+            {hero.badges.map((badge) => (
+              <span
+                key={badge}
+                className="px-4 py-2 bg-ts-surface border-2 border-ts-accent-blue text-ts-accent-blue text-sm font-medium rounded-lg shadow-md"
+              >
+                {badge}
+              </span>
+            ))}
           </div>
 
-          {/* Flat Design Buttons - Primary CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -102,13 +80,12 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Additional Info Badges - Blue tones */}
           <div className="flex flex-wrap justify-start gap-3 mt-12">
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               Enterprise Security
             </span>
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
-              EU DPP Ready
+              No Crypto Wallet Required
             </span>
             <span className="px-4 py-2 bg-ts-surface border-2 border-ts-border text-ts-text-muted text-sm font-medium rounded-lg">
               Blockchain Verification
@@ -117,7 +94,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Flat Design Scroll Indicator */}
       <motion.div
         className="absolute bottom-12 left-0 right-0 flex justify-center"
         initial={{ opacity: 0, y: -10 }}
