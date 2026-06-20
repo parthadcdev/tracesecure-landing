@@ -21,6 +21,7 @@ jobs:
       with:
         workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
         service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+        create_credentials_file: true
       
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -35,6 +36,4 @@ jobs:
       run: npm run build
       
     - name: Deploy to Firebase
-      uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting --project canvas-griffin-475520-b7
+      run: npx firebase-tools deploy --only hosting --project canvas-griffin-475520-b7
