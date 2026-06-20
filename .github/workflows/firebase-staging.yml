@@ -17,6 +17,28 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Verify WIF Provider Format
+      run: |
+        if [ -z "$WIF_PROVIDER" ]; then
+          echo "❌ ERROR: WIF_PROVIDER secret is not set"
+          exit 1
+        fi
+        if [ -z "$WIF_SERVICE_ACCOUNT" ]; then
+          echo "❌ ERROR: WIF_SERVICE_ACCOUNT secret is not set"
+          exit 1
+        fi
+        echo "✅ WIF_PROVIDER is set (length: $(echo -n "$WIF_PROVIDER" | wc -c) chars)"
+        echo "✅ WIF_SERVICE_ACCOUNT is set: $WIF_SERVICE_ACCOUNT"
+        echo "Expected WIF_PROVIDER format: projects/1050494669271/locations/global/workloadIdentityPools/staticsite-github-actions-pool/providers/github-provider"
+        if [[ "$WIF_PROVIDER" == *"staticsite-github-actions-pool"* ]] && [[ "$WIF_PROVIDER" == *"github-provider"* ]]; then
+          echo "✅ WIF_PROVIDER contains expected pool and provider names"
+        else
+          echo "⚠️  WARNING: WIF_PROVIDER may not contain expected values"
+        fi
+      env:
+        WIF_PROVIDER: ${{ secrets.WIF_PROVIDER }}
+        WIF_SERVICE_ACCOUNT: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+      
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:

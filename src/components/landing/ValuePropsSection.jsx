@@ -2,35 +2,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, UserPlus, BookOpen } from 'lucide-react';
+import { useLandingContent } from '@/context/LandingVariantContext';
 
-const benefits = [
-  {
-    icon: UserPlus,
-    category: 'MAKE MORE MONEY',
-    title: 'Build Your Wine Club',
-    description:
-      'Turn anonymous retail buyers into high-quality, opt-in leads. Our platform is a powerful lead-generation tool that uses micro-rewards to drive signups for your most profitable program.',
-    example: 'Grow memberships directly from retail scans.'
-  },
-  {
-    icon: BookOpen,
-    category: 'CONNECT WITH CUSTOMERS',
-    title: 'Tell Your Unique Story',
-    description:
-      'Share winemaker videos, tasting notes, and food pairings. Build a direct relationship with your end customer and turn a one-time purchase into a loyal fan.',
-    example: 'Drive repeat purchases with engaging content.'
-  },
-  {
-    icon: ShieldCheck,
-    category: 'BUILD TRUST',
-    title: 'Prove Authenticity (Instantly)',
-    description:
-      'As a built-in benefit, every scan also proves your bottle is authentic, protecting your hard-won reputation and giving customers peace of mind.',
-    example: 'Instant authenticity checks on every bottle.'
-  }
-];
+const benefitIcons = [UserPlus, BookOpen, ShieldCheck];
 
 export default function ValuePropsSection() {
+  const { valueProps } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
 
   return (
@@ -44,16 +21,16 @@ export default function ValuePropsSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            How This Grows Your Business
+            {valueProps.title}
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            A direct, two-way channel to your retail buyers — built right into every bottle.
+            {valueProps.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 justify-items-center">
-          {benefits.map((benefit, index) => {
-            const IconComponent = benefit.icon;
+          {valueProps.benefits.map((benefit, index) => {
+            const IconComponent = benefitIcons[index] ?? UserPlus;
             return (
             <motion.div
               key={index}
@@ -80,7 +57,7 @@ export default function ValuePropsSection() {
                 {benefit.description}
               </p>
               <p className="text-sm italic text-ts-primary">
-                "{benefit.example}"
+                &quot;{benefit.example}&quot;
               </p>
             </motion.div>
             );

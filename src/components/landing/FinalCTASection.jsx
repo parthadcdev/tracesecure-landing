@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle, Clock, Shield, X, AlertTriangle, Loader2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useLandingContent } from '@/context/LandingVariantContext';
 
 const benefits = [
   {
@@ -43,10 +44,11 @@ const guarantees = [
 ];
 
 export default function FinalCTASection() {
+  const { finalCta } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [vineyard, setVineyard] = useState('');
+  const [company, setCompany] = useState('');
   const [status, setStatus] = useState('idle');
   const [message, setMessage] = useState('');
 
@@ -64,7 +66,7 @@ export default function FinalCTASection() {
         { name: 'email', value: email },
         { name: 'firstname', value: name.split(' ')[0] || '' },
         { name: 'lastname', value: name.split(' ').slice(1).join(' ') || '' },
-        { name: 'company', value: vineyard }
+        { name: 'company', value: company }
       ],
       context: { pageUri: window.location.href, pageName: document.title }
     };
@@ -81,7 +83,7 @@ export default function FinalCTASection() {
         setMessage('Thanks! You’re in. We’ll reach out to confirm your pilot spot.');
         setName('');
         setEmail('');
-        setVineyard('');
+        setCompany('');
       } else {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Submission failed. Please try again.');
@@ -103,14 +105,13 @@ export default function FinalCTASection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            Ready to Turn Your Bottles Into Customers?
+            {finalCta.title}
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            Start our risk-free, 6-month free pilot for wineries. The first 200 members get our full Growth tier, completely free.
+            {finalCta.subtitle}
           </p>
         </motion.div>
 
-        {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {benefits.map((benefit, index) => (
             <motion.div
@@ -127,13 +128,12 @@ export default function FinalCTASection() {
           ))}
         </div>
 
-        {/* Pilot Signup Form */}
         <div className="max-w-3xl mx-auto mb-16">
           <form onSubmit={handleSubmit} className="bg-ts-card rounded-2xl p-6 shadow-xl border border-ts-primary/20">
             <div className="grid md:grid-cols-3 gap-4">
               <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
               <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
-              <Input type="text" placeholder="Vineyard Name" value={vineyard} onChange={(e) => setVineyard(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
+              <Input type="text" placeholder={finalCta.companyPlaceholder} value={company} onChange={(e) => setCompany(e.target.value)} required className="bg-ts-surface border-2 border-ts-border rounded-lg py-3 px-4 focus:border-ts-accent-blue transition-colors" />
             </div>
             <div className="mt-4">
               <Button type="submit" disabled={status === 'loading'} className="w-full text-lg font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary">
@@ -149,7 +149,6 @@ export default function FinalCTASection() {
           </form>
         </div>
 
-        {/* Guarantees */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {guarantees.map((guarantee, index) => (
             <motion.div
@@ -166,7 +165,6 @@ export default function FinalCTASection() {
           ))}
         </div>
 
-        {/* Limited Pilot Spots */}
         <motion.div 
           className="text-center bg-gradient-to-r from-ts-primary/10 to-ts-accent/10 rounded-2xl p-8 border border-ts-primary/20"
           initial={{ opacity: 0, y: 30 }}
@@ -175,10 +173,10 @@ export default function FinalCTASection() {
           transition={{ duration: 0.7 }}
         >
           <h3 className="text-2xl font-bold mb-4 text-ts-text">
-            Limited Free Pilot Spots Available (200)
+            {finalCta.pilotNote}
           </h3>
           <p className="text-ts-text-muted mb-6">
-            Wineries only. Join today to secure your free 6-month Growth tier.
+            {finalCta.pilotClosing}
           </p>
           <button onClick={() => {
             const el = document.getElementById('final-cta');

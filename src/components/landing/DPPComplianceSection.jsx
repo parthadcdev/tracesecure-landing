@@ -39,27 +39,27 @@ const dppFeatures = [
 
 const timeline = [
   {
-    year: '2024',
+    year: 'Jul 2026',
+    title: 'Central EU DPP Registry',
+    description: 'EU Digital Product Passport registry opens for registered economic operators',
+    status: 'Upcoming'
+  },
+  {
+    year: 'Feb 2027',
+    title: 'Battery Passports',
+    description: 'Battery passports mandatory under EU Batteries Regulation',
+    status: 'Upcoming'
+  },
+  {
+    year: '~2027',
     title: 'Textiles & Apparel',
-    description: 'DPP requirements for textile products',
-    status: 'Active'
+    description: 'Delegated act expected; enforcement follows a transition period',
+    status: 'Planned'
   },
   {
-    year: '2025',
-    title: 'Electronics',
-    description: 'Consumer electronics and appliances',
-    status: 'Upcoming'
-  },
-  {
-    year: '2026',
-    title: 'Batteries',
-    description: 'Battery products and components',
-    status: 'Upcoming'
-  },
-  {
-    year: '2027',
-    title: 'Construction',
-    description: 'Building materials and products',
+    year: '2028+',
+    title: 'Electronics & Construction',
+    description: 'Additional product categories phased in under ESPR working plan',
     status: 'Planned'
   }
 ];
@@ -116,7 +116,7 @@ export default function DPPComplianceSection() {
             </span>
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            TraceSecure is built from the ground up to meet and exceed EU Digital Product Passport requirements, ensuring your products are ready for current and future regulations.
+            TraceSecure is built from the ground up to meet and exceed EU Digital Product Passport requirements, ensuring your products are ready for current and future regulations. For food and beverage brands, we also support EUDR compliance for coffee, cocoa, and other covered commodities.
           </p>
         </motion.div>
 
