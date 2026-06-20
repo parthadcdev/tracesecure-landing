@@ -59,9 +59,7 @@ jobs:
       run: npm run build
       
     - name: Deploy to Firebase Staging Channel
-      uses: w9jds/firebase-action@master
-      with:
-        args: hosting:channel:deploy staging --project canvas-griffin-475520-b7 --expires 30d
+      run: npx firebase-tools hosting:channel:deploy staging --project canvas-griffin-475520-b7 --expires 30d
         
     - name: Output Staging URL
       run: |
