@@ -38,6 +38,4 @@ jobs:
     - name: Deploy to Firebase
       run: npx firebase-tools deploy --only hosting --project canvas-griffin-475520-b7
       env:
-        CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE: ${{ steps.auth.outputs.credentials_file_path }}
         GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
-        GOOGLE_GHA_CREDS_PATH: ${{ steps.auth.outputs.credentials_file_path }}
