@@ -18,10 +18,10 @@ jobs:
       
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
-      id: auth
       with:
         workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
         service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+        create_credentials_file: true
       
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -37,5 +37,3 @@ jobs:
       
     - name: Deploy to Firebase
       run: npx firebase-tools deploy --only hosting --project canvas-griffin-475520-b7
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.credentials_file_path }}
