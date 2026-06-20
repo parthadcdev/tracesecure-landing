@@ -1,11 +1,13 @@
 
 
-import React, { useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "../components/landing/Header";
 import Footer from "../components/landing/Footer";
+import CookieConsent from "../components/CookieConsent";
 import { getLandingContent, LANDING_VARIANTS } from "@/config/landingContent";
 import { isWineHostname } from "@/utils/host";
+import { loadGoogleAnalytics, readCookieConsent, removeGoogleAnalytics } from "@/lib/cookieConsent";
 
 const DEFAULT_META = {
   title: "TraceSecure — Turn Every Product Into a Customer You Can Reach",
@@ -41,6 +43,21 @@ export default function Layout({ children, currentPageName }) {
     () => resolveLandingMetaVariant(location.pathname),
     [location.pathname]
   );
+
+  const handleConsentChange = useCallback((consent) => {
+    if (consent.analytics) {
+      loadGoogleAnalytics();
+    } else {
+      removeGoogleAnalytics();
+    }
+  }, []);
+
+  useEffect(() => {
+    const stored = readCookieConsent();
+    if (stored?.analytics) {
+      loadGoogleAnalytics();
+    }
+  }, []);
 
   useEffect(() => {
     // Update favicon
@@ -134,23 +151,6 @@ export default function Layout({ children, currentPageName }) {
       document.head.appendChild(canonical);
     }
     canonical.href = window.location.href;
-
-    // Google Analytics
-    if (!document.querySelector('script[src="https://www.googletagmanager.com/gtag/js?id=G-VFP1JLQVW6"]')) {
-      const gaScript = document.createElement('script');
-      gaScript.async = true;
-      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-VFP1JLQVW6';
-      document.head.appendChild(gaScript);
-
-      const gaInlineScript = document.createElement('script');
-      gaInlineScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-VFP1JLQVW6');
-      `;
-      document.head.appendChild(gaInlineScript);
-    }
   }, [landingMetaVariant, location.pathname]);
 
   return (
@@ -158,6 +158,7 @@ export default function Layout({ children, currentPageName }) {
       <Header />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer />
+      <CookieConsent onConsentChange={handleConsentChange} />
     </div>
   );
 }

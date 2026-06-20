@@ -103,7 +103,7 @@ export default function CookiePolicy() {
 
                   <h3 className="text-2xl font-semibold mb-3 mt-6 text-ts-text">5.2 Cookie Preferences</h3>
                   <p>
-                    You can manage your cookie preferences through our cookie consent banner or settings panel when you first visit our Service. You can change these preferences at any time.
+                    You can manage your cookie preferences through our cookie consent banner when you first visit our Service, or at any time via the &quot;Cookie Preferences&quot; link in the site footer.
                   </p>
                 </section>
 
