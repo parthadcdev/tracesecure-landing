@@ -16,6 +16,10 @@ import CookiePolicy from "./CookiePolicy";
 
 import DataProcessing from "./DataProcessing";
 
+import Security from "./Security";
+
+import Gdpr from "./Gdpr";
+
 import Wine from "./industries/Wine";
 
 import Supplements from "./industries/Supplements";
@@ -42,6 +46,10 @@ const PAGES = {
     CookiePolicy: CookiePolicy,
     
     DataProcessing: DataProcessing,
+
+    Security: Security,
+
+    Gdpr: Gdpr,
 
     Wine: Wine,
 
@@ -104,6 +112,10 @@ function PagesContent() {
                 <Route path="/CookiePolicy" element={<CookiePolicy />} />
                 
                 <Route path="/DataProcessing" element={<DataProcessing />} />
+
+                <Route path="/Security" element={<Security />} />
+
+                <Route path="/Gdpr" element={<Gdpr />} />
                 
             </Routes>
         </Layout>

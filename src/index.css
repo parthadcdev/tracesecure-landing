@@ -276,6 +276,55 @@ h1, h2, h3 {
   );
 }
 
+.hero-stage {
+  position: relative;
+}
+
+.hero-bg-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  pointer-events: none;
+}
+
+.hero-layer[data-active="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-h1 {
+  opacity: 1 !important;
+}
+
+.hero-subhead-stage {
+  min-height: 7.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-subhead-stage {
+    min-height: 8.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-subhead-stage {
+    min-height: 9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-layer {
+    transition: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-text-fade {
     background: linear-gradient(

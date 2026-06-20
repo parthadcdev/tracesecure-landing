@@ -14,15 +14,11 @@ export default function HeroSection() {
   const fallbackSlides = getHeroSlides(variant);
   const slides = heroSlide?.slides ?? fallbackSlides;
   const activeIndex = heroSlide?.activeIndex ?? 0;
-  const activeSlide = heroSlide?.activeSlide ?? fallbackSlides[0];
   const canRotate = heroSlide?.canRotate ?? false;
   const fadeMs = heroSlide?.fadeMs ?? 500;
   const setIsPaused = heroSlide?.setIsPaused;
   const goToSlide = heroSlide?.goToSlide;
   const goNext = heroSlide?.goNext;
-
-  const headlineTop = hero.headlineTop ?? activeSlide.headlineTop;
-  const headlineBottom = hero.headlineBottom ?? activeSlide.headlineBottom;
 
   const scrollToNextSection = () => {
     const element = document.querySelector("#how-it-works");
@@ -46,27 +42,28 @@ export default function HeroSection() {
       }
     : {};
 
+  const layerTransitionStyle = { transitionDuration: `${fadeMs}ms` };
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       {...pauseHandlers}
     >
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hero-bg-stage">
         {slides.map((slide, index) => (
-          <motion.div
+          <div
             key={slide.label}
-            className="absolute inset-0 dark:opacity-80"
-            animate={{ opacity: index === activeIndex ? 1 : 0 }}
-            transition={{ duration: fadeMs / 1000, ease: 'easeInOut' }}
+            className="hero-layer"
+            data-active={index === activeIndex ? "true" : "false"}
+            aria-hidden={index !== activeIndex}
             style={{
+              ...layerTransitionStyle,
               backgroundImage: `url('${slide.backgroundImage}')`,
               backgroundSize: 'cover',
               backgroundPosition: slide.backgroundPosition ?? 'center right',
               backgroundRepeat: 'no-repeat',
-              zIndex: index === activeIndex ? 1 : 0,
             }}
-            aria-hidden={index !== activeIndex}
           />
         ))}
       </div>
@@ -76,32 +73,25 @@ export default function HeroSection() {
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-start pt-24 md:pt-20 mb-24 md:mb-32">
         <div className="max-w-xl sm:max-w-2xl lg:max-w-2xl text-left">
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
+          <h1 className="hero-h1 text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-8 text-ts-primary">
             <span className="text-[3.375rem] sm:text-[4.125rem] lg:text-[5.25rem] text-ts-primary">
-              {headlineTop}
+              {hero.headlineTop}
             </span>
             <br />
-            <span className="text-ts-text-muted">{headlineBottom}</span>
+            <span className="text-ts-text-muted">{hero.headlineBottom}</span>
           </h1>
 
-          <div className="relative mb-12 min-h-[5.5rem] sm:min-h-[5rem]">
+          <div className="hero-stage hero-subhead-stage mb-12">
             {slides.map((slide, index) => (
-              <motion.p
+              <p
                 key={slide.label}
-                className="text-lg md:text-xl leading-relaxed max-w-xl text-ts-text-muted"
-                animate={{ opacity: index === activeIndex ? 1 : 0 }}
-                transition={{ duration: fadeMs / 1000, ease: 'easeInOut' }}
-                style={{
-                  position: index === activeIndex ? 'relative' : 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  pointerEvents: index === activeIndex ? 'auto' : 'none',
-                }}
+                className="hero-layer text-lg md:text-xl leading-relaxed max-w-xl text-ts-text-muted"
+                data-active={index === activeIndex ? "true" : "false"}
                 aria-hidden={index !== activeIndex}
+                style={layerTransitionStyle}
               >
                 {slide.description}
-              </motion.p>
+              </p>
             ))}
           </div>
 
