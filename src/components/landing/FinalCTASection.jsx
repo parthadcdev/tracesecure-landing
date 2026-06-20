@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Clock, Shield, X, AlertTriangle, Loader2 } from 'lucide-react';
+import { HUBSPOT_PORTAL_ID, HUBSPOT_PILOT_FORM_ID } from '@/config/forms';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useLandingContent } from '@/context/LandingVariantContext';
@@ -57,9 +58,7 @@ export default function FinalCTASection() {
     setStatus('loading');
     setMessage('');
 
-    const portalId = '243989543';
-    const formId = 'be0e0acc-6317-4da9-b98f-62483aa4e332';
-    const hubspotApiUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+    const hubspotApiUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_PILOT_FORM_ID}`;
 
     const payload = {
       fields: [

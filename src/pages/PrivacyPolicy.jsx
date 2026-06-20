@@ -1,6 +1,16 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+const LAST_UPDATED = 'June 19, 2026';
+
+function LegalDisclaimer() {
+  return (
+    <div className="mb-10 rounded-lg border border-ts-border bg-ts-surface px-4 py-3 text-sm text-ts-text-muted">
+      Starter draft — not legal advice. Have counsel review before publishing, especially token/rewards and GDPR sections.
+    </div>
+  );
+}
+
 export default function PrivacyPolicy() {
   const viewport = { once: true, amount: 0.2 };
 
@@ -13,7 +23,6 @@ export default function PrivacyPolicy() {
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Page Title */}
             <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
@@ -22,14 +31,13 @@ export default function PrivacyPolicy() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-                Privacy Policy
+                TraceSecure Privacy Policy
               </h1>
-              <p className="text-ts-text-muted">
-                Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </p>
+              <p className="text-ts-text-muted">Last updated: {LAST_UPDATED}</p>
             </motion.div>
 
-            {/* Content */}
+            <LegalDisclaimer />
+
             <motion.div
               className="prose prose-lg max-w-none"
               initial={{ opacity: 0, y: 40 }}
@@ -38,113 +46,96 @@ export default function PrivacyPolicy() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <div className="space-y-8 text-ts-text-muted leading-relaxed">
-                <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">1. Introduction</h2>
-                  <p>
-                    TraceSecure ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services. By using TraceSecure, you agree to the collection and use of information in accordance with this policy.
-                  </p>
-                </section>
+                <p>
+                  TraceSecure (&quot;we,&quot; &quot;us&quot;) operates tracesecure.co and the TraceSecure platform (the &quot;Service&quot;). This policy explains what we collect, why, and your rights.
+                </p>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">2. Information We Collect</h2>
-                  <h3 className="text-2xl font-semibold mb-3 text-ts-text">2.1 Information You Provide</h3>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">1. Information we collect</h2>
                   <ul className="list-disc pl-6 space-y-2">
-                    <li>Account information (name, email address, company name)</li>
-                    <li>Payment and billing information</li>
-                    <li>Product information and digital passport data</li>
-                    <li>Customer communications and support requests</li>
-                  </ul>
-
-                  <h3 className="text-2xl font-semibold mb-3 mt-6 text-ts-text">2.2 Automatically Collected Information</h3>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Usage data and analytics</li>
-                    <li>Device information and IP addresses</li>
-                    <li>Cookies and tracking technologies</li>
-                    <li>Log files and system information</li>
+                    <li><strong>Account data:</strong> name, email, company, billing details when you create an account or subscribe.</li>
+                    <li><strong>Consumer scan data:</strong> when an end consumer scans a product QR/NFC code and opts in, we collect the email address and any information they choose to submit, with their consent, in exchange for a reward.</li>
+                    <li><strong>Usage data:</strong> device, browser, IP, pages viewed, and scan events, collected via cookies and similar technologies.</li>
+                    <li><strong>Blockchain data:</strong> product authentication records and reward transactions are written to a public blockchain (Polygon). Do not treat on-chain data as private; we store no consumer personal data in plaintext on-chain (emails are hashed).</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">3. How We Use Your Information</h2>
-                  <p>We use the collected information for:</p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Providing and maintaining our services</li>
-                    <li>Processing transactions and managing accounts</li>
-                    <li>Improving our platform and user experience</li>
-                    <li>Communicating with you about services and updates</li>
-                    <li>Complying with legal obligations</li>
-                    <li>Preventing fraud and ensuring security</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">4. Data Sharing and Disclosure</h2>
-                  <p>We do not sell your personal information. We may share your information only in the following circumstances:</p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>With service providers who assist in operating our platform</li>
-                    <li>When required by law or legal process</li>
-                    <li>To protect our rights, privacy, safety, or property</li>
-                    <li>In connection with a business transfer or merger</li>
-                    <li>With your explicit consent</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">5. Data Security</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">2. How we use information</h2>
                   <p>
-                    We implement industry-standard security measures to protect your information, including encryption, secure servers, and access controls. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
+                    To provide and improve the Service, process subscriptions, deliver token rewards, prevent fraud and duplicate claims, communicate with you, and meet legal obligations.
+                  </p>
+                </section>
+
+                <section id="gdpr">
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">3. Legal bases (GDPR)</h2>
+                  <p>
+                    We process personal data on the bases of contract (to provide the Service), consent (consumer lead capture and marketing), legitimate interests (security, analytics), and legal obligation.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">6. Your Rights</h2>
-                  <p>Depending on your location, you may have the following rights:</p>
-                  <ul className="list-disc pl-6 space-y-2">
-                    <li>Access to your personal data</li>
-                    <li>Correction of inaccurate data</li>
-                    <li>Deletion of your data</li>
-                    <li>Data portability</li>
-                    <li>Objection to processing</li>
-                    <li>Withdrawal of consent</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">7. GDPR Compliance</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">4. Sharing</h2>
                   <p>
-                    TraceSecure complies with the General Data Protection Regulation (GDPR). If you are located in the European Economic Area (EEA), you have specific rights regarding your personal data. We act as a data controller and processor in accordance with GDPR requirements.
+                    We share data with service providers (hosting, payments, email, authentication, blockchain infrastructure) under contract, and as required by law. We do not sell personal data.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">8. Data Retention</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">5. Consumer leads and brands</h2>
                   <p>
-                    We retain your personal information only for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law.
+                    When a consumer opts in via a scan, their consented contact details are shared with the brand whose product was scanned, for that brand&apos;s marketing. Consumers can withdraw consent at any time.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">9. Children's Privacy</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">6. International transfers</h2>
                   <p>
-                    Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children.
+                    Data may be processed outside your country, including the United States, under appropriate safeguards.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">10. Changes to This Policy</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">7. Retention</h2>
                   <p>
-                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last Updated" date.
+                    We retain personal data for as long as your account is active or as needed to provide the Service and meet legal obligations. Activity-log retention follows your plan tier.
                   </p>
                 </section>
 
                 <section>
-                  <h2 className="text-3xl font-bold mb-4 text-ts-text">11. Contact Us</h2>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">8. Your rights</h2>
                   <p>
-                    If you have questions about this Privacy Policy or wish to exercise your rights, please contact us at:
+                    Depending on your location (including GDPR and US state laws), you may access, correct, delete, port, or object to processing of your data, and withdraw consent. Contact{' '}
+                    <a href="mailto:privacy@tracesecure.co" className="text-ts-accent-blue hover:underline">privacy@tracesecure.co</a>.
                   </p>
-                  <p className="mt-4">
-                    <strong>Email:</strong> privacy@tracesecure.co<br />
-                    <strong>Address:</strong> AxonSphere Consulting, LLC, Ashburn, VA, United States
+                </section>
+
+                <section>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">9. Cookies</h2>
+                  <p>
+                    We use necessary, analytics, and functional cookies. You can manage preferences via our cookie banner.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">10. Security</h2>
+                  <p>
+                    We use encryption in transit and at rest, hashing of consumer emails (HMAC-SHA-256), and access controls. No method is 100% secure.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">11. Children</h2>
+                  <p>
+                    The Service is not directed to children under 16. We do not knowingly collect their data.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-3xl font-bold mb-4 text-ts-text">12. Changes &amp; contact</h2>
+                  <p>
+                    We may update this policy and will post the new date. Questions:{' '}
+                    <a href="mailto:privacy@tracesecure.co" className="text-ts-accent-blue hover:underline">privacy@tracesecure.co</a>.
                   </p>
                 </section>
               </div>
@@ -155,4 +146,3 @@ export default function PrivacyPolicy() {
     </div>
   );
 }
-

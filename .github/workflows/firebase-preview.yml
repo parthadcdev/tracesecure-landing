@@ -37,9 +37,7 @@ jobs:
       run: npm run build
       
     - name: Deploy to Firebase Preview Channel
-      uses: w9jds/firebase-action@master
-      with:
-        args: hosting:channel:deploy pr-${{ github.event.pull_request.number }} --project canvas-griffin-475520-b7 --expires 7d
+      run: npx firebase-tools hosting:channel:deploy pr-${{ github.event.pull_request.number }} --project canvas-griffin-475520-b7 --expires 7d
         
     - name: Output Preview URL
       run: |
