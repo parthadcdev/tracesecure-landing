@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
+import { getWineIndustryUrl, isExternalUrl, isWineHostname } from "@/utils/host";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const navItems = [
@@ -21,15 +22,38 @@ const companyMenuItems = [
   { name: "About Us", page: "About" },
 ];
 
+const industriesMenuItems = [
+  { name: "Wine & Beverage", getHref: getWineIndustryUrl },
+  { name: "Supplements", href: "/industries/supplements" },
+  { name: "Specialty Food", href: "/industries/specialty-food" },
+];
+
+function isWineLandingPath(pathname) {
+  return pathname.toLowerCase().startsWith("/industries/wine");
+}
+
+function getLandingBasePath(pathname) {
+  if (isWineHostname() || isWineLandingPath(pathname)) {
+    return isWineHostname() ? "/" : "/industries/wine";
+  }
+  return "/";
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCompanyMenuOpen, setIsCompanyMenuOpen] = useState(false);
+  const [isIndustriesMenuOpen, setIsIndustriesMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const companyMenuRef = useRef(null);
+  const industriesMenuRef = useRef(null);
 
-  const isLandingPage = location.pathname === createPageUrl('Landing') || location.pathname === '/';
+  const landingBasePath = getLandingBasePath(location.pathname);
+  const isLandingPage =
+    location.pathname === "/" ||
+    location.pathname === createPageUrl("Landing") ||
+    isWineLandingPath(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,10 +78,12 @@ export default function Header() {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    // Close company menu when clicking outside
     const handleClickOutside = (event) => {
       if (companyMenuRef.current && !companyMenuRef.current.contains(event.target)) {
         setIsCompanyMenuOpen(false);
+      }
+      if (industriesMenuRef.current && !industriesMenuRef.current.contains(event.target)) {
+        setIsIndustriesMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -79,10 +105,31 @@ export default function Header() {
   };
 
   const handleNavClick = (item) => {
-    setIsMenuOpen(false); // Close menu on navigation
+    setIsMenuOpen(false);
+
+    if (item.getHref) {
+      const href = item.getHref();
+      if (isExternalUrl(href)) {
+        window.location.href = href;
+      } else {
+        navigate(href);
+        window.scrollTo(0, 0);
+      }
+      return;
+    }
+
+    if (item.href) {
+      if (isExternalUrl(item.href)) {
+        window.location.href = item.href;
+      } else {
+        navigate(item.href);
+        window.scrollTo(0, 0);
+      }
+      return;
+    }
+
     if (item.page) {
       navigate(createPageUrl(item.page));
-      // Manually scroll to top after navigation
       window.scrollTo(0, 0);
     } else if (item.anchor) {
       if (isLandingPage) {
@@ -93,15 +140,13 @@ export default function Header() {
           console.warn(`Element with id "${item.anchor}" not found`);
         }
       } else {
-        navigate(createPageUrl('Landing'));
-        // Scroll after navigation
+        navigate(landingBasePath);
         setTimeout(() => {
           const element = document.getElementById(item.anchor);
           if (element) {
             scrollToElement(element);
           } else {
             console.warn(`Element with id "${item.anchor}" not found`);
-            // Try again after a longer delay for lazy-loaded components
             setTimeout(() => {
               const retryElement = document.getElementById(item.anchor);
               if (retryElement) {
@@ -114,6 +159,12 @@ export default function Header() {
     }
   };
 
+  const handleHomeClick = () => {
+    setIsMenuOpen(false);
+    navigate("/");
+    window.scrollTo(0, 0);
+  };
+
   const scrollTo = (id) => {
     setIsMenuOpen(false); // Close menu on scroll
     if (isLandingPage) {
@@ -124,7 +175,7 @@ export default function Header() {
           console.warn(`Element with id "${id}" not found`);
         }
     } else {
-        navigate(createPageUrl('Landing'));
+        navigate(landingBasePath);
         setTimeout(() => {
             const element = document.getElementById(id);
             if (element) {
@@ -159,7 +210,7 @@ export default function Header() {
         <div className="container mx-auto px-6 h-20 flex justify-between items-center">
           <div 
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => handleNavClick({ page: 'Landing' })}
+            onClick={handleHomeClick}
           >
             <img 
               src="/images/logo-symbol.png" 
@@ -183,6 +234,42 @@ export default function Header() {
               </button>
             ))}
             
+            {/* Industries Dropdown */}
+            <div className="relative" ref={industriesMenuRef}>
+              <button
+                onClick={() => setIsIndustriesMenuOpen(!isIndustriesMenuOpen)}
+                className="text-sm font-medium transition-colors duration-300 hover:text-ts-primary text-ts-text-muted flex items-center gap-1"
+              >
+                Industries
+                <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isIndustriesMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {isIndustriesMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 bg-ts-surface border-2 border-ts-border rounded-lg shadow-lg overflow-hidden min-w-[160px] z-50"
+                  >
+                    {industriesMenuItems.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => {
+                          handleNavClick(item);
+                          setIsIndustriesMenuOpen(false);
+                        }}
+                        className="w-full text-left px-4 py-3 text-sm text-ts-text-muted hover:text-ts-primary hover:bg-ts-card transition-colors"
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             {/* Company Dropdown */}
             <div className="relative" ref={companyMenuRef}>
               <button
@@ -235,7 +322,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all bg-ts-accent-blue hover:bg-ts-primary"
             >
-              Join
+              Start free
             </a>
           </div>
 
@@ -265,7 +352,7 @@ export default function Header() {
               <div className="p-6 flex justify-between items-center border-b">
                  <div 
                     className="flex items-center gap-3 cursor-pointer"
-                    onClick={() => handleNavClick({ page: 'Landing' })}
+                    onClick={handleHomeClick}
                   >
                     <img src="/images/logo-symbol.png" alt="TraceSecure Logo Symbol" className="h-10" />
                     <div className="flex flex-col text-ts-text">
@@ -288,7 +375,20 @@ export default function Header() {
                   </button>
                 ))}
                 
-                {/* Company Menu in Mobile */}
+                {/* Industries Menu in Mobile */}
+                <div className="flex flex-col gap-2">
+                  <div className="text-lg font-semibold text-ts-text mb-2">Industries</div>
+                  {industriesMenuItems.map((item) => (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavClick(item)}
+                      className="text-lg font-medium text-ts-text-muted text-left hover:text-ts-primary transition-colors pl-4"
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                </div>
+
                 <div className="flex flex-col gap-2">
                   <div className="text-lg font-semibold text-ts-text mb-2">Company</div>
                   {companyMenuItems.map((item) => (
@@ -316,7 +416,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="w-full text-center text-white text-lg py-6 mt-4 font-semibold rounded-lg shadow-md bg-ts-accent-blue hover:bg-ts-primary transition-all"
                 >
-                  Join
+                  Start free
                 </a>
               </div>
             </motion.div>

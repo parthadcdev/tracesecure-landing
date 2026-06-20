@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Route, Users, CheckCircle, BarChart3 } from 'lucide-react';
+import { useLandingContent } from '@/context/LandingVariantContext';
 
 const features = [
   {
@@ -54,6 +55,12 @@ const features = [
 ];
 
 export default function FeaturesSection() {
+  const content = useLandingContent();
+  const featuresIntro = content.features ?? {
+    titleAccent: 'Modern Brands',
+    subtitle:
+      'Everything you need to protect, verify, and grow direct relationships with every product you sell.',
+  };
   const viewport = { once: true, amount: 0.2 };
 
   return (
@@ -70,11 +77,11 @@ export default function FeaturesSection() {
             Powerful Features for
             <br />
             <span className="text-ts-accent-blue">
-              Modern Producers
+              {featuresIntro.titleAccent}
             </span>
           </h2>
           <p className="text-lg max-w-3xl mx-auto text-ts-text-muted">
-            Everything you need to protect, verify, and enhance your luxury and craft products with cutting-edge digital authenticity.
+            {featuresIntro.subtitle}
           </p>
         </motion.div>
 

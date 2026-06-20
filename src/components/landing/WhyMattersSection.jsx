@@ -1,78 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const challenges = [
-  {
-    value: '$100B+',
-    title: 'Lost opportunity in wine',
-    description:
-      "It's not just counterfeits. It's the Customer Gap — retail buyers you never meet."
-  },
-  {
-    value: '0% visibility',
-    title: 'Anonymous retail buyers',
-    description:
-      'You can’t thank them, tell your story, or invite them to buy direct next time.'
-  },
-  {
-    value: 'High margin',
-    title: 'Missed DTC sales',
-    description:
-      'Thousands of potential, lifelong customers slip away every year.'
-  }
-];
-
-const transformations = [
-  {
-    title: 'Digital Passport QR',
-    subtitle: 'A direct channel',
-    description:
-      'Every bottle becomes a two-way marketing channel that invites buyers to connect, join your list, and become loyal fans.'
-  },
-  {
-    title: 'Story + Offer',
-    subtitle: 'From scan to signup',
-    description:
-      'Show your story, tasting notes, and a clear offer like “Join Our Wine Club for 10% Off.”'
-  },
-  {
-    title: 'Proven Authenticity',
-    subtitle: 'Trust built-in',
-    description:
-      'Every scan proves authenticity, protecting your brand reputation and building consumer trust.'
-  },
-  {
-    title: 'Actionable Insights',
-    subtitle: 'Know your buyers',
-    description:
-      'See engagement and leads from retail scans to inform marketing and allocations.'
-  }
-];
-
-const industries = [
-  {
-    name: 'Luxury Fashion',
-    growth: '+45%',
-    description: 'Sales growth with authentication'
-  },
-  {
-    name: 'Fine Jewelry',
-    growth: '+38%',
-    description: 'Sales growth with authentication'
-  },
-  {
-    name: 'Craft Spirits',
-    growth: '+52%',
-    description: 'Sales growth with authentication'
-  },
-  {
-    name: 'Artisan Goods',
-    growth: '+41%',
-    description: 'Sales growth with authentication'
-  }
-];
+import { useLandingContent } from '@/context/LandingVariantContext';
 
 export default function WhyMattersSection() {
+  const { whyMatters } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
 
   return (
@@ -86,30 +17,27 @@ export default function WhyMattersSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ts-text">
-            The "Customer Gap": Your Biggest Untapped Opportunity
+            {whyMatters.title}
           </h2>
         </motion.div>
 
-        {/* Problem Copy */}
         <div className="mb-16 max-w-4xl mx-auto text-center text-ts-text-muted">
-          <p className="mb-4 text-lg">
-            You spend years perfecting your wine. A customer buys it from a retail store 100 miles away. The relationship ends right there.
-          </p>
-          <p className="mb-4 text-lg">
-            You have no idea who they are. You can't thank them. You can't tell them the story of that vintage. And you can't invite them to buy directly from you next time.
-          </p>
+          {whyMatters.problem.map((paragraph, i) => (
+            <p key={i} className="mb-4 text-lg">
+              {paragraph}
+            </p>
+          ))}
           <p className="text-lg font-semibold text-ts-text">
-            You are losing thousands of potential, high-margin, lifelong customers every single year.
+            {whyMatters.problemClosing}
           </p>
         </div>
 
-        {/* The Challenge Section */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-12 text-center text-ts-text">
-            The Challenge Facing Wineries
+            {whyMatters.challengeTitle}
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {challenges.map((challenge, index) => (
+            {whyMatters.challenges.map((challenge, index) => (
               <motion.div
                 key={index}
                 className="text-center"
@@ -134,7 +62,6 @@ export default function WhyMattersSection() {
           </div>
         </div>
 
-        {/* Solution Section */}
         <div className="mb-20">
           <motion.div
             className="text-center mb-12"
@@ -144,14 +71,14 @@ export default function WhyMattersSection() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-3xl font-bold mb-6 text-ts-text">
-              A Direct Marketing Channel in Every Bottle
+              {whyMatters.solutionTitle}
             </h3>
             <p className="text-lg max-w-4xl mx-auto text-ts-text-muted">
-              TraceSecure closes the "Customer Gap." Our Digital Passport doesn't just verify your bottle—it makes a compelling, irresistible offer. We give your customer a small, instant $TRSR reward for sharing their email, turning a simple scan into a confirmed lead for your wine club or email list.
+              {whyMatters.solutionDescription}
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {transformations.map((transformation, index) => (
+            {whyMatters.transformations.map((transformation, index) => (
               <motion.div
                 key={index}
                 className="text-center"
@@ -175,7 +102,6 @@ export default function WhyMattersSection() {
             ))}
           </div>
         </div>
-        {/* CTA */}
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 30 }}

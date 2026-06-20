@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLandingContent } from '@/context/LandingVariantContext';
 
 export default function LocalCredibility() {
+  const { localCredibility } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
   return (
     <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-surface)' }}>
@@ -13,14 +15,12 @@ export default function LocalCredibility() {
           viewport={viewport}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-ts-text">Born in Wine Country. Built for Craft Producers.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-ts-text">{localCredibility.title}</h2>
           <p className="text-lg text-ts-text-muted">
-            As a founder based in Virginia's burgeoning wine country (Ashburn, VA), I'm passionate about helping the entire craft community thrive. We're building TraceSecure right here, in partnership with local experts, to solve the real challenges all craft producers face.
+            {localCredibility.description}
           </p>
         </motion.div>
       </div>
     </section>
   );
 }
-
-

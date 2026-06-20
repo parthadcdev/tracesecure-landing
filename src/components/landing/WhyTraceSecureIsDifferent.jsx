@@ -1,35 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Package, Mail, Wallet } from 'lucide-react';
+import { useLandingContent } from '@/context/LandingVariantContext';
 
-const comparisons = [
-  {
-    icon: Package,
-    vs: 'vs. Legacy Platforms',
-    competitor: 'They Are Logistics Tools',
-    competitorDesc: 'Competitors like Wholechain stop at the point of sale. Their job is done once the bottle is authenticated.',
-    traceSecure: 'We Are a Marketing Tool',
-    traceSecureDesc: 'Our platform starts at the sale. We turn that authentication scan into a direct, high-value lead for your wine club.'
-  },
-  {
-    icon: Mail,
-    vs: 'vs. DTC Marketing Tools',
-    competitor: 'They Are Blind to Retail',
-    competitorDesc: 'Tools like Mailchimp are powerful, but they can\'t see your anonymous customers in a retail store.',
-    traceSecure: 'We Are the Missing Link',
-    traceSecureDesc: 'We are the only tool that bridges the physical-to-digital "Customer Gap", capturing those unknown buyers and delivering them directly to your email list.'
-  },
-  {
-    icon: Wallet,
-    vs: 'vs. Other Web3 Platforms',
-    competitor: 'They Are Too Complex',
-    competitorDesc: 'Other platforms require your customers to download a complex crypto wallet, killing conversion rates.',
-    traceSecure: 'We Win with Simplicity',
-    traceSecureDesc: 'We use a simple, secure, email-based rewards wallet. Your customers get all the power of a real $TRSR reward with zero friction.'
-  }
-];
+const comparisonIcons = [Package, Mail, Wallet];
 
 export default function WhyTraceSecureIsDifferent() {
+  const { whyDifferent } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
 
   return (
@@ -63,8 +40,8 @@ export default function WhyTraceSecureIsDifferent() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {comparisons.map((comparison, index) => {
-            const IconComponent = comparison.icon;
+          {whyDifferent.comparisons.map((comparison, index) => {
+            const IconComponent = comparisonIcons[index] ?? Package;
             return (
               <motion.div
                 key={index}
@@ -75,7 +52,6 @@ export default function WhyTraceSecureIsDifferent() {
                 transition={{ delay: 0.1 + index * 0.15, duration: 0.6 }}
               >
                 <div className="bg-ts-card rounded-2xl p-8 shadow-xl border border-ts-primary/20 h-full flex flex-col">
-                  {/* Icon */}
                   <div className="flex justify-center mb-6">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-ts-primary to-ts-secondary p-1 flex items-center justify-center">
                       <div className="w-full h-full rounded-full bg-ts-card flex items-center justify-center">
@@ -84,12 +60,10 @@ export default function WhyTraceSecureIsDifferent() {
                     </div>
                   </div>
 
-                  {/* VS Label */}
                   <div className="text-sm uppercase tracking-wider font-semibold text-ts-primary mb-6 text-center">
                     {comparison.vs}
                   </div>
 
-                  {/* Competitor Section */}
                   <div className="mb-6 pb-6 border-b border-ts-border">
                     <h4 className="text-xl font-bold mb-3 text-ts-text">
                       {comparison.competitor}
@@ -99,7 +73,6 @@ export default function WhyTraceSecureIsDifferent() {
                     </p>
                   </div>
 
-                  {/* TraceSecure Section */}
                   <div className="flex-grow">
                     <h4 className="text-xl font-bold mb-3 text-ts-primary">
                       {comparison.traceSecure}
@@ -117,4 +90,3 @@ export default function WhyTraceSecureIsDifferent() {
     </section>
   );
 }
-

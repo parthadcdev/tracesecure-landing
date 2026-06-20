@@ -16,7 +16,14 @@ import CookiePolicy from "./CookiePolicy";
 
 import DataProcessing from "./DataProcessing";
 
+import Wine from "./industries/Wine";
+
+import Supplements from "./industries/Supplements";
+
+import SpecialtyFood from "./industries/SpecialtyFood";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { isWineHostname } from '@/utils/host';
 
 const PAGES = {
     
@@ -35,6 +42,12 @@ const PAGES = {
     CookiePolicy: CookiePolicy,
     
     DataProcessing: DataProcessing,
+
+    Wine: Wine,
+
+    Supplements: Supplements,
+
+    SpecialtyFood: SpecialtyFood,
     
 }
 
@@ -51,6 +64,13 @@ function _getCurrentPage(url) {
     return pageName || Object.keys(PAGES)[0];
 }
 
+function HomeRoute() {
+    if (isWineHostname()) {
+        return <Wine />;
+    }
+    return <Landing />;
+}
+
 // Create a wrapper component that uses useLocation inside the Router context
 function PagesContent() {
     const location = useLocation();
@@ -60,10 +80,16 @@ function PagesContent() {
         <Layout currentPageName={currentPage}>
             <Routes>            
                 
-                    <Route path="/" element={<Landing />} />
+                    <Route path="/" element={<HomeRoute />} />
                 
                 
                 <Route path="/Landing" element={<Landing />} />
+                
+                <Route path="/industries/wine" element={<Wine />} />
+
+                <Route path="/industries/supplements" element={<Supplements />} />
+
+                <Route path="/industries/specialty-food" element={<SpecialtyFood />} />
                 
                 <Route path="/Benefits" element={<Benefits />} />
                 
