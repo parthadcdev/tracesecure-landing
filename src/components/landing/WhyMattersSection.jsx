@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLandingContent } from '@/context/LandingVariantContext';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+
+const HOW_IT_WORKS_VIDEO = '/video/hf_20260711_014728_4c3ee846-1c5b-4961-91ec-9a0bf6b3dc2d.mp4';
 
 export default function WhyMattersSection() {
   const { whyMatters } = useLandingContent();
   const viewport = { once: true, amount: 0.2 };
+  const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <section id="why-matters" className="py-24 md:py-32" style={{ backgroundColor: 'var(--color-background)' }}>
@@ -110,10 +119,34 @@ export default function WhyMattersSection() {
           transition={{ duration: 0.7 }}
         >
           <h3 className="text-3xl font-bold mb-4 text-ts-text">Want to see it in action?</h3>
-          <button className="mt-8 px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+          <button
+            type="button"
+            onClick={() => setVideoOpen(true)}
+            className="mt-8 px-8 py-4 bg-gradient-to-r from-ts-primary to-ts-secondary text-white font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+          >
             Watch the 60-sec Video
           </button>
         </motion.div>
+
+        <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+          <DialogContent className="max-w-4xl p-0 overflow-hidden border-ts-border bg-ts-card">
+            <DialogHeader className="px-6 pt-6 pb-2">
+              <DialogTitle className="text-ts-text">How TraceSecure Works</DialogTitle>
+            </DialogHeader>
+            <div className="aspect-video bg-black">
+              <video
+                className="w-full h-full"
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                src={HOW_IT_WORKS_VIDEO}
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
