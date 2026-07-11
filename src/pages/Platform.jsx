@@ -134,23 +134,25 @@ export default function Platform() {
               </h2>
               <div className="h-1 w-20 bg-ts-accent mb-8 mx-auto"></div>
               
-              {/* Video Placeholder */}
+              {/* How It Works Video */}
               <motion.div
-                className="w-full max-w-4xl mx-auto bg-ts-card border-2 border-ts-border rounded-xl overflow-hidden shadow-lg"
+                id="how-it-works-video"
+                className="w-full max-w-4xl mx-auto bg-ts-card border-2 border-ts-border rounded-xl overflow-hidden shadow-lg scroll-mt-24"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={viewport}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <div className="aspect-video bg-ts-secondary flex flex-col items-center justify-center p-8">
-                  <div className="w-20 h-20 mb-4 bg-ts-accent-blue rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
-                  </div>
-                  <p className="text-ts-text-muted text-center italic">
-
-                  </p>
+                <div className="aspect-video bg-ts-secondary">
+                  <video
+                    className="w-full h-full object-cover"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    src="/video/hf_20260711_014728_4c3ee846-1c5b-4961-91ec-9a0bf6b3dc2d.mp4"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </motion.div>
             </motion.section>
