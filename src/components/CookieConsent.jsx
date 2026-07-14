@@ -17,11 +17,10 @@ export default function CookieConsent({ onConsentChange }) {
     const stored = readCookieConsent();
     if (stored) {
       setConsent(stored);
-      onConsentChange?.(stored);
     } else {
       setVisible(true);
     }
-  }, [onConsentChange]);
+  }, []);
 
   useEffect(() => {
     const handleOpenPreferences = () => {
@@ -99,7 +98,7 @@ export default function CookieConsent({ onConsentChange }) {
                 <label className="flex items-center justify-between gap-4 cursor-pointer">
                   <span>
                     <span className="block text-sm font-semibold text-ts-text">Analytics</span>
-                    <span className="block text-xs text-ts-text-muted">Google Analytics — usage statistics</span>
+                    <span className="block text-xs text-ts-text-muted">Google Tag Manager — usage statistics</span>
                   </span>
                   <input
                     type="checkbox"

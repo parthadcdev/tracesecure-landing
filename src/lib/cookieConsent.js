@@ -24,30 +24,66 @@ export function openCookiePreferences() {
   window.dispatchEvent(new CustomEvent('ts-open-cookie-preferences'));
 }
 
-export const GA_MEASUREMENT_ID = 'G-VFP1JLQVW6';
+export const GTM_ID = 'GTM-KVFKJLHG';
 
-export function loadGoogleAnalytics() {
-  if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"]`)) {
-    return;
+function ensureGtag() {
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
   }
-
-  const gaScript = document.createElement('script');
-  gaScript.async = true;
-  gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(gaScript);
-
-  const gaInlineScript = document.createElement('script');
-  gaInlineScript.innerHTML = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${GA_MEASUREMENT_ID}');
-  `;
-  document.head.appendChild(gaInlineScript);
 }
 
-export function removeGoogleAnalytics() {
-  document
-    .querySelectorAll(`script[src*="googletagmanager.com"], script[src*="google-analytics.com"]`)
-    .forEach((el) => el.remove());
+function consentStateFromPrefs(consent) {
+  const analytics = consent?.analytics ? 'granted' : 'denied';
+  const functional = consent?.functional ? 'granted' : 'denied';
+  return {
+    analytics_storage: analytics,
+    functionality_storage: functional,
+    personalization_storage: functional,
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+  };
+}
+
+export function updateConsentMode(consent) {
+  ensureGtag();
+  window.gtag('consent', 'update', consentStateFromPrefs(consent));
+  window.dataLayer.push({
+    event: 'cookie_consent_update',
+    consent_analytics: !!consent?.analytics,
+    consent_functional: !!consent?.functional,
+  });
+}
+
+export function initGtm() {
+  ensureGtag();
+
+  window.gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    personalization_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+  });
+
+  if (!document.querySelector(`script[src*="googletagmanager.com/gtm.js?id=${GTM_ID}"]`)) {
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js',
+    });
+
+    const gtmScript = document.createElement('script');
+    gtmScript.async = true;
+    gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+    document.head.appendChild(gtmScript);
+  }
+
+  const stored = readCookieConsent();
+  if (stored) {
+    updateConsentMode(stored);
+  }
 }
