@@ -17,11 +17,10 @@ export default function CookieConsent({ onConsentChange }) {
     const stored = readCookieConsent();
     if (stored) {
       setConsent(stored);
-      onConsentChange?.(stored);
     } else {
       setVisible(true);
     }
-  }, [onConsentChange]);
+  }, []);
 
   useEffect(() => {
     const handleOpenPreferences = () => {
