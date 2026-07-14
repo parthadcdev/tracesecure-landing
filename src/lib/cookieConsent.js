@@ -82,13 +82,6 @@ export function initGtm() {
     document.head.appendChild(gtmScript);
   }
 
-  if (!document.getElementById('gtm-noscript')) {
-    const noscript = document.createElement('noscript');
-    noscript.id = 'gtm-noscript';
-    noscript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe>`;
-    document.body.prepend(noscript);
-  }
-
   const stored = readCookieConsent();
   if (stored) {
     updateConsentMode(stored);
