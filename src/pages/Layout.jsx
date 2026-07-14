@@ -7,7 +7,7 @@ import Footer from "../components/landing/Footer";
 import CookieConsent from "../components/CookieConsent";
 import { getLandingContent, LANDING_VARIANTS } from "@/config/landingContent";
 import { isWineHostname } from "@/utils/host";
-import { loadGoogleAnalytics, readCookieConsent, removeGoogleAnalytics } from "@/lib/cookieConsent";
+import { initGtm, updateConsentMode } from "@/lib/cookieConsent";
 
 const DEFAULT_META = {
   title: "TraceSecure — Turn Every Product Into a Customer You Can Reach",
@@ -45,18 +45,11 @@ export default function Layout({ children, currentPageName }) {
   );
 
   const handleConsentChange = useCallback((consent) => {
-    if (consent.analytics) {
-      loadGoogleAnalytics();
-    } else {
-      removeGoogleAnalytics();
-    }
+    updateConsentMode(consent);
   }, []);
 
   useEffect(() => {
-    const stored = readCookieConsent();
-    if (stored?.analytics) {
-      loadGoogleAnalytics();
-    }
+    initGtm();
   }, []);
 
   useEffect(() => {
