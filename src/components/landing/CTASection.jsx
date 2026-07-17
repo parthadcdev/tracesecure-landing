@@ -10,7 +10,7 @@ const pricingPlans = [
     name: "Starter",
     price: "$0",
     originalPrice: null,
-    description: "10 items/month",
+    description: "Up to 10 products",
     features: [
       "Create Digital Passports",
       "Basic QR Code Generation",
@@ -25,7 +25,7 @@ const pricingPlans = [
     name: "Growth",
     price: "$79",
     originalPrice: null,
-    description: "Up to 1,000 items/month",
+    description: "Up to 100 products",
             priceNote: "(or pay with $TRSR for a discount)",
     features: [
       "All Starter features +",
@@ -42,7 +42,7 @@ const pricingPlans = [
     name: "Scale",
     price: "$299",
     originalPrice: null,
-    description: "Up to 10,000 items/month",
+    description: "Up to 1,000 products",
     features: [
       "All Growth features +",
       "Full API Access (for ERP/CRM integration)",
@@ -57,7 +57,7 @@ const pricingPlans = [
     name: "Enterprise",
     price: "Custom",
     originalPrice: null,
-    description: "10,000+ items/month",
+    description: "1,000+ products",
     features: [
       "A bespoke plan for \"atomic networks\"",
       "Custom Smart Contracts",

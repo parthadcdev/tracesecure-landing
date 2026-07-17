@@ -49,7 +49,7 @@ const faqs = [
   {
     category: 'Business',
     question: 'How much does TraceSecure cost after the beta?',
-    answer: 'Early adopters lock in special pricing: Starter remains free for up to 100 products, Professional will be $49/month (50% off), and Enterprise pricing is customized. Current pricing is guaranteed for your first year.'
+    answer: 'Early adopters lock in special pricing: Starter remains free for up to 10 products, Growth is $79/month (up to 100 products), Scale is $299/month (up to 1,000 products), and Enterprise pricing is customized. Current pricing is guaranteed for your first year.'
   },
   {
     category: 'Business',

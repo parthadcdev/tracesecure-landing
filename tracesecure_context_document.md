@@ -88,9 +88,10 @@ This is a product authentication and traceability platform offering:
   - EU DPP compliance tools
 
 ### Pricing Structure
-- **Starter Plan**: $0/month (up to 100 items/month)
-- **Growth Plan**: $79/month (unlimited tracing)
-- **Scale Plan**: $299+/month (IoT integration, API access)
+- **Starter Plan**: $0/month (up to 10 products)
+- **Growth Plan**: $79/month (up to 100 products)
+- **Scale Plan**: $299/month (up to 1,000 products; IoT integration, API access)
+- **Enterprise Plan**: Custom (1,000+ products)
 - **Rewards Program**: $TRACE tokens for engagement
 
 ## Key Features and Components
