@@ -4,19 +4,12 @@ export function isWineHostname(hostname = typeof window !== 'undefined' ? window
   return hostname.startsWith(WINE_HOST_PREFIX);
 }
 
-/** URL for Wine industry experience: subdomain in prod, path on localhost */
+/** URL for Wine industry landing (path-based; wine subdomain serves the same page at `/`) */
 export function getWineIndustryUrl() {
-  if (typeof window === 'undefined') {
-    return 'https://wine.tracesecure.co';
-  }
-  const { hostname, protocol, port } = window.location;
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return '/industries/wine';
-  }
-  if (isWineHostname(hostname)) {
+  if (typeof window !== 'undefined' && isWineHostname()) {
     return '/';
   }
-  return `${protocol}//wine.tracesecure.co${port ? `:${port}` : ''}`;
+  return '/industries/wine';
 }
 
 export function isExternalUrl(url) {

@@ -22,7 +22,4 @@ No code changes are required in `firebase.json` for SPA routing—the existing `
 
 ## Navigation
 
-The **Industries → Wine** menu item links to:
-
-- `https://wine.tracesecure.co` in production (main domain)
-- `/industries/wine` on localhost
+The **Industries → Wine & Beverage** menu item links to `/industries/wine` (same-origin path). If the visitor is already on the wine subdomain, it links to `/`.
